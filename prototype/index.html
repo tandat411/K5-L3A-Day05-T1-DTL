@@ -1517,6 +1517,96 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
     }
 
+  
+    /* === STICKY SELECTOR-PANEL & DOWNSTREAM WORKFLOW MODALS === */
+    .col-selector {
+      position: sticky !important;
+      top: 16px !important;
+      z-index: 20;
+    }
+    .selector-panel {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      max-height: calc(100vh - 36px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      box-sizing: border-box;
+    }
+    .selector-panel::-webkit-scrollbar {
+      width: 4px;
+    }
+    .selector-panel::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .case-nav-card.active .case-nav-title {
+      color: #0072ce !important;
+      font-weight: 800 !important;
+    }
+
+    /* Modal box rich styling */
+    .modal-box {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-box.show {
+      display: flex;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 18px;
+      max-width: 540px;
+      width: 100%;
+      padding: 20px 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .modal-header h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .modal-body {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #334155;
+    }
+    .modal-body b {
+      color: #0f172a;
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+    }
+
   </style>
 </head>
 <body>
@@ -1973,7 +2063,320 @@
     openModal(title, desc);
   }
 
-  function triggerHandoffDirectAction(actionKey) {
+
+  // === INTERACTIVE DOWNSTREAM WORKFLOW CONTROLLERS ===
+
+  // 1. Emergency 115 Dispatch Modal (Sốc phản vệ / Nhồi máu cơ tim / Nhi P0)
+  function openEmergencyDispatchModal(type = 'allergy') {
+    const titles = {
+      allergy: '🚨 BÁO ĐỘNG ĐỎ 115: CẤP CỨU SỐC PHẢN VỆ CẤP',
+      nhi: '🚨 ĐIỀU PHỐI 115: XE CẤP CỨU CHUYÊN DỤNG NHI SƠ SINH',
+      cardiac: '🚨 BÁO ĐỘNG ĐỎ 115: CẤP CỨU NHỒI MÁU CƠ TIM CẤP'
+    };
+    const details = {
+      allergy: `
+        <div style="background:#fee2e2; border:1px solid #fca5a5; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <b style="color:#991b1b; font-size:13.5px;">⚠️ ĐANG KẾT NỐI TRUNG TÂM CẤP CỨU 115 TP.HCM</b><br>
+          <span style="font-size:12px; color:#7f1d1d;">Tình trạng: Khách hàng đau họng kèm khó thở, nghi phù nề thanh môn do sốc phản vệ thuốc.</span>
+        </div>
+        <div style="font-size:12.5px; line-height:1.5; margin-bottom:12px;">
+          📍 <b>Tọa độ định vị GPS khẩn cấp:</b> <code>10.7829° N, 106.6984° E</code> (Gần 128 Hai Bà Trưng, Q.1)<br>
+          🚑 <b>Xe cấp cứu tiếp cận:</b> Kíp trực Cấp cứu Bệnh viện Nguyễn Tri Phương (cách 3.1km - Dự kiến 7 phút).
+        </div>
+        <div class="box warn" style="background:#fffbeb; border-color:#fde68a; color:#92400e; font-size:12px; margin-bottom:12px;">
+          <b>🩺 HƯỚNG DẪN SƠ CỨU NẠN NHÂN TẠI CHỖ NGAY TRONG TỪNG PHÚT:</b><br>
+          1. Đặt người bệnh nằm đầu thấp, kê cao chân 30 độ để dồn máu nuôi não.<br>
+          2. Nới lỏng cổ áo và thắt lưng, mở toang cửa nhà cho nhân viên y tế vào.<br>
+          3. <b>TUYỆT ĐỐI KHÔNG</b> cho uống nước hay nuốt viên thuốc nào tránh sặc phế quản!
+        </div>
+      `,
+      nhi: `
+        <div style="background:#fee2e2; border:1px solid #fca5a5; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <b style="color:#991b1b; font-size:13.5px;">🚨 ĐÃ KÍCH HOẠT KÍP CẤP CỨU NHI SƠ SINH P0</b><br>
+          <span style="font-size:12px; color:#7f1d1d;">Bé 8 tháng thở rút lõm lồng ngực + li bì khó đánh thức.</span>
+        </div>
+        <div style="font-size:12.5px; line-height:1.5; margin-bottom:12px;">
+          🚑 <b>Trang bị xe cấp cứu:</b> Lồng ấp di động & Máy thở áp lực dương chuyên dụng cho trẻ nhỏ.<br>
+          🏥 <b>Điểm tiếp nhận:</b> Khoa Hồi sức Cấp cứu Sơ sinh - BV Nhi Đồng 1 (341 Sư Vạn Hạnh, Q.10).
+        </div>
+      `,
+      cardiac: `
+        <div style="background:#fee2e2; border:1px solid #fca5a5; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <b style="color:#991b1b; font-size:13.5px;">🚨 ĐIỀU PHỐI XE CẤP CỨU TIM MẠCH CÓ MÁY SỐC TIM (AED)</b><br>
+          <span style="font-size:12px; color:#7f1d1d;">Bệnh nhân đau thắt ngực trái lan sau lưng + khó thở + vã mồ hôi. Giờ vàng tái thông mạch vành!</span>
+        </div>
+        <div class="box warn" style="font-size:12px; margin-bottom:12px;">
+          <b>🩺 HƯỚNG DẪN CỨU MẠNG:</b> Ngồi tựa lưng góc 45 độ, nới lỏng áo, thở chậm sâu. TUYỆT ĐỐI KHÔNG đi lại, không uống sủi hay thuốc tại nhà!
+        </div>
+      `
+    };
+
+    openCustomModal(titles[type], details[type], [
+      { text: '📞 Gọi Trực Tiếp 115 Ngay', cls: 'btn-emergency', action: () => alert('Đang kết nối tổng đài viên 115...') },
+      { text: 'Đóng', cls: 'btn-out', action: closeCustomModal }
+    ]);
+  }
+
+  // 2. Hospital Navigation Map Modal (Ca 2 Nhi khoa)
+  function openHospitalNavModal() {
+    const html = `
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <b style="font-size:13.5px; color:#0f172a;">🏥 Bệnh viện Nhi Đồng 1 (TP.HCM)</b>
+          <span style="background:#dcfce7; color:#15803d; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px;">CẤP CỨU 24/7 🟢</span>
+        </div>
+        <div style="font-size:12px; color:#64748b;">341 Sư Vạn Hạnh, Phường 10, Quận 10, TP.HCM</div>
+        <div style="display:flex; gap:16px; margin-top:10px; padding-top:8px; border-top:1px dashed #cbd5e1; font-size:12.5px;">
+          <div>📍 Khoảng cách: <b>2.3 km</b></div>
+          <div>⏱️ Thời gian di chuyển: <b>~6 phút</b> (đường thông thoáng)</div>
+        </div>
+      </div>
+      <div style="background:#fff1f2; border:1px solid #fecaca; border-radius:10px; padding:10px; font-size:12px; color:#991b1b; margin-bottom:14px;">
+        <b>⚠️ LƯU Ý KHI DI CHUYỂN BÉ CẤP CỨU:</b><br>
+        • Luôn bế bé ở tư thế đầu hơi ngửa nhẹ để thông thoáng đường thở.<br>
+        • Cấm trùm chăn kín hoặc ép bé uống nước/thuốc trên đường đi.
+      </div>
+    `;
+
+    openCustomModal('🏥 ĐƯỜNG ĐI CẤP CỨU NHANH NHẤT · BV NHI ĐỒNG 1', html, [
+      { text: '📞 Gọi Khoa Cấp Cứu: (028) 3927 1119', cls: 'btn-emergency', action: () => alert('Đang gọi Khoa Cấp cứu BV Nhi Đồng 1: (028) 3927 1119...') },
+      { text: '🚗 Mở Google Maps chỉ đường', cls: 'btn-pri', action: () => alert('Đang mở ứng dụng Bản đồ dẫn đường tới 341 Sư Vạn Hạnh, Q.10...') },
+      { text: 'Đóng', cls: 'btn-out', action: closeCustomModal }
+    ]);
+  }
+
+  // 3. Specialty Psychiatric Clinics Modal (Ca 4 Seduxen)
+  function openSpecialtyClinicsModal() {
+    const html = `
+      <div style="font-size:12.5px; line-height:1.5; margin-bottom:12px;">
+        <b>Seduxen (Diazepam)</b> là thuốc hướng thần kê đơn nghiêm ngặt. Dưới đây là các cơ sở y tế chuyên khoa có thẩm quyền thăm khám và cấp đơn thuốc hợp lệ:
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:10px;">
+          <b>1. Bệnh viện Tâm thần TP.HCM</b><br>
+          <span style="font-size:11.5px; color:#64748b;">766 Võ Văn Kiệt, P.1, Quận 5 · ĐT: (028) 3923 4675 (Khoa Khám bệnh 24/7)</span>
+        </div>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:10px;">
+          <b>2. Phòng khám Tâm thần kinh - BV Đại học Y Dược TP.HCM</b><br>
+          <span style="font-size:11.5px; color:#64748b;">215 Hồng Bàng, Phường 11, Quận 5 · ĐT: (028) 3855 4269</span>
+        </div>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:10px;">
+          <b>3. Viện Sức khỏe Tâm thần Quốc gia (Bệnh viện Bạch Mai)</b><br>
+          <span style="font-size:11.5px; color:#64748b;">78 Giải Phóng, Phương Mai, Đống Đa, Hà Nội</span>
+        </div>
+      </div>
+      <div class="box warn" style="font-size:12px;">
+        <b>⚖️ QUY ĐỊNH LUẬT DƯỢC:</b> Đơn thuốc an thần hướng thần có giá trị mua trong vòng <b>05 ngày</b> kể từ ngày kê đơn. Quý khách vui lòng mang theo CCCD khi đi khám.
+      </div>
+    `;
+
+    openCustomModal('🏥 CƠ SỞ CHUYÊN KHOA KHÁM & KÊ ĐƠN THUỐC HƯỚNG THẦN', html, [
+      { text: 'Đóng', cls: 'btn-pri', action: closeCustomModal }
+    ]);
+  }
+
+  // 4. Sleep Hygiene Guide Modal (Ca 4)
+  function openSleepHygieneModal() {
+    const html = `
+      <div style="font-size:12.5px; line-height:1.55;">
+        Cẩm nang phục hồi giấc ngủ tự nhiên không dùng thuốc hướng thần:
+        <div style="display:flex; flex-direction:column; gap:8px; margin:12px 0;">
+          <div style="padding:8px 10px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;">
+            <b>1. Quy tắc 30 phút:</b> Ngưng toàn bộ thiết bị điện tử, điện thoại trước khi lên giường 30 phút.
+          </div>
+          <div style="padding:8px 10px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;">
+            <b>2. Thảo mộc thư giãn:</b> Uống 1 tách trà tim sen hoặc hoa cúc ấm lúc 21h giúp xoa dịu thần kinh.
+          </div>
+          <div style="padding:8px 10px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;">
+            <b>3. Ngâm chân nước ấm:</b> Ngâm chân nước ấm 40°C trong 15 phút kích thích máu lưu thông xuống chi dưới.
+          </div>
+          <div style="padding:8px 10px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;">
+            <b>4. Không chất kích thích:</b> Tránh cà phê, trà đậm sau 14h chiều.
+          </div>
+        </div>
+      </div>
+    `;
+
+    openCustomModal('📖 CẨM NANG VỆ SINH GIẤC NGỦ TỰ NHIÊN', html, [
+      { text: 'Đã Hiểu', cls: 'btn-pri', action: closeCustomModal }
+    ]);
+  }
+
+  // 5. Emergency SOS GPS Sent Modal (Ca 5)
+  function openSosGpsModal() {
+    const html = `
+      <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:10px; padding:12px; margin-bottom:12px;">
+        <b style="color:#15803d; font-size:13.5px;">✅ ĐÃ PHÁT TÍN HIỆU CỨU NẠN SOS THÀNH CÔNG</b><br>
+        <span style="font-size:12px; color:#166534;">Tin nhắn khẩn cấp đã được gửi qua mạng viễn thông tới 2 số điện thoại người thân.</span>
+      </div>
+      <div style="font-size:12.5px; line-height:1.5; margin-bottom:12px;">
+        📲 <b>Nội dung tin nhắn SMS SOS:</b><br>
+        <i>"🚨 CẢNH BÁO Y TẾ: Tôi đang đau thắt ngực khó thở nghi ngờ nhồi máu cơ tim tại địa chỉ 128 Hai Bà Trưng (Tọa độ: 10.7829, 106.6984). Hãy gọi 115 hoặc đến hỗ trợ tôi ngay!"</i>
+      </div>
+    `;
+
+    openCustomModal('📍 PHÁT TÍN HIỆU GPS CỨU HỘ KHẨN CẤP', html, [
+      { text: 'Đóng', cls: 'btn-pri', action: closeCustomModal }
+    ]);
+  }
+
+  // 6. Safe Pickup Sheet (Ca 6 Nước muối)
+  function showSafePickupSheet() {
+    const sheetEl = document.getElementById('guarded-order-sheet');
+    if (!sheetEl) return;
+
+    sheetEl.innerHTML = `
+      <div class="in-phone-sheet-backdrop" onclick="hideGuardedOrderSheet()">
+        <div class="in-phone-sheet-card" onclick="event.stopPropagation()">
+          <div class="sheet-header success-sheet">
+            <span>✅ PHIẾU GIỮ HÀNG ĐIỆN TỬ TẠI NHÀ THUỐC</span>
+            <button class="sheet-close-btn" onclick="hideGuardedOrderSheet()">✕</button>
+          </div>
+          <div class="sheet-store-info">
+            📍 Nhà thuốc Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1<br>
+            📦 Mã giữ hàng: <b style="color:#0072ce; font-size:14px;">PMC-8821</b> (Thời hạn giữ: 24h)
+          </div>
+          <div class="sheet-row">
+            <b>Nước muối sinh lý Natri Clorid 0.9% (500ml)</b>
+            <span style="color:#15803d; font-weight:800;">8.000đ</span>
+          </div>
+          <div class="sheet-badge approved">⚡ AI tự động giữ hàng trong 2 giây · Rủi ro y sinh bằng 0</div>
+          <button class="btn btn-pri" style="width:100%; margin-top:8px;" onclick="hideGuardedOrderSheet()">
+            ✕ Đóng phiếu giữ hàng
+          </button>
+        </div>
+      </div>
+    `;
+    sheetEl.style.display = 'block';
+  }
+
+  // 7. Interactive Downstream Flow for Case 3 (Confirm Adult vs Child)
+  function selectCase3Audience(audience) {
+    if (audience === 'adult') {
+      const container = document.getElementById('chat-guarded');
+      container.innerHTML += `
+        <div class="me">“Thuốc này dùng cho người lớn (28 tuổi, nam).” <span class="bubble-time">23:31</span></div>
+        <div class="ai">
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:31</span></div>
+          <p>Dạ Pharmacity đã ghi nhận: Người bệnh là <b>Người lớn (28 tuổi)</b>.</p>
+          <p>Để tư vấn an toàn nhất và loại trừ biến chứng sốt xuất huyết hay tổn thương gan, xin bạn cho biết thêm:</p>
+          <div class="box warn" style="margin:6px 0;">
+            1. Bạn có sốt cao liên tục > 38.5°C kèm đau nhức hốc mắt hay nổi chấm xuất huyết dưới da không?<br>
+            2. Bạn có tiền sử bệnh viêm gan hay suy thận mạn không?
+          </div>
+          <div class="btns">
+            <button class="btn btn-stable" onclick="selectCase3Outcome('mild_fever')">
+              ✅ Sốt cảm thông thường, không đau hốc mắt, gan khỏe
+            </button>
+            <button class="btn btn-emergency" onclick="selectCase3Outcome('dengue_suspect')">
+              🚨 Sốt cao đột ngột + Đau hốc mắt (Nghi sốt xuất huyết)
+            </button>
+          </div>
+        </div>
+      `;
+      scrollToBottom();
+    } else if (audience === 'child') {
+      const container = document.getElementById('chat-guarded');
+      container.innerHTML += `
+        <div class="me">“Thuốc này dùng cho bé 3 tuổi nhà mình.” <span class="bubble-time">23:31</span></div>
+        <div class="ai">
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:31</span></div>
+          <div class="box danger" style="margin:6px 0;">
+            <b>🚨 CẢNH BÁO AN TOÀN NHI KHOA:</b><br>
+            Với trẻ 3 tuổi, tuyệt đối <b>KHÔNG</b> tự ý dùng thuốc hạ sốt / giảm ho của người lớn vì nguy cơ ngộ độc gan cấp tính và co giật! Thuốc nhi khoa bắt buộc tính liều chính xác theo cân nặng (10-15mg/kg/lần).
+          </div>
+          <p>Giỏ hàng tự đặt thuốc đã khóa cứng. Hệ thống chuyển ngay sang Dược sĩ Chuyên khoa Nhi để hướng dẫn mẹ chăm sóc bé an toàn:</p>
+          <div class="btns">
+            <button class="btn btn-pharma-direct" onclick="triggerHandoff(10, 'Sàng lọc Nhi khoa')">
+              👩‍⚕️ Kết nối Dược sĩ Chuyên khoa Nhi ngay
+            </button>
+          </div>
+        </div>
+      `;
+      scrollToBottom();
+    }
+  }
+
+  function selectCase3Outcome(outcome) {
+    const container = document.getElementById('chat-guarded');
+    if (outcome === 'mild_fever') {
+      container.innerHTML += `
+        <div class="me">“Mình chỉ sốt cảm cúm nhẹ thông thường thôi, không đau hốc mắt.” <span class="bubble-time">23:32</span></div>
+        <div class="ai">
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:32</span></div>
+          <p>Dạ với triệu chứng cảm cúm sốt nhẹ ở người lớn, bạn có thể dùng Paracetamol 500mg (1 viên mỗi 4-6 tiếng, tối đa 4 viên/ngày) kết hợp siro ho thảo dược Prospan và súc họng nước muối ấm.</p>
+          <div class="btns">
+            <button class="btn btn-pri" onclick="alert('Đã thêm Combo Cảm sốt người lớn an toàn vào đơn hàng giao nhanh!')">
+              🛒 Đặt Combo Cảm sốt người lớn (Dược sĩ sàng lọc an toàn)
+            </button>
+            <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
+          </div>
+        </div>
+      `;
+    } else if (outcome === 'dengue_suspect') {
+      container.innerHTML += `
+        <div class="me">“Mình sốt cao liên tục 39 độ, đau nhức hốc mắt và người rất mỏi.” <span class="bubble-time">23:32</span></div>
+        <div class="ai">
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:32</span></div>
+          <div class="box danger" style="margin:6px 0;">
+            <b>🚨 NGUY CƠ SỐT XUẤT HUYẾT DENGUE NGUY HIỂM!</b><br>
+            Triệu chứng sốt cao đột ngột + đau nhức hốc mắt là dấu hiệu sốt xuất huyết. <b>TUYỆT ĐỐI CẤM UỐNG IBUPROFEN / ASPIRIN</b> vì sẽ làm xuất huyết tiêu hóa ồ ạt dẫn đến tử vong!
+          </div>
+          <p>Bạn cần đến ngay cơ sở y tế gần nhất để xét nghiệm công thức máu và kiểm tra lượng tiểu cầu. Trong lúc này chỉ được hạ sốt bằng Paracetamol đơn chất và bù điện giải Oresol.</p>
+          <div class="btns">
+            <button class="btn btn-hospital" onclick="alert('Đang mở danh sách Trung tâm Y tế và Bệnh viện có phòng xét nghiệm máu gần bạn nhất...')">
+              🏥 Xem bệnh viện xét nghiệm máu gần nhất
+            </button>
+            <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
+          </div>
+        </div>
+      `;
+    }
+    scrollToBottom();
+  }
+
+  // Generic custom modal renderer
+  function openCustomModal(title, bodyHtml, actionButtons = []) {
+    let modalEl = document.getElementById('custom-workflow-modal');
+    if (!modalEl) {
+      modalEl = document.createElement('div');
+      modalEl.id = 'custom-workflow-modal';
+      modalEl.className = 'modal-box';
+      document.body.appendChild(modalEl);
+    }
+
+    modalEl.innerHTML = `
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h3 style="color:#0f172a;">${title}</h3>
+          <button class="sheet-close-btn" onclick="closeCustomModal()">✕</button>
+        </div>
+        <div class="modal-body">${bodyHtml}</div>
+        <div class="modal-footer">
+          ${actionButtons.map((btn, idx) => `
+            <button class="btn ${btn.cls}" id="modal-btn-${idx}">${btn.text}</button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    actionButtons.forEach((btn, idx) => {
+      const bEl = document.getElementById('modal-btn-' + idx);
+      if (bEl && btn.action) {
+        bEl.onclick = btn.action;
+      }
+    });
+
+    modalEl.classList.add('show');
+    modalEl.onclick = closeCustomModal;
+  }
+
+  function closeCustomModal() {
+    const modalEl = document.getElementById('custom-workflow-modal');
+    if (modalEl) modalEl.classList.remove('show');
+  }
+
+    function triggerHandoffDirectAction(actionKey) {
     chatState = 'handoff';
     handoffStep = 1;
     handoffActionKey = actionKey;
@@ -3005,10 +3408,10 @@
               <button class="btn btn-pharma-direct" onclick="triggerHandoffCountdown()">
                 👩‍⚕️ Kết nối Dược sĩ Lâm sàng thẩm định đơn (30s)
               </button>
-              <button class="btn btn-emergency" onclick="alert('🚨 BÁO ĐỘNG ĐỎ KHẨN CẤP: Đã kích hoạt cuộc gọi khẩn cấp 115 và gửi định vị vị trí của bạn tới trung tâm y tế gần nhất!')">
+              <button class="btn btn-emergency" onclick="openEmergencyDispatchModal('allergy')">
                 🚨 Báo có dấu hiệu khó thở / Cần cấp cứu 115
               </button>
-              <button class="btn btn-saline" onclick="alert('🧂 KHUYẾN CÁO AN TOÀN 100%: Trong lúc đợi Dược sĩ, bạn hãy súc họng bằng nước muối sinh lý ấm 0.9% mỗi 2 tiếng để sát khuẩn an toàn!')">
+              <button class="btn btn-saline" onclick="selectPharmaAction('order_saline')">
                 🧂 Uống nước ấm & Súc họng nước muối sinh lý an toàn
               </button>
             </div>
@@ -3151,10 +3554,10 @@
                 2. <b>CẤM ÉP UỐNG NƯỚC HOẶC THUỐC</b> (tránh sặc vào phế quản gây ngưng thở).<br>
                 3. Đưa bé ngay đến Khoa Cấp cứu Bệnh viện Nhi Đồng 1 hoặc Nhi Đồng 2 gần nhất!</p>
                 <div class="btns">
-                  <button class="btn btn-hospital" style="font-size:13.5px; padding:11px;" onclick="openModal('🏥 ĐƯỜNG ĐI CẤP CỨU NHANH NHẤT', 'Bệnh viện Nhi Đồng 1 (341 Sư Vạn Hạnh, Q.10) - Cách bạn 2.3km (khoảng 6 phút di chuyển). Phòng cấp cứu Nhi đang mở cửa 24/7. Vui lòng gọi xe đưa bé đi ngay!')">
+                  <button class="btn btn-hospital" style="font-size:13.5px; padding:11px;" onclick="openHospitalNavModal(); //, 'Bệnh viện Nhi Đồng 1 (341 Sư Vạn Hạnh, Q.10) - Cách bạn 2.3km (khoảng 6 phút di chuyển). Phòng cấp cứu Nhi đang mở cửa 24/7. Vui lòng gọi xe đưa bé đi ngay!')">
                     🏥 Mở bản đồ chỉ đường khẩn cấp tới BV Nhi Đồng 1 (2.3km)
                   </button>
-                  <button class="btn btn-call115" style="font-size:13.5px; padding:11px;" onclick="openModal('🚨 KẾT NỐI 115', 'Đang kết nối Tổng đài Cấp cứu 115 xe chuyên dụng Nhi sơ sinh... Vui lòng giữ máy!')">
+                  <button class="btn btn-call115" style="font-size:13.5px; padding:11px;" onclick="openEmergencyDispatchModal('nhi'); //, 'Đang kết nối Tổng đài Cấp cứu 115 xe chuyên dụng Nhi sơ sinh... Vui lòng giữ máy!')">
                     📞 Gọi Cấp cứu 115 xe chuyên dụng Nhi sơ sinh
                   </button>
                   <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
@@ -3310,10 +3713,10 @@
             <p><b>1. Ai là người dùng thuốc và hiện tại bao nhiêu tuổi?</b><br>
             <b>2. Người bệnh sốt bao nhiêu độ và nổi nốt đỏ từ khi nào?</b></p>
             <div class="btns">
-              <button class="btn btn-adult" onclick="alert('✅ Đã xác nhận đối tượng: Người lớn (> 18 tuổi).\nHệ thống tiếp tục hỏi: Bạn có sốt cao trên 38.5°C hoặc có bệnh nền gan/thận không?')">
+              <button class="btn btn-adult" onclick="selectCase3Audience('adult')">
                 ✅ Xác nhận: Thuốc dùng cho Người lớn (> 18 tuổi)
               </button>
-              <button class="btn btn-child" onclick="alert('🚨 Đã xác nhận đối tượng: Trẻ nhỏ (< 6 tuổi).\nHệ thống lập tức kích hoạt luồng bảo vệ an toàn Nhi khoa và kết nối Dược sĩ!')">
+              <button class="btn btn-child" onclick="selectCase3Audience('child')">
                 🚨 Xác nhận: Thuốc dùng cho Trẻ nhỏ (< 6 tuổi)
               </button>
               <button class="btn btn-pharma-direct" onclick="triggerHandoff(20, 'Sàng lọc cộc lốc')">
@@ -3336,13 +3739,13 @@
           </div>
           <p>Thuốc có nguy cơ gây nghiện, lạm dụng và ức chế hô hấp nếu dùng sai liều. Để cải thiện giấc ngủ an toàn, bạn nên:</p>
           <div class="btns">
-            <button class="btn btn-hospital" onclick="alert('🏥 DANH SÁCH CƠ SỞ CHUYÊN KHOA GẦN BẠN:\n1. Bệnh viện Tâm thần TP.HCM (766 Võ Văn Kiệt, Q.5)\n2. Phòng khám Tâm thần kinh BV Đại học Y Dược (215 Hồng Bàng, Q.5)\n\nQuý khách vui lòng đến khám trực tiếp để được Bác sĩ chuyên khoa chẩn đoán nguyên nhân mất ngủ!')">
+            <button class="btn btn-hospital" onclick="openSpecialtyClinicsModal()">
               🏥 Xem danh sách Phòng khám chuyên khoa Tâm thần & Bệnh viện gần nhất
             </button>
             <button class="btn btn-pharma-direct" onclick="alert('Đang kết nối Dược sĩ tư vấn quy chế thuốc kê đơn: 'Chào bạn, với Seduxen bạn bắt buộc phải có đơn thuốc tái khám trong vòng 5 ngày của Bác sĩ chuyên khoa Tâm thần nhé...'')">
               👨‍⚕️ Gặp Dược sĩ tư vấn quy định mua thuốc kê đơn
             </button>
-            <button class="btn btn-care" onclick="alert('📖 CẨM NANG VỆ SINH GIẤC NGỦ KHÔNG DÙNG THUỐC:\n1. Không dùng điện thoại/máy tính trước khi ngủ 1 giờ.\n2. Không uống cà phê, trà đậm sau 15h chiều.\n3. Uống 1 ly trà hoa cúc hoặc tim sen ấm trước khi ngủ 30 phút.\n4. Ngâm chân nước ấm 15 phút giúp lưu thông máu.')">
+            <button class="btn btn-care" onclick="openSleepHygieneModal()">
               📖 Xem bài tập thư giãn và vệ sinh giấc ngủ không dùng thuốc
             </button>
           </div>
@@ -3362,10 +3765,10 @@
           1. Dừng ngay mọi hoạt động, ngồi tựa lưng góc 45 độ, nới lỏng cổ áo và thắt lưng.<br>
           2. Bấm gọi ngay Cấp cứu 115 và mở cửa nhà để nhân viên y tế tiếp cận kịp thời!</p>
           <div class="btns">
-            <button class="btn btn-call115" style="padding:12px; font-size:14px; font-weight:800;" onclick="openModal('🚨 CẤP CỨU 115 - NHỒI MÁU CƠ TIM CẤP', 'Đang kết nối trung tâm cấp cứu 115 gần nhất... Xe cấp cứu chuyên dụng có máy sốc tim đang được định vị tới địa chỉ của bạn!')">
+            <button class="btn btn-call115" style="padding:12px; font-size:14px; font-weight:800;" onclick="openEmergencyDispatchModal('cardiac'); //, 'Đang kết nối trung tâm cấp cứu 115 gần nhất... Xe cấp cứu chuyên dụng có máy sốc tim đang được định vị tới địa chỉ của bạn!')">
               🚨 BẤM ĐỂ GỌI CẤP CỨU 115 NGAY LẬP TỨC
             </button>
-            <button class="btn btn-emergency" onclick="alert('✅ Đã gửi tọa độ GPS và thông báo khẩn cấp: \'Đang đau tức ngực khó thở nghi ngờ nhồi máu cơ tim, cần hỗ trợ gấp!\' đến 2 số điện thoại người thân.')">
+            <button class="btn btn-emergency" onclick="openSosGpsModal()">
               📍 Xác nhận gửi định vị khẩn cấp cho người thân
             </button>
             <button class="btn btn-pharma-direct" onclick="alert('Đang kết nối Dược sĩ trực cấp cứu... Dược sĩ: \'Bạn hãy giữ nguyên tư thế ngồi tựa lưng, thả lỏng cơ thể, thở chậm sâu và không di chuyển nhé. Xe 115 đang trên đường đến!\'')">
@@ -3392,7 +3795,7 @@
             </div>
           </div>
           <div class="btns" style="margin-top:8px;">
-            <button class="btn btn-pri" onclick="alert('✅ Đã xác nhận: Đặt giữ 1 chai Nước muối sinh lý tại Pharmacity 128 Hai Bà Trưng. Hàng được giữ riêng cho bạn trong 24h!')">
+            <button class="btn btn-pri" onclick="showSafePickupSheet()">
               ✅ Xác nhận đặt giữ hàng tại nhà thuốc (2 giây)
             </button>
             <button class="btn btn-undo" onclick="alert('⏪ Đã hoàn tác: Hủy đơn đặt giữ hàng thành công trong 1 chạm. Kho thuốc đã tự động cập nhật lại số lượng.')">
