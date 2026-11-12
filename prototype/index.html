@@ -33,36 +33,63 @@
       line-height: 1.5;
     }
     header {
-      padding: 18px 32px 14px;
-      border-bottom: 1px solid var(--line);
       background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 28px 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
-    h1 {
-      font-size: 21px;
-      margin: 0 0 6px;
-      color: var(--ink);
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .brand-logo-row {
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 4px;
+    }
+    .pharmacity-logo {
+      height: 30px;
+      width: auto;
+      display: block;
     }
     .badge-track {
       background: var(--primary);
       color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 3px 8px;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 3px 9px;
       border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-verified {
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      border: 1px solid #bbf7d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    h1 {
+      font-size: 19px;
+      margin: 0;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .sub {
       color: var(--mut);
-      font-size: 13.5px;
-    }
-    /* Header styling */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-      padding: 12px 24px 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      font-size: 13px;
+      line-height: 1.4;
     }
     .header-top {
       display: flex;
@@ -140,57 +167,89 @@
 
     /* Case Briefing Card in Left Selector Panel */
     .case-brief-card {
-      background: #f8fafc;
-      border: 1px solid var(--line);
+      background: #ffffff;
+      border: 1.5px solid var(--line);
       border-left: 4px solid var(--primary);
-      border-radius: 12px;
-      padding: 10px 12px;
+      border-radius: 14px;
+      padding: 12px 14px;
       font-size: 12.5px;
       line-height: 1.45;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
     .case-brief-card.danger-brief {
-      background: #fef2f2;
-      border-color: #fecaca;
-      border-left-color: #ef4444;
+      background: #fffdfd;
+      border-color: #fca5a5;
+      border-left-color: #dc2626;
+    }
+    .case-brief-header {
+      margin-bottom: 8px;
+    }
+    .case-brief-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 4px;
     }
     .case-brief-title {
       font-weight: 800;
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--primary-dark);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 4px;
+      display: block;
+      line-height: 1.35;
     }
     .case-brief-card.danger-brief .case-brief-title {
       color: #991b1b;
+    }
+    .case-brief-context {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+    }
+    .case-brief-context p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: #334155;
+    }
+    .case-brief-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--mut);
     }
     .case-brief-grid {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-top: 6px;
     }
     .case-brief-box {
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.06);
       border-radius: 8px;
       padding: 8px 10px;
       font-size: 12px;
       line-height: 1.4;
     }
-    .case-brief-box b {
-      display: block;
-      font-size: 10.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 2px;
+    .case-brief-box p {
+      margin: 4px 0 0;
     }
-    .case-brief-box.danger-box b {
+    .case-brief-box.danger-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+    .case-brief-box.danger-box .case-brief-label {
       color: #b91c1c;
     }
-    .case-brief-box.safe-box b {
-      color: #0284c7;
+    .case-brief-box.safe-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+    .case-brief-box.safe-box .case-brief-label {
+      color: #15803d;
     }
     
     /* Cockpit 3-column Layout */
@@ -699,36 +758,43 @@
       transition: all 0.15s ease;
       text-decoration: none;
     }
-    .btn.pri {
-      background: var(--primary);
-      color: #fff;
-    }
-    .btn.pri:hover {
-      background: var(--primary-dark);
-    }
-    .btn.danger {
-      background: var(--r);
-      color: #fff;
-      box-shadow: 0 2px 4px rgba(180, 35, 24, 0.2);
-    }
-    .btn.danger:hover {
-      background: #912018;
-    }
-    .btn.pharmacist {
-      background: #0284c7;
-      color: #fff;
-    }
-    .btn.pharmacist:hover {
-      background: #0369a1;
-    }
-    .btn.undo {
-      background: #d97706;
-      color: #fff;
-      box-shadow: 0 2px 4px rgba(217, 119, 6, 0.25);
-    }
-    .btn.undo:hover {
-      background: #b45309;
-    }
+    /* Semantic Buttons */
+    .btn.btn-pri, .btn.pri { background: #0072ce; color: #fff; }
+    .btn.btn-pri:hover, .btn.pri:hover { background: #00569e; }
+    
+    .btn.btn-emergency, .btn.danger { background: #dc2626; color: #fff; box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3); }
+    .btn.btn-emergency:hover, .btn.danger:hover { background: #b91c1c; }
+
+    .btn.btn-pharma-direct, .btn.pharmacist { background: #16a34a; color: #fff; box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25); }
+    .btn.btn-pharma-direct:hover, .btn.pharmacist:hover { background: #15803d; }
+
+    .btn.btn-undo, .btn.undo { background: #d97706; color: #fff; box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25); }
+    .btn.btn-undo:hover, .btn.undo:hover { background: #b45309; }
+
+    .btn.btn-history { background: #7c3aed; color: #fff; box-shadow: 0 2px 6px rgba(124, 58, 237, 0.25); }
+    .btn.btn-history:hover { background: #6d28d9; }
+
+    .btn.btn-saline { background: #0284c7; color: #fff; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25); }
+    .btn.btn-saline:hover { background: #0369a1; }
+
+    .btn.btn-hospital { background: #ea580c; color: #fff; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25); }
+    .btn.btn-hospital:hover { background: #c2410c; }
+
+    .btn.btn-stable { background: #059669; color: #fff; box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25); }
+    .btn.btn-stable:hover { background: #047857; }
+
+    .btn.btn-call115 { background: #991b1b; color: #fff; font-weight: 800; box-shadow: 0 2px 8px rgba(153, 27, 27, 0.4); }
+    .btn.btn-call115:hover { background: #7f1d1d; }
+
+    .btn.btn-care { background: #0891b2; color: #fff; box-shadow: 0 2px 6px rgba(8, 145, 178, 0.25); }
+    .btn.btn-care:hover { background: #0e7490; }
+
+    .btn.btn-adult { background: #1e40af; color: #fff; }
+    .btn.btn-adult:hover { background: #1e3a8a; }
+
+    .btn.btn-child { background: #c2410c; color: #fff; }
+    .btn.btn-child:hover { background: #9a3412; }
+
     .btn.out {
       background: #fff;
       border: 1.5px solid var(--line);
@@ -849,34 +915,58 @@
       animation: fadeInMsg 0.3s ease;
     }
     
-    /* Right Aside panels */
-    aside {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    /* Master Deck Section (3 Panels below dual phones - Theo chuẩn index mẫu) */
+    .master-deck-section {
+      max-width: 1720px;
+      margin: 0 auto 36px;
+      padding: 0 24px;
     }
-    .panel {
+    .master-deck-grid {
+      display: grid;
+      grid-template-columns: 310px minmax(360px, 1.15fr) minmax(360px, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 1280px) {
+      .master-deck-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+    .deck-panel {
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .panel h2 {
-      font-size: 15.5px;
-      margin: 0 0 10px;
-      color: var(--ink);
+    .deck-panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .deck-panel-header h2 {
+      font-size: 15px;
+      margin: 0;
+      color: var(--ink);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .promise {
-      font-size: 14px;
+      font-size: 13.5px;
       border-left: 4px solid var(--primary);
-      padding: 10px 14px;
+      padding: 12px 14px;
       background: #f8fafc;
-      border-radius: 0 10px 10px 0;
-      line-height: 1.55;
+      border-radius: 0 12px 12px 0;
+      line-height: 1.6;
     }
     .promise b {
       color: var(--primary-dark);
@@ -885,18 +975,19 @@
     table {
       border-collapse: collapse;
       width: 100%;
-      font-size: 13px;
+      font-size: 12.5px;
     }
     td, th {
       border-bottom: 1px solid var(--line);
       padding: 8px 6px;
       text-align: left;
       vertical-align: top;
+      line-height: 1.4;
     }
     th {
       color: var(--mut);
-      font-weight: 600;
-      font-size: 12px;
+      font-weight: 700;
+      font-size: 11.5px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -913,9 +1004,18 @@
     .p-no { background: var(--rb); color: var(--r); border: 1px solid #fecdca; }
     .p-lock { background: #e2e8f0; color: #475569; }
     
-    .changed td { background: #fffbeb !important; }
+    .changed td {
+      background: #fffbeb !important;
+      border-top: 1.5px solid #fde68a;
+      border-bottom: 1.5px solid #fde68a;
+      font-weight: 600;
+    }
+    .changed td code {
+      color: #b45309;
+      font-weight: 700;
+    }
     .ann { padding-left: 0; list-style: none; margin: 0; }
-    .ann li { margin-bottom: 8px; font-size: 13px; line-height: 1.45; }
+    .ann li { margin-bottom: 9px; font-size: 12.5px; line-height: 1.45; }
     
     .timer {
       font-variant-numeric: tabular-nums;
@@ -957,18 +1057,27 @@
 
 <header>
   <div class="header-top">
-    <div>
-      <h1>
+    <div class="header-brand-wrap">
+      <div class="brand-logo-row">
+        <!-- Official Pharmacity Vector SVG Logo -->
+        <svg class="pharmacity-logo" viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="12" width="14" height="14" rx="4" fill="#00a859"/>
+          <rect x="18" y="12" width="14" height="14" rx="4" fill="#0072ce"/>
+          <rect x="10" y="4" width="14" height="14" rx="4" fill="#00a859"/>
+          <rect x="10" y="20" width="14" height="14" rx="4" fill="#0072ce"/>
+          <circle cx="17" cy="19" r="4.5" fill="#ffffff"/>
+          <text x="42" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#0072ce" letter-spacing="-0.5">Pharma<tspan fill="#00a859">city</tspan></text>
+        </svg>
         <span class="badge-track">Track T1: Y tế</span>
-        Pharmacity Care · Cockpit Đối Chiếu Tự Chủ & Rủi Ro AI
-      </h1>
+        <span class="badge-verified">✓ Chuẩn Dược Lâm Sàng</span>
+      </div>
       <div class="sub">
-        So sánh song song trực quan: <b>🤖 AI Chưa Thiết Kế (Gặp lỗi chết người)</b> vs. <b>🛡️ AI Đã Siết Lại (An toàn y khoa & HAX/PAIR)</b>
+        Pharmacity Care · Cockpit Đối Chiếu Tự Chủ & Rủi Ro AI: <b>🤖 AI Chưa Thiết Kế (Gặp Lỗi)</b> vs. <b>🛡️ Trợ Lý AI Chuẩn Y Khoa (Đã Siết Lại)</b>
       </div>
     </div>
     <div class="header-controls">
-      <button class="btn-header-tool" onclick="openToolsModal()">
-        📊 Xem Bảng 5 Tools & HAX/PAIR
+      <button class="btn-header-tool" onclick="scrollToDeck()" title="Cuộn xuống xem Bảng 5 Tools & Chú thích HAX/PAIR chuẩn index mẫu">
+        📊 Bảng 5 Tools & HAX/PAIR ⬇️
       </button>
       <label style="font-size: 13px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px;">
         <input type="checkbox" id="chk-ann" checked onchange="toggleAnnotations(this.checked)"> Hiện số chú thích HAX/PAIR
@@ -978,7 +1087,7 @@
 </header>
 
 <main>
-  <!-- Column 1: Selector Panel -->
+  <!-- Column 1: Selector Panel & Clinical Brief Dock -->
   <section class="col-selector">
     <div class="selector-panel">
       <div class="selector-header">
@@ -1045,8 +1154,11 @@
   <!-- Column 2: Phone Simulator - AI Chưa Thiết Kế -->
   <section class="phone phone-naive">
     <div class="phone-bar-naive">
-      <span>⚠️ <b>AI Chưa Thiết Kế</b> (Baseline Ngây Thơ)</span>
-      <span style="font-weight:700; color:#dc2626;">GẶP LỖI & RỦI RO</span>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="background:#fee2e2; color:#991b1b; font-size:10.5px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #fecaca;">⚠️ BASELINE</span>
+        <b>Chatbot Ngây Thơ (Chưa Có Rào Chắn)</b>
+      </div>
+      <span style="font-weight:800; color:#dc2626; font-size:11px;">GẶP LỖI & RỦI RO</span>
     </div>
     <div class="chat" id="chat-naive">
       <!-- Dynamic naive chat -->
@@ -1059,8 +1171,22 @@
   <!-- Column 3: Phone Simulator - AI Đã Siết Lại -->
   <section class="phone phone-guarded">
     <div class="phone-bar-guarded">
-      <div>
-        <span>🛡️ <b>Trợ Lý AI Chuẩn Y Khoa</b></span>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <svg width="22" height="22" viewBox="0 0 34 34" fill="none">
+          <rect x="2" y="10" width="13" height="13" rx="3.5" fill="#00a859"/>
+          <rect x="17" y="10" width="13" height="13" rx="3.5" fill="#0072ce"/>
+          <rect x="9.5" y="2.5" width="13" height="13" rx="3.5" fill="#00a859"/>
+          <rect x="9.5" y="17.5" width="13" height="13" rx="3.5" fill="#0072ce"/>
+          <circle cx="16" cy="16.5" r="4" fill="#ffffff"/>
+        </svg>
+        <div>
+          <div style="font-size: 12.5px; font-weight: 800; color: #0072ce; line-height: 1.15;">
+            Pharmacity <span style="color:#00a859;">Care</span>
+          </div>
+          <div style="font-size: 10px; color: #166534; font-weight: 600;">
+            Dược sĩ Trực tuyến 24/7 🟢
+          </div>
+        </div>
       </div>
       <div style="display:flex; align-items:center; gap:6px;">
         <div class="level-mini-group">
@@ -1090,6 +1216,47 @@
   </section>
 </main>
 
+<!-- Bottom Master Deck: Lời hứa, Bảng 5 Tools & Chú thích HAX/PAIR chuẩn index mẫu của giảng viên -->
+<section class="master-deck-section" id="master-deck">
+  <div class="master-deck-grid">
+    <!-- Panel 1: Lời hứa với khách ở mức này -->
+    <div class="deck-panel">
+      <div class="deck-panel-header">
+        <h2>🤝 Lời hứa với khách ở mức này</h2>
+        <span class="pill" id="promise-level-pill">Mức ② Cần duyệt ⭐</span>
+      </div>
+      <div class="promise" id="promise-text"></div>
+    </div>
+
+    <!-- Panel 2: Mức tự chủ của 5 tool -->
+    <div class="deck-panel">
+      <div class="deck-panel-header">
+        <h2>📊 Mức tự chủ của 5 tool trong Track T1</h2>
+        <span style="font-size:11px; color:var(--mut);">dòng tô vàng là tool đang đổi</span>
+      </div>
+      <table class="tools-table">
+        <thead>
+          <tr>
+            <th style="width: 155px;">Tool</th>
+            <th style="width: 135px;">Mức</th>
+            <th>Vì sao theo Cost-of-Error (Sai ai chịu · Đảo được không)</th>
+          </tr>
+        </thead>
+        <tbody id="tools-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Panel 3: Chú thích nguyên tắc HAX / PAIR -->
+    <div class="deck-panel">
+      <div class="deck-panel-header">
+        <h2>🏷️ Chú thích: Vị trí nguyên tắc HAX / PAIR</h2>
+        <span class="pill p-auto">6 Điểm Chạm</span>
+      </div>
+      <ul class="ann" id="ann-list"></ul>
+    </div>
+  </div>
+</section>
+
 <div class="foot">
   LAB5 · AI20K K5 · Track T1: Y tế · Thiết kế tương tác hoàn chỉnh dựa trên cấu trúc mẫu của giảng viên.
 </div>
@@ -1102,42 +1269,8 @@
       Hệ thống phát hiện dấu hiệu đe dọa đường thở (phù nề thanh quản/sốc phản vệ). Cấp cứu 115 cần được gọi ngay lập tức trong vòng 10 phút đầu.
     </p>
     <div class="btns">
-      <button class="btn danger" onclick="closeModal()">Đã hiểu, đóng thông báo</button>
+      <button class="btn btn-emergency" onclick="closeModal()">Đã hiểu, đóng thông báo</button>
       <button class="btn out" onclick="closeModal()">Đóng cửa sổ này</button>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Tools & HAX/PAIR Reference -->
-<div class="modal" id="tools-modal">
-  <div class="card" style="max-width: 760px; max-height: 85vh; overflow-y: auto;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--line); padding-bottom:8px;">
-      <h3 style="margin:0; color:var(--primary); font-size:16px;">📊 BẢNG MỨC TỰ CHỦ 5 TOOLS & NGUYÊN TẮC HAX / PAIR</h3>
-      <button class="btn out" onclick="closeToolsModal()" style="padding:4px 10px; font-size:12px;">✕ Đóng</button>
-    </div>
-    
-    <div style="margin-bottom:14px;">
-      <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:4px;">Lời hứa với khách hàng ở Mức Tự Chủ đang chọn:</div>
-      <div class="promise" id="promise-text"></div>
-    </div>
-
-    <div style="margin-bottom:14px;">
-      <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:4px;">Mức tự chủ của 5 Tool trong Track T1 (Y tế):</div>
-      <table>
-        <thead>
-          <tr>
-            <th style="width: 160px;">Tool</th>
-            <th style="width: 140px;">Mức tự chủ</th>
-            <th>Lý do theo Cost-of-Error (Sai ai chịu · Đảo được không)</th>
-          </tr>
-        </thead>
-        <tbody id="tools-body"></tbody>
-      </table>
-    </div>
-
-    <div>
-      <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:4px;">Vị trí nguyên tắc HAX / PAIR trên màn hình:</div>
-      <ul class="ann" id="ann-list"></ul>
     </div>
   </div>
 </div>
@@ -1586,6 +1719,13 @@
     `).join('');
   }
 
+  function scrollToDeck() {
+    const el = document.getElementById('master-deck');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   function render() {
     renderCaseSelector();
     renderCaseBrief();
@@ -1879,10 +2019,10 @@
               
               ${handoffStep === 2 ? `
                 <div class="btns">
-                  <button class="btn pharmacist" onclick="selectPharmaAction('lookup_history')">
+                  <button class="btn btn-history" onclick="selectPharmaAction('lookup_history')">
                     📋 Tra cứu lịch sử đơn thuốc cũ tại Pharmacity (Theo SĐT)
                   </button>
-                  <button class="btn out" onclick="selectPharmaAction('order_saline')">
+                  <button class="btn btn-saline" onclick="selectPharmaAction('order_saline')">
                     🧂 Đặt giao nhanh Nước muối sinh lý ấm 0.9% (15 phút)
                   </button>
                   <button class="btn out" style="color:var(--mut); font-size:11.5px; border-style:dashed;" onclick="resetSim()">
@@ -1988,10 +2128,10 @@
             </div>
             <p>Để giảm đau rát họng an toàn ngay lúc này, bạn có thể tham khảo cẩm nang chăm sóc tự nhiên hoặc kết nối trực tiếp với Dược sĩ chuyên môn:</p>
             <div class="btns">
-              <button class="btn out" onclick="alert('📋 HƯỚNG DẪN GIẢM ĐAU HỌNG TỰ NHIÊN TẠI NHÀ:\\n1. Súc họng bằng nước muối sinh lý ấm 0.9% mỗi 2 giờ để sát khuẩn an toàn 100%.\\n2. Uống từng ngụm nhỏ nước ấm pha mật ong chanh hoặc gừng ấm.\\n3. Giữ ấm vùng cổ và ngực, nghỉ ngơi hợp lý.\\n\\n⚠️ Tuyệt đối không tự ý uống viên ngậm kháng viêm hay thuốc giảm đau lạ!')">
+              <button class="btn btn-care" onclick="alert('📋 HƯỚNG DẪN GIẢM ĐAU HỌNG TỰ NHIÊN TẠI NHÀ:\\n1. Súc họng bằng nước muối sinh lý ấm 0.9% mỗi 2 giờ để sát khuẩn an toàn 100%.\\n2. Uống từng ngụm nhỏ nước ấm pha mật ong chanh hoặc gừng ấm.\\n3. Giữ ấm vùng cổ và ngực, nghỉ ngơi hợp lý.\\n\\n⚠️ Tuyệt đối không tự ý uống viên ngậm kháng viêm hay thuốc giảm đau lạ!')">
                 📖 Xem hướng dẫn chăm sóc đau họng tại nhà không dùng thuốc
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
                 <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ tư vấn trực tiếp (30s)
               </button>
             </div>
@@ -2020,7 +2160,7 @@
             </div>
 
             <div class="btns">
-              <button class="btn pri" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
+              <button class="btn btn-pri" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
                 <span class="n">5</span>✅ Xác nhận gửi Dược sĩ duyệt đơn an toàn (30s)
               </button>
               <button class="btn danger" onclick="openModal('🚨 CẢNH BÁO SỐC PHẢN VỆ', 'Nếu bạn có biểu hiện khó thở, sưng môi lưỡi hoặc choáng váng sau khi đau ốm, hãy bấm gọi cấp cứu 115 ngay lập tức!')">
@@ -2054,10 +2194,10 @@
               Trong du lịch vé máy bay hủy thì nhả ghế và hoàn tiền được, nhưng trong Y tế một khi viên thuốc đã nuốt vào bụng, nút Hoàn tác trên app <b>hoàn toàn vô nghĩa</b> trước cơn sốc phản vệ và phù nề thanh quản!
             </div>
             <div class="btns">
-              <button class="btn undo" onclick="triggerUndoModal(1)">
+              <button class="btn btn-undo" onclick="triggerUndoModal(1)">
                 ⏪ Hoàn tác hủy đơn thuốc (trong 5 phút)
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(15, 'Can thiệp đơn tự bán')">
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(15, 'Can thiệp đơn tự bán')">
                 👨‍⚕️ Gặp Dược sĩ khẩn cấp để can thiệp
               </button>
             </div>
@@ -2111,10 +2251,10 @@
 
               ${handoffStep === 2 ? `
                 <div class="btns">
-                  <button class="btn danger" onclick="selectPharmaAction('baby_emergency')">
+                  <button class="btn btn-emergency" onclick="selectPharmaAction('baby_emergency')">
                     🚨 Báo Dược sĩ: Bé CÓ thở rút lõm ngực / Li bì khó đánh thức
                   </button>
-                  <button class="btn out" onclick="selectPharmaAction('baby_stable')">
+                  <button class="btn btn-stable" onclick="selectPharmaAction('baby_stable')">
                     👶 Báo Dược sĩ: Bé KHÔNG rút lõm ngực, vẫn tỉnh táo và bú được
                   </button>
                   <button class="btn out" style="color:var(--mut); font-size:11.5px; border-style:dashed;" onclick="resetSim()">
@@ -2175,10 +2315,10 @@
                 2. <b>CẤM ÉP UỐNG NƯỚC HOẶC THUỐC</b> (tránh sặc vào phế quản gây ngưng thở).<br>
                 3. Đưa bé ngay đến Khoa Cấp cứu Bệnh viện Nhi Đồng 1 hoặc Nhi Đồng 2 gần nhất!</p>
                 <div class="btns">
-                  <button class="btn danger" style="font-size:13.5px; padding:11px;" onclick="openModal('🏥 ĐƯỜNG ĐI CẤP CỨU NHANH NHẤT', 'Bệnh viện Nhi Đồng 1 (341 Sư Vạn Hạnh, Q.10) - Cách bạn 2.3km (khoảng 6 phút di chuyển). Phòng cấp cứu Nhi đang mở cửa 24/7. Vui lòng gọi xe đưa bé đi ngay!')">
+                  <button class="btn btn-hospital" style="font-size:13.5px; padding:11px;" onclick="openModal('🏥 ĐƯỜNG ĐI CẤP CỨU NHANH NHẤT', 'Bệnh viện Nhi Đồng 1 (341 Sư Vạn Hạnh, Q.10) - Cách bạn 2.3km (khoảng 6 phút di chuyển). Phòng cấp cứu Nhi đang mở cửa 24/7. Vui lòng gọi xe đưa bé đi ngay!')">
                     🏥 Mở bản đồ chỉ đường khẩn cấp tới BV Nhi Đồng 1 (2.3km)
                   </button>
-                  <button class="btn pri" style="background:#b91c1c;" onclick="openModal('🚨 KẾT NỐI 115', 'Đang kết nối Tổng đài Cấp cứu 115 xe chuyên dụng Nhi sơ sinh... Vui lòng giữ máy!')">
+                  <button class="btn btn-call115" style="font-size:13.5px; padding:11px;" onclick="openModal('🚨 KẾT NỐI 115', 'Đang kết nối Tổng đài Cấp cứu 115 xe chuyên dụng Nhi sơ sinh... Vui lòng giữ máy!')">
                     📞 Gọi Cấp cứu 115 xe chuyên dụng Nhi sơ sinh
                   </button>
                   <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
@@ -2241,7 +2381,7 @@
               <button class="btn danger" onclick="openModal('🏥 ĐỊNH VỊ BỆNH VIỆN NHI', 'Danh sách Bệnh viện Nhi Đồng 1, Nhi Đồng 2 và các phòng cấp cứu mở cửa 24/7 gần nhất. Vui lòng đưa bé đi ngay!')">
                 🏥 Mở bản đồ tìm Bệnh viện Nhi gần nhất
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(10, 'P0 Nguy kịch Nhi')">
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(10, 'P0 Nguy kịch Nhi')">
                 <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ Nhi tư vấn khẩn cấp
               </button>
             </div>
@@ -2273,10 +2413,10 @@
             </div>
 
             <div class="btns">
-              <button class="btn danger" onclick="triggerHandoffDirectAction('baby_emergency')">
+              <button class="btn btn-emergency" onclick="triggerHandoffDirectAction('baby_emergency')">
                 🚨 Báo nguy kịch: Bé CÓ thở rút lõm ngực / Li bì khó đánh thức
               </button>
-              <button class="btn pri" onclick="triggerHandoffDirectAction('baby_stable')">
+              <button class="btn btn-stable" onclick="triggerHandoffDirectAction('baby_stable')">
                 ✅ Xác nhận: Bé KHÔNG rút lõm ngực, vẫn bú được
               </button>
               <button class="btn pharmacist" onclick="triggerHandoff(10, 'P0 Nguy kịch Nhi')">
@@ -2307,10 +2447,10 @@
               Trẻ sơ sinh gan thận chưa phát triển. Nếu mẹ lỡ cho bé uống kháng sinh chia mò hoặc siro quá liều gây suy gan thận cấp hoặc co thắt ngừng thở, nút "Hoàn tác" trên màn hình điện thoại <b>không thể rút thuốc ra khỏi dạ dày và máu của bé sơ sinh</b>!
             </div>
             <div class="btns">
-              <button class="btn undo" onclick="triggerUndoModal(2)">
+              <button class="btn btn-undo" onclick="triggerUndoModal(2)">
                 ⏪ Hoàn tác hủy đơn siro & kháng sinh (trong 5 phút)
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(10, 'Can thiệp đơn tự bán Nhi')">
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(10, 'Can thiệp đơn tự bán Nhi')">
                 👨‍⚕️ Gặp Dược sĩ Nhi khẩn cấp để can thiệp
               </button>
             </div>
@@ -2376,13 +2516,13 @@
               <span class="n">3</span> <b>Vì sao không nên đoán mò?</b> Nếu tự suy đoán là người lớn và gợi ý thuốc liều cao, nhưng người uống thực tế là trẻ 8 tháng tuổi thì sẽ gây ngộ độc gan cấp tính; hoặc nếu là sốt xuất huyết mà uống nhầm Ibuprofen sẽ gây xuất huyết nội tạng ồ ạt.
             </div>
             <div class="btns">
-              <button class="btn pri" onclick="alert('✅ Đã xác nhận đối tượng: Người lớn (> 18 tuổi).\\nHệ thống tiếp tục hỏi: Bạn có sốt cao trên 38.5°C hoặc có bệnh nền gan/thận không?')">
+              <button class="btn btn-adult" onclick="alert('✅ Đã xác nhận đối tượng: Người lớn (> 18 tuổi).\\nHệ thống tiếp tục hỏi: Bạn có sốt cao trên 38.5°C hoặc có bệnh nền gan/thận không?')">
                 ✅ Xác nhận: Thuốc dùng cho Người lớn (&gt; 18 tuổi)
               </button>
-              <button class="btn pri" onclick="alert('🚨 Đã xác nhận đối tượng: Trẻ nhỏ (< 6 tuổi).\\nHệ thống lập tức kích hoạt luồng bảo vệ an toàn Nhi khoa và kết nối Dược sĩ!')">
+              <button class="btn btn-child" onclick="alert('🚨 Đã xác nhận đối tượng: Trẻ nhỏ (< 6 tuổi).\\nHệ thống lập tức kích hoạt luồng bảo vệ an toàn Nhi khoa và kết nối Dược sĩ!')">
                 ✅ Xác nhận: Thuốc dùng cho Trẻ nhỏ (&lt; 6 tuổi)
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(20, 'Sàng lọc cộc lốc')">
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(20, 'Sàng lọc cộc lốc')">
                 <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ trực tiếp sàng lọc ca bệnh
               </button>
             </div>
@@ -2474,13 +2614,13 @@
             2. Bấm gọi ngay Cấp cứu 115 và mở cửa nhà để nhân viên y tế tiếp cận kịp thời!
           </div>
           <div class="btns">
-            <button class="btn danger" style="padding:12px; font-size:14px; font-weight:800;" onclick="openModal('🚨 CẤP CỨU 115 - NHỒI MÁU CƠ TIM CẤP', 'Đang kết nối trung tâm cấp cứu 115 gần nhất... Xe cấp cứu chuyên dụng có máy sốc tim đang được định vị tới địa chỉ của bạn!')">
+            <button class="btn btn-call115" style="padding:12px; font-size:14px; font-weight:800;" onclick="openModal('🚨 CẤP CỨU 115 - NHỒI MÁU CƠ TIM CẤP', 'Đang kết nối trung tâm cấp cứu 115 gần nhất... Xe cấp cứu chuyên dụng có máy sốc tim đang được định vị tới địa chỉ của bạn!')">
               🚨 BẤM ĐỂ GỌI CẤP CỨU 115 NGAY LẬP TỨC
             </button>
-            <button class="btn pri" onclick="alert('✅ Đã gửi tọa độ GPS và thông báo khẩn cấp: \'Đang đau tức ngực khó thở nghi ngờ nhồi máu cơ tim, cần hỗ trợ gấp!\' đến 2 số điện thoại người thân.')">
+            <button class="btn btn-emergency" onclick="alert('✅ Đã gửi tọa độ GPS và thông báo khẩn cấp: \'Đang đau tức ngực khó thở nghi ngờ nhồi máu cơ tim, cần hỗ trợ gấp!\' đến 2 số điện thoại người thân.')">
               <span class="n">6</span>📍 Xác nhận gửi định vị khẩn cấp cho người thân
             </button>
-            <button class="btn pharmacist" onclick="alert('Đang kết nối Dược sĩ trực cấp cứu... Dược sĩ: \'Bạn hãy giữ nguyên tư thế ngồi tựa lưng, thả lỏng cơ thể, thở chậm sâu và không di chuyển nhé. Xe 115 đang trên đường đến!\'')">
+            <button class="btn btn-pharma-direct" onclick="alert('Đang kết nối Dược sĩ trực cấp cứu... Dược sĩ: \'Bạn hãy giữ nguyên tư thế ngồi tựa lưng, thả lỏng cơ thể, thở chậm sâu và không di chuyển nhé. Xe 115 đang trên đường đến!\'')">
               👨‍⚕️ Giữ máy kết nối Dược sĩ hướng dẫn sơ cứu trong khi đợi xe 115
             </button>
           </div>
@@ -2507,13 +2647,13 @@
             <span class="n">2</span> <b>Vì sao AI tự xử lý ở ca này?</b> Nước muối sinh lý là vật tư y tế thông thường không kê đơn, không có độc tính dược lý. Hệ thống tự động phục vụ tức thì trong 2 giây giúp bạn nhận hàng ngay mà không cần chờ Dược sĩ duyệt.
           </div>
           <div class="btns">
-            <button class="btn pri" onclick="alert('✅ Đã xác nhận: Đặt giữ 1 chai Nước muối sinh lý tại Pharmacity 128 Hai Bà Trưng. Hàng được giữ riêng cho bạn trong 24h!')">
+            <button class="btn btn-pri" onclick="alert('✅ Đã xác nhận: Đặt giữ 1 chai Nước muối sinh lý tại Pharmacity 128 Hai Bà Trưng. Hàng được giữ riêng cho bạn trong 24h!')">
               ✅ Xác nhận đặt giữ hàng tại nhà thuốc (2 giây)
             </button>
-            <button class="btn undo" onclick="alert('⏪ Đã hoàn tác: Hủy đơn đặt giữ hàng thành công trong 1 chạm. Kho thuốc đã tự động cập nhật lại số lượng.')">
+            <button class="btn btn-undo" onclick="alert('⏪ Đã hoàn tác: Hủy đơn đặt giữ hàng thành công trong 1 chạm. Kho thuốc đã tự động cập nhật lại số lượng.')">
               ⏪ Hoàn tác hủy giữ hàng
             </button>
-            <button class="btn pharmacist" onclick="alert('Đang kết nối Dược sĩ tại chi nhánh 128 Hai Bà Trưng...')">
+            <button class="btn btn-saline" onclick="alert('Đang kết nối Dược sĩ tại chi nhánh 128 Hai Bà Trưng...')">
               👨‍⚕️ Gặp Dược sĩ chi nhánh nếu cần hỏi thêm
             </button>
           </div>
@@ -2530,6 +2670,16 @@
       2: '<b>"Tự chủ phân tầng: Cứu nạn khẩn cấp thì AI tự làm ngay; bán thuốc uống thì Dược sĩ thẩm định; ca nguy hiểm thì CẤM bán để giữ mạng sống."</b> Khách bình thường mua nhanh, ca hiểm được bảo vệ an toàn. <b>(Mức nhóm chọn)</b>.',
       3: '<b>"AI tự làm mọi thứ để bán hàng nhanh nhất."</b> Trải nghiệm chốt đơn cực nhanh nhưng cực kỳ vô trách nhiệm trong y tế: bán nhầm thuốc cho người dị ứng hoặc trẻ sơ sinh là dẫn đến tử vong tức thì.'
     };
+    const pillData = {
+      1: { text: 'Mức ① Cấm hoàn toàn', cls: 'p-no' },
+      2: { text: 'Mức ② Cần duyệt (Chọn) ⭐', cls: 'p-ask' },
+      3: { text: 'Mức ③ Tự làm ⚠️', cls: 'p-auto' }
+    }[currentLevel];
+    const pill = $('#promise-level-pill');
+    if (pill && pillData) {
+      pill.textContent = pillData.text;
+      pill.className = 'pill ' + pillData.cls;
+    }
     $('#promise-text').innerHTML = P[currentLevel];
   }
 
