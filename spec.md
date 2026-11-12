@@ -3,9 +3,9 @@
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| Mai Lâm Tấn Đạt | 2A202603645 |  |
-| Nguyễn Thuỳ Lam | 2A202603632 |  |
-| Nguyễn Trần Tú Trân | 2A202603603 |  |
+| Mai Lâm Tấn Đạt | 2A202603645 | Chốt 10 kịch bản rủi ro và 2 kịch bản đắt nhất (§2), lập ma trận mức tự chủ 8 tool (§4) |
+| Nguyễn Thuỳ Lam | 2A202603632 | Xác định phạm vi & lát cắt (§1) & UX hội thoại khi AI sai (§3) — mảng trải nghiệm người dùng & HAX/PAIR. |
+| Nguyễn Trần Tú Trân | 2A202603603 | Phụ trách Prototype & Nghiệm thu/Demo (§5, §6, §7) — mảng hiện thực hóa giao diện & dẫn dắt demo. |
 
 
 ## §1. Lát cắt & phạm vi
