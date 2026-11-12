@@ -6,10 +6,10 @@
 
 ```markdown
 # Bài nộp LAB5 — Track : Healthcare · Nhóm: DTL
-[Danh sách thành viên và việc mỗi người làm — copy bảng từ README]
-- Thành viên 1: Nguyễn Thùy Lam - 2A202603632
-- Thành viên 2:
-- Thành viên 3: 
+| Họ và Tên | Mã Học Viên | Việc đã làm |
+|---|---|---|
+| Nguyễn Thùy Lam | 2A202603632 | Tham gia thảo luận, làm việc với nhóm ở mọi chặng|
+|  |  |  |
 
 ## §1. Lát cắt & phạm vi
 
