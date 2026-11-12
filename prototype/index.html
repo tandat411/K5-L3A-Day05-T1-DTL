@@ -1051,6 +1051,263 @@
     }
     .modal h3 { margin: 0 0 10px; color: var(--r); font-size: 17px; }
     .modal p { font-size: 13.5px; color: #334155; line-height: 1.6; white-space: pre-line; }
+  
+    /* === OPTION A: PHONE SUB-DOCKS & NATURAL CHAT & REALTIME TIMER === */
+    .phone-column-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .phone {
+      position: relative;
+      overflow: hidden;
+      height: 640px !important;
+    }
+    .subdock-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      font-size: 12px;
+      line-height: 1.5;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+    .subdock-card h3 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.2px;
+    }
+    .subdock-danger {
+      border: 1.5px solid #fecaca;
+      background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+    }
+    .subdock-danger h3 {
+      color: #991b1b;
+    }
+    .subdock-safety {
+      border: 1.5px solid #bae6fd;
+      background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    }
+    .subdock-safety h3 {
+      color: #0369a1;
+    }
+    .subdock-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .subdock-item {
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .subdock-item.highlight-danger {
+      background: #fef2f2;
+      border-color: #fca5a5;
+    }
+    .subdock-item.highlight-safety {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+    .subdock-label {
+      font-weight: 800;
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11.5px;
+    }
+    .subdock-label.danger-label {
+      color: #b91c1c;
+    }
+    .subdock-label.safety-label {
+      color: #15803d;
+    }
+
+    /* Prompt Chips (Gợi ý câu hỏi tình huống) */
+    .prompt-chips-wrap {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 14px;
+    }
+    .prompt-chips-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .prompt-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .prompt-chip {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 7px 10px;
+      font-size: 12px;
+      color: #1e293b;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.35;
+      text-align: left;
+    }
+    .prompt-chip:hover {
+      border-color: var(--primary);
+      background: #eff6ff;
+      color: var(--primary-dark);
+      transform: translateX(2px);
+    }
+    .prompt-chip.main-chip {
+      border-left: 3px solid var(--primary);
+      font-weight: 600;
+    }
+    .prompt-chip.danger-chip {
+      border-left: 3px solid #dc2626;
+      font-weight: 600;
+    }
+
+    /* Real-time Countdown Timer Bar */
+    .realtime-timer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border: 1.5px solid #93c5fd;
+      border-radius: 12px;
+      padding: 7px 12px;
+      margin: 8px 0;
+      font-size: 12px;
+      color: #1e40af;
+      box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08);
+    }
+    .realtime-timer-bar .timer-countdown {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 800;
+      font-size: 13.5px;
+      color: #dc2626;
+      background: #ffffff;
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid #fca5a5;
+      margin-left: 6px;
+      display: inline-block;
+      min-width: 48px;
+      text-align: center;
+    }
+    .bubble-time {
+      font-size: 10px;
+      font-weight: normal;
+      color: #94a3b8;
+      margin-left: 6px;
+    }
+
+    /* In-Phone Bottom Sheet */
+    .in-phone-sheet-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: 26px;
+      animation: fadeIn 0.2s ease;
+    }
+    .in-phone-sheet-card {
+      background: #ffffff;
+      border-radius: 20px 20px 24px 24px;
+      padding: 16px;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.18);
+      animation: slideUpSheet 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 85%;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    @keyframes slideUpSheet {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      font-size: 13px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 10px;
+    }
+    .sheet-header.danger-sheet {
+      color: #dc2626;
+    }
+    .sheet-header.success-sheet {
+      color: #15803d;
+    }
+    .sheet-close-btn {
+      background: #f1f5f9;
+      border: none;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+    }
+    .sheet-close-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .sheet-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      margin-bottom: 6px;
+    }
+    .sheet-store-info {
+      font-size: 11.5px;
+      color: #64748b;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+    }
+    .sheet-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      margin: 6px 0;
+    }
+    .sheet-badge.shipping {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
+    .sheet-badge.approved {
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
   </style>
 </head>
 <body>
@@ -1152,68 +1409,86 @@
   </section>
 
   <!-- Column 2: Phone Simulator - AI Chưa Thiết Kế -->
-  <section class="phone phone-naive">
-    <div class="phone-bar-naive">
-      <div style="display:flex; align-items:center; gap:6px;">
-        <span style="background:#fee2e2; color:#991b1b; font-size:10.5px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #fecaca;">⚠️ BASELINE</span>
-        <b>Chatbot Ngây Thơ (Chưa Có Rào Chắn)</b>
+  <div class="phone-column-wrap">
+    <section class="phone phone-naive">
+      <div class="phone-bar-naive">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="background:#fee2e2; color:#991b1b; font-size:10.5px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #fecaca;">⚠️ BASELINE</span>
+          <b>Chatbot Tự Động (Chưa Thiết Kế)</b>
+        </div>
+        <span style="font-weight:800; color:#dc2626; font-size:11px;">GẶP LỖI LÂM SÀNG</span>
       </div>
-      <span style="font-weight:800; color:#dc2626; font-size:11px;">GẶP LỖI & RỦI RO</span>
-    </div>
-    <div class="chat" id="chat-naive">
-      <!-- Dynamic naive chat -->
-    </div>
-    <div class="phone-footer-naive">
-      💥 Mô phỏng chatbot ngây thơ: Bị bẫy từ khóa, tự ý kê đơn, kích hoạt chuỗi tác hại sinh học (Harm Chain).
-    </div>
-  </section>
+      <div class="chat" id="chat-naive">
+        <!-- Pure natural chat -->
+      </div>
+      <!-- In-phone sheet for naive phone -->
+      <div id="naive-order-sheet" style="display:none;"></div>
+      <div class="phone-footer-naive">
+        ⚠️ Chatbot ngây thơ: Chốt đơn nhanh theo từ khóa, bỏ qua tiền sử dị ứng & rủi ro tử vong.
+      </div>
+    </section>
 
-  <!-- Column 3: Phone Simulator - AI Đã Siết Lại -->
-  <section class="phone phone-guarded">
-    <div class="phone-bar-guarded">
-      <div style="display:flex; align-items:center; gap:8px;">
-        <svg width="22" height="22" viewBox="0 0 34 34" fill="none">
-          <rect x="2" y="10" width="13" height="13" rx="3.5" fill="#00a859"/>
-          <rect x="17" y="10" width="13" height="13" rx="3.5" fill="#0072ce"/>
-          <rect x="9.5" y="2.5" width="13" height="13" rx="3.5" fill="#00a859"/>
-          <rect x="9.5" y="17.5" width="13" height="13" rx="3.5" fill="#0072ce"/>
-          <circle cx="16" cy="16.5" r="4" fill="#ffffff"/>
-        </svg>
-        <div>
-          <div style="font-size: 12.5px; font-weight: 800; color: #0072ce; line-height: 1.15;">
-            Pharmacity <span style="color:#00a859;">Care</span>
-          </div>
-          <div style="font-size: 10px; color: #166534; font-weight: 600;">
-            Dược sĩ Trực tuyến 24/7 🟢
+    <!-- Sub-dock Giải Phẫu Lỗi Lâm Sàng (Nằm ngoài khung chat) -->
+    <div class="subdock-card subdock-danger" id="subdock-naive">
+      <!-- Dynamic Naive Diagnostic Analysis -->
+    </div>
+  </div>
+
+  <!-- Column 3: Phone Simulator - AI Đã Thiết Kế Chuẩn Y Khoa -->
+  <div class="phone-column-wrap">
+    <section class="phone phone-guarded">
+      <div class="phone-bar-guarded">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="22" height="22" viewBox="0 0 34 34" fill="none">
+            <rect x="2" y="10" width="13" height="13" rx="3.5" fill="#00a859"/>
+            <rect x="17" y="10" width="13" height="13" rx="3.5" fill="#0072ce"/>
+            <rect x="9.5" y="2.5" width="13" height="13" rx="3.5" fill="#00a859"/>
+            <rect x="9.5" y="17.5" width="13" height="13" rx="3.5" fill="#0072ce"/>
+            <circle cx="16" cy="16.5" r="4" fill="#ffffff"/>
+          </svg>
+          <div>
+            <div style="font-size: 12.5px; font-weight: 800; color: #0072ce; line-height: 1.15;">
+              Pharmacity <span style="color:#00a859;">Care</span>
+            </div>
+            <div style="font-size: 10px; color: #166534; font-weight: 600;">
+              Trợ lý Dược số 24/7 🟢
+            </div>
           </div>
         </div>
-      </div>
-      <div style="display:flex; align-items:center; gap:6px;">
-        <div class="level-mini-group">
-          <button id="mini-l1" onclick="switchLevel(1)" title="Mức 1: Cấm AI gợi ý thuốc">① Cấm</button>
-          <button id="mini-l2" class="on" onclick="switchLevel(2)" title="Mức 2: Tự chủ phân tầng / Cần duyệt (Chọn ⭐)">② Duyệt ⭐</button>
-          <button id="mini-l3" onclick="switchLevel(3)" title="Mức 3: AI tự bán (Nguy hiểm)">③ Tự bán</button>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div class="level-mini-group">
+            <button id="mini-l1" onclick="switchLevel(1)" title="Mức 1: Cấm AI gợi ý thuốc">① Cấm</button>
+            <button id="mini-l2" class="on" onclick="switchLevel(2)" title="Mức 2: Cần duyệt (Chọn ⭐)">② Duyệt ⭐</button>
+            <button id="mini-l3" onclick="switchLevel(3)" title="Mức 3: AI tự bán (Nguy hiểm)">③ Tự bán</button>
+          </div>
+          <button class="btn-replay" onclick="resetSim(true)" title="Mô phỏng lại từ đầu">🔄</button>
         </div>
-        <button class="btn-replay" onclick="replaySimulation()" title="Mô phỏng gửi lại tin nhắn">🔄</button>
       </div>
+      <div class="chat" id="chat-guarded">
+        <!-- Pure natural guarded chat + suggestion chips + realtime countdown -->
+      </div>
+      <!-- In-phone sheet for guarded phone -->
+      <div id="guarded-order-sheet" style="display:none;"></div>
+      <div class="phone-footer">
+        <div id="attach-preview" class="attach-preview" style="display:none;">
+          <span class="attach-chip">📷 1 ảnh triệu chứng đính kèm (case2_user_upload.png)</span>
+        </div>
+        <div class="input-row">
+          <input type="text" id="phone-input" class="phone-input" placeholder="Nhập câu hỏi hoặc bấm thẻ gợi ý bên trên..." onkeydown="if(event.key==='Enter') sendUserMessage()">
+          <button id="phone-send-btn" class="phone-send pulse" onclick="sendUserMessage()" title="Nhấn để gửi tin nhắn đến chatbot">➤</button>
+        </div>
+        <div class="input-hint">
+          <span id="input-status-text">👉 Bấm thẻ gợi ý hoặc nút [➤ Gửi] để bắt đầu hỏi đáp</span>
+          <span>Phản hồi: ~0.8s</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-dock Rào Chắn An Toàn AI (HAX & PAIR Compliance) -->
+    <div class="subdock-card subdock-safety" id="subdock-guarded">
+      <!-- Dynamic AI Safety Rationale -->
     </div>
-    <div class="chat" id="chat-guarded">
-      <!-- Dynamic guarded chat -->
-    </div>
-    <div class="phone-footer">
-      <div id="attach-preview" class="attach-preview" style="display:none;">
-        <span class="attach-chip">📷 1 ảnh triệu chứng đính kèm (case2_user_upload.png)</span>
-      </div>
-      <div class="input-row">
-        <input type="text" id="phone-input" class="phone-input" placeholder="Nhập câu hỏi... hoặc bấm nút gửi bên cạnh" onkeydown="if(event.key==='Enter') sendUserMessage()">
-        <button id="phone-send-btn" class="phone-send pulse" onclick="sendUserMessage()" title="Nhấn để gửi tin nhắn đến chatbot">➤</button>
-      </div>
-      <div class="input-hint">
-        <span id="input-status-text">👉 Bấm nút [➤ Gửi] để bắt đầu hỏi đáp cả 2 máy</span>
-        <span>Phản hồi: ~0.8s</span>
-      </div>
-    </div>
-  </section>
+  </div>
 </main>
 
 <!-- Bottom Master Deck: Lời hứa, Bảng 5 Tools & Chú thích HAX/PAIR chuẩn index mẫu của giảng viên -->
@@ -1510,6 +1785,12 @@
     chatState = 'normal';
     handoffStep = 0;
     handoffActionKey = null;
+    msgSent = false;
+    isAiThinking = false;
+    stopRealtimeTimer();
+    hideNaiveOrderSheet();
+    hideGuardedOrderSheet();
+    if (aiThinkTimer) clearTimeout(aiThinkTimer);
     if (handoffTimer) clearTimeout(handoffTimer);
     if (typingTimer) clearTimeout(typingTimer);
     if (reRender) {
@@ -1731,10 +2012,306 @@
     renderCaseBrief();
     renderNaiveChat();
     renderGuardedChat();
+    renderSubdocks();
     renderPromise();
     renderToolsTable();
     renderAnnotations();
     updateInputField();
+  }
+
+  
+  let realtimeTimerInterval = null;
+  let realtimeCountdownSec = 30;
+
+  function stopRealtimeTimer() {
+    if (realtimeTimerInterval) {
+      clearInterval(realtimeTimerInterval);
+      realtimeTimerInterval = null;
+    }
+  }
+
+  function startRealtimeTimer(seconds, onComplete) {
+    stopRealtimeTimer();
+    realtimeCountdownSec = seconds;
+    updateTimerDisplay();
+    realtimeTimerInterval = setInterval(() => {
+      realtimeCountdownSec--;
+      updateTimerDisplay();
+      if (realtimeCountdownSec <= 0) {
+        stopRealtimeTimer();
+        if (onComplete) onComplete();
+      }
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    const el = document.getElementById('timer-val');
+    if (el) {
+      const s = realtimeCountdownSec;
+      el.textContent = '00:' + (s < 10 ? '0' : '') + s;
+    }
+  }
+
+  function triggerPromptChip(text, caseId) {
+    if (caseId && caseId !== currentCase) {
+      currentCase = caseId;
+    }
+    const input = document.getElementById('phone-input');
+    if (input) input.value = text;
+    sendUserMessage();
+  }
+
+  function showNaiveOrderSheet() {
+    const sheetEl = document.getElementById('naive-order-sheet');
+    if (!sheetEl) return;
+
+    const data = {
+      1: {
+        title: 'ĐƠN HÀNG GIAO SIÊU TỐC (15 PHÚT)',
+        item: 'Viên ngậm Strepsils Cool + Hapacol 500mg',
+        price: '55.000đ',
+        store: 'Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1',
+        warning: '⚠️ BẪY TỬ VONG SINH HỌC: Đơn thuốc đang trên đường giao! Người bệnh uống vào bị sốc phản vệ độ 3 phù thanh quản tử vong trong 15-30 phút. Nút Hoàn tác trên màn hình lúc này HOÀN TOÀN VÔ NGHĨA!'
+      },
+      2: {
+        title: 'ĐƠN THUỐC NHI GIAO NHANH (15 PHÚT)',
+        item: 'Siro Hapacol + Gói bột kháng sinh Clamoxyl 250mg',
+        price: '75.000đ',
+        store: 'Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1',
+        warning: '⚠️ BẪY TỬ VONG NHI KHOA: Kháng sinh chia liều mò và siro hạ sốt đang giao tới. Bé 8 tháng uống vào bị suy gan thận cấp hoặc co thắt ngưng thở!'
+      },
+      3: {
+        title: 'ĐƠN HÀNG COMBO CẢM SỐT NGƯỜI LỚN',
+        item: 'Paracetamol 500mg + Siro Prospan + Loratadine',
+        price: '85.000đ',
+        store: 'Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1',
+        warning: '⚠️ NGUY CƠ NGỘ ĐỘC: Khách nhắn cộc lốc, bot tự kê liều người lớn. Nếu người uống là trẻ em hoặc bệnh nhân sốt xuất huyết thì xuất huyết nội tạng ồ ạt!'
+      },
+      4: {
+        title: 'ĐƠN THUỐC HƯỚNG THẦN SEDUXEN',
+        item: 'Seduxen (Diazepam 5mg) - 2 vỉ',
+        price: '60.000đ',
+        store: 'Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1',
+        warning: '⚠️ VI PHẠM HÌNH SỰ: Bán thuốc hướng thần gây nghiện kê đơn qua mạng vi phạm nghiêm trọng Luật Dược và Bộ luật Hình sự!'
+      },
+      5: {
+        title: 'ĐƠN VIÊN SỦI BỔ TIM COQ10',
+        item: 'Viên sủi bổ tim mạch CoQ10',
+        price: '120.000đ',
+        store: 'Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1',
+        warning: '⚠️ LỠ GIỜ VÀNG CẤP CỨU: Người bệnh đang nhồi máu cơ tim cấp, nằm đợi shipper giao sủi bổ tim dẫn đến ngừng tim tử vong tại nhà!'
+      },
+      6: {
+        title: 'PHIẾU ĐẶT GIỮ HÀNG TẠI NHÀ THUỐC',
+        item: 'Nước muối sinh lý Natri Clorid 0.9% (500ml)',
+        price: '8.000đ',
+        store: 'Pharmacity 128 Hai Bà Trưng, P. Đa Kao, Q.1',
+        warning: '✅ AN TOÀN: Vật tư y tế thông thường không độc tính, giữ hàng 24h.'
+      }
+    }[currentCase] || {
+      title: 'ĐƠN HÀNG MÔ PHỎNG',
+      item: 'Sản phẩm thuốc',
+      price: '50.000đ',
+      store: 'Pharmacity 128 Hai Bà Trưng',
+      warning: 'Mô phỏng đơn hàng'
+    };
+
+    sheetEl.innerHTML = `
+      <div class="in-phone-sheet-backdrop" onclick="hideNaiveOrderSheet()">
+        <div class="in-phone-sheet-card" onclick="event.stopPropagation()">
+          <div class="sheet-header danger-sheet">
+            <span>📦 ${data.title}</span>
+            <button class="sheet-close-btn" onclick="hideNaiveOrderSheet()">✕</button>
+          </div>
+          <div class="sheet-store-info">📍 Xuất kho: ${data.store}</div>
+          <div class="sheet-row">
+            <b>${data.item}</b>
+            <span style="color:#b91c1c; font-weight:800;">${data.price}</span>
+          </div>
+          <div class="sheet-badge shipping">🚚 Shipper nhận hàng · Đang giao (12 phút)</div>
+          <div class="box danger" style="margin:10px 0 6px; font-size:12px; line-height:1.45;">
+            ${data.warning}
+          </div>
+          <button class="btn btn-emergency" style="width:100%; margin-top:8px;" onclick="hideNaiveOrderSheet()">
+            ✕ Đóng màn hình đơn hàng
+          </button>
+        </div>
+      </div>
+    `;
+    sheetEl.style.display = 'block';
+  }
+
+  function hideNaiveOrderSheet() {
+    const sheetEl = document.getElementById('naive-order-sheet');
+    if (sheetEl) sheetEl.style.display = 'none';
+  }
+
+  function showGuardedOrderSheet() {
+    const sheetEl = document.getElementById('guarded-order-sheet');
+    if (!sheetEl) return;
+
+    sheetEl.innerHTML = `
+      <div class="in-phone-sheet-backdrop" onclick="hideGuardedOrderSheet()">
+        <div class="in-phone-sheet-card" onclick="event.stopPropagation()">
+          <div class="sheet-header success-sheet">
+            <span>✅ ĐƠN HÀNG ĐÃ DUYỆT BỞI DƯỢC SĨ</span>
+            <button class="sheet-close-btn" onclick="hideGuardedOrderSheet()">✕</button>
+          </div>
+          <div class="sheet-store-info">
+            📍 Xuất kho: Chi nhánh 128 Hai Bà Trưng, P. Đa Kao, Q.1<br>
+            👩‍⚕️ Dược sĩ thẩm định: <b>DS. Nguyễn Thảo (CCHN: 014829/HCM)</b>
+          </div>
+          <div class="sheet-row">
+            <b>Chai xịt họng Keo ong Propolis Thảo dược (30ml)</b>
+            <span style="color:#15803d; font-weight:800;">125.000đ</span>
+          </div>
+          <div class="sheet-badge approved">🌿 100% Tự nhiên · Không chứa Paracetamol / NSAID dị ứng</div>
+          <div class="box success" style="margin:8px 0 6px; font-size:12px; line-height:1.45;">
+            <b>🛡️ BẢO VỆ AN TOÀN TUYỆT ĐỐI:</b><br>
+            Hồ sơ y tế của bạn đã được gắn cờ cảnh báo dị ứng Decolgen/Clorpheniramin. Đơn thuốc thảo dược đã được kiểm duyệt an toàn, shipper giao trong 15 phút!
+          </div>
+          <button class="btn btn-pri" style="width:100%; margin-top:8px;" onclick="hideGuardedOrderSheet()">
+            ✕ Đóng xác nhận
+          </button>
+        </div>
+      </div>
+    `;
+    sheetEl.style.display = 'block';
+  }
+
+  function hideGuardedOrderSheet() {
+    const sheetEl = document.getElementById('guarded-order-sheet');
+    if (sheetEl) sheetEl.style.display = 'none';
+  }
+
+  function renderSubdocks() {
+    const naiveTarget = document.getElementById('subdock-naive');
+    const guardedTarget = document.getElementById('subdock-guarded');
+
+    const naiveData = {
+      1: {
+        title: '💥 GIẢI PHẪU ĐIỂM MÙ LÂM SÀNG & RỦI RO PHÁP LÝ (BASELINE)',
+        items: [
+          { label: '🔴 Điểm mù AI:', text: 'Bẫy từ khóa (Keyword Trapping) "đau họng" + mục tiêu bán hàng. AI hoàn toàn bỏ qua tiền sử "dị ứng thuốc cảm cũ" mà người bệnh đã khai báo.', danger: true },
+          { label: '💥 Chuỗi tác hại sinh học (Harm Chain):', text: 'Uống nhầm Paracetamol/NSAID gây sốc phản vệ độ 3, co thắt phù thanh môn nghẹt thở tử vong sau 15-30 phút. Thuốc nuốt vào dạ dày không thể đảo ngược!', danger: true },
+          { label: '⚖️ Trách nhiệm pháp lý:', text: 'Vi phạm Luật Dược 2016 & Thông tư 20/2017/TT-BYT về An toàn Cảnh giác Dược (Pharmacovigilance). Nhà thuốc chịu trách nhiệm hình sự.' }
+        ]
+      },
+      2: {
+        title: '💥 GIẢI PHẪU ĐIỂM MÙ LÂM SÀNG & RỦI RO PHÁP LÝ (BASELINE)',
+        items: [
+          { label: '🔴 Điểm mù AI:', text: 'Ảo giác thị giác (Vision Hallucination) chẩn đoán qua ảnh smartphone. Tự tiện bẻ đôi liều kháng sinh và chỉ định siro cho trẻ sơ sinh.', danger: true },
+          { label: '💥 Chuỗi tác hại sinh học (Harm Chain):', text: 'Trẻ 8 tháng thở khò khè là viêm tiểu phế quản co thắt. Uống thuốc mò gây suy gan thận cấp, ức chế hô hấp dẫn tới ngưng thở tử vong.', danger: true },
+          { label: '⚖️ Trách nhiệm pháp lý:', text: 'Vi phạm nghiêm trọng quy chế kê đơn thuốc cho trẻ dưới 72 tháng tuổi (Khoản 3 Điều 6 Luật Dược).' }
+        ]
+      },
+      3: {
+        title: '💥 GIẢI PHẪU ĐIỂM MÙ LÂM SÀNG & RỦI RO PHÁP LÝ (BASELINE)',
+        items: [
+          { label: '🔴 Điểm mù AI:', text: 'Tự suy diễn người lớn khi nhận tin nhắn cộc lốc ("sốt, ho, nổi đỏ"). Kê ngay combo Paracetamol 500mg.', danger: true },
+          { label: '💥 Chuỗi tác hại sinh học:', text: 'Nếu người bệnh thực tế là trẻ 8 tháng tuổi sẽ bị ngộ độc gan cấp tính; nếu là sốt xuất huyết uống nhầm Ibuprofen sẽ gây xuất huyết nội tạng ồ ạt.', danger: true },
+          { label: '⚖️ Pháp lý:', text: 'Tư vấn và bán thuốc khi chưa đủ thông tin người sử dụng.' }
+        ]
+      },
+      4: {
+        title: '💥 GIẢI PHẪU ĐIỂM MÙ LÂM SÀNG & RỦI RO PHÁP LÝ (BASELINE)',
+        items: [
+          { label: '🔴 Điểm mù AI:', text: 'Bán thuốc hướng thần gây nghiện Seduxen (Diazepam) qua tin nhắn tự động mà không có đơn thuốc của bác sĩ.', danger: true },
+          { label: '💥 Chuỗi tác hại sinh học:', text: 'Diazepam ức chế trung ương thần kinh, gây nghiện, lệ thuộc và suy hô hấp nếu dùng sai liều.', danger: true },
+          { label: '⚖️ Trách nhiệm pháp lý:', text: 'Hành vi bán thuốc hướng thần không đơn qua mạng là hành vi vi phạm pháp luật hình sự (Điều 314 BLHS).' }
+        ]
+      },
+      5: {
+        title: '💥 GIẢI PHẪU ĐIỂM MÙ LÂM SÀNG & RỦI RO PHÁP LÝ (BASELINE)',
+        items: [
+          { label: '🔴 Điểm mù AI:', text: 'Bán viên sủi bổ tim CoQ10 cho bệnh nhân đau thắt ngực khó thở vã mồ hôi.', danger: true },
+          { label: '💥 Chuỗi tác hại sinh học:', text: 'Người bệnh nằm chờ giao sủi bổ tim, bỏ lỡ "giờ vàng 60 phút" tái thông động mạch vành dẫn đến hoại tử cơ tim và đột tử tại nhà.', danger: true },
+          { label: '⚖️ Pháp lý:', text: 'Trì hoãn cấp cứu y tế khẩn cấp, vi phạm nghĩa vụ trợ giúp người đang trong tình trạng nguy hiểm tính mạng.' }
+        ]
+      },
+      6: {
+        title: '💥 GIẢI PHẪU ĐIỂM MÙ LÂM SÀNG & RỦI RO PHÁP LÝ (BASELINE)',
+        items: [
+          { label: '🟢 Điểm sáng:', text: 'Nước muối sinh lý là vật tư y tế thông thường, rủi ro y sinh bằng 0.' },
+          { label: '⚡ Hiệu năng:', text: 'Chatbot tự tra tồn kho và phục vụ nhanh trong 2 giây giúp giảm tải tối đa cho Dược sĩ.' }
+        ]
+      }
+    }[currentCase] || naiveData[1];
+
+    const guardedData = {
+      1: {
+        title: '🛡️ RÀO CHẮN AN TOÀN AI (HAX & PAIR COMPLIANCE)',
+        items: [
+          { label: '🛡️ HAX G10 · Thu hẹp phạm vi khi nghi ngờ:', text: 'Phát hiện tiền sử dị ứng thuốc cũ → Lập tức thu hẹp phạm vi từ "tư vấn bán thuốc" sang "sàng lọc cấp cứu khó thở/sốc phản vệ".', safety: true },
+          { label: '🔒 PAIR Graceful Failure · Khóa cứng UI (Hard Lock):', text: 'Tạm khóa hoàn toàn nút mua thuốc. Không thể lách qua câu chữ vì thuốc nuốt vào bụng là không thể hoàn tác!', safety: true },
+          { label: '👨‍⚕️ Human-in-the-loop · Handoff thần tốc 30s:', text: 'Trích xuất tóm tắt gửi Dược sĩ lâm sàng Nguyễn Thảo tiếp quản trong 30 giây. Bệnh nhân không phải kể lại từ đầu.', safety: true }
+        ]
+      },
+      2: {
+        title: '🛡️ RÀO CHẮN AN TOÀN AI (HAX & PAIR COMPLIANCE)',
+        items: [
+          { label: '🛡️ HAX G1 & G2 · Minh bạch giới hạn năng lực:', text: 'Tuyên bố minh bạch: AI KHÔNG đọc ảnh chẩn đoán bệnh, CẤM tự chia liều siro/kháng sinh cho trẻ nhỏ.', safety: true },
+          { label: '🚨 PAIR Graceful Failure · Hướng dẫn quan sát sinh tồn:', text: 'Hướng dẫn mẹ vạch áo quan sát thở rút lõm lồng ngực và mức độ tỉnh táo của bé ngay lập tức.', safety: true },
+          { label: '🚨 Human-in-the-loop P0 · Báo động đỏ Nhi khoa:', text: 'Phát chuông báo động P0 chuyển ngay Dược sĩ Chuyên khoa Nhi Trần Minh Tâm kèm nút định vị BV Nhi Đồng 1 & Cấp cứu 115.', safety: true }
+        ]
+      },
+      3: {
+        title: '🛡️ RÀO CHẮN AN TOÀN AI (HAX & PAIR COMPLIANCE)',
+        items: [
+          { label: '🛡️ HAX G10 · Phân luồng đối tượng bắt buộc:', text: 'Chặn đứng hành vi đoán mò. Yêu cầu làm rõ độ tuổi và tính chất sốt trước khi đề xuất bất kỳ can thiệp nào.', safety: true },
+          { label: '🎯 PAIR Grounding:', text: 'Giải thích rõ lý do vì sao cần hỏi tuổi: Thuốc người lớn sẽ gây ngộ độc gan cấp tính cho trẻ nhỏ.', safety: true }
+        ]
+      },
+      4: {
+        title: '🛡️ RÀO CHẮN AN TOÀN AI (HAX & PAIR COMPLIANCE)',
+        items: [
+          { label: '🔒 PAIR Hard Lock · Khóa cứng tầng hệ thống:', text: 'Seduxen (Diazepam) bị cấm bán tuyệt đối trên chat. Không cấp quyền API bán thuốc hướng thần.', safety: true },
+          { label: '🏥 HAX G8 · Điều hướng khám chuyên khoa:', text: 'Hướng dẫn người bệnh đến khám tại các chuyên khoa Tâm thần hoặc Trung tâm Giấc ngủ uy tín.', safety: true }
+        ]
+      },
+      5: {
+        title: '🛡️ RÀO CHẮN AN TOÀN AI (HAX & PAIR COMPLIANCE)',
+        items: [
+          { label: '🚨 Red Alert · Báo động đỏ Cấp cứu 115:', text: 'Phát hiện tam chứng nhồi máu cơ tim (đau thắt ngực + khó thở + vã mồ hôi). Từ chối bán mọi loại thuốc!', safety: true },
+          { label: '🚨 HAX G8 · Lối thoát hiểm khẩn cấp 1 chạm:', text: 'Cung cấp nút gọi Cấp cứu 115 xe chuyên dụng có máy sốc tim và nút gửi tọa độ GPS khẩn cấp cho người thân.', safety: true }
+        ]
+      },
+      6: {
+        title: '🛡️ RÀO CHẮN AN TOÀN AI (HAX & PAIR COMPLIANCE)',
+        items: [
+          { label: '⚡ Tự chủ hoàn toàn (Autonomous Level 4):', text: 'Vật tư y tế không kê đơn, rủi ro bằng 0. AI tự tra kho và tạo link đặt giữ hàng trong 2 giây mà không cần Dược sĩ duyệt.', safety: true },
+          { label: '⏪ HAX G9 · Hoàn tác 1 chạm:', text: 'Cho phép khách bấm Hoàn tác hủy giữ hàng bất kỳ lúc nào để nhả tồn kho cho khách khác.', safety: true }
+        ]
+      }
+    }[currentCase] || guardedData[1];
+
+    if (naiveTarget) {
+      naiveTarget.innerHTML = `
+        <h3>${naiveData.title}</h3>
+        <div class="subdock-grid">
+          ${naiveData.items.map(it => `
+            <div class="subdock-item ${it.danger ? 'highlight-danger' : ''}">
+              <span class="subdock-label ${it.danger ? 'danger-label' : ''}">${it.label}</span>
+              <div>${it.text}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    if (guardedTarget) {
+      guardedTarget.innerHTML = `
+        <h3>${guardedData.title}</h3>
+        <div class="subdock-grid">
+          ${guardedData.items.map(it => `
+            <div class="subdock-item ${it.safety ? 'highlight-safety' : ''}">
+              <span class="subdock-label ${it.safety ? 'safety-label' : ''}">${it.label}</span>
+              <div>${it.text}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
   }
 
   function renderNaiveChat() {
@@ -1743,39 +2320,73 @@
 
     let html = '';
     if (!msgSent) {
+      const naiveChips = {
+        1: [
+          { text: '💊 Đau rát họng, mua viên ngậm & hạ sốt', chipClass: 'danger-chip' },
+          { text: '🧂 Mua nước muối sinh lý giao nhanh 15p' }
+        ],
+        2: [
+          { text: '📷 Bé sốt nổi mẩn, gửi ảnh hỏi mua thuốc & chia liều', chipClass: 'danger-chip' },
+          { text: '👶 Mua siro hạ sốt Hapacol cho bé' }
+        ],
+        3: [
+          { text: '💬 Nhắn cộc lốc: sốt, ho, nổi đỏ', chipClass: 'danger-chip' }
+        ],
+        4: [
+          { text: '💊 Mua 2 vỉ Seduxen (Diazepam) trị mất ngủ', chipClass: 'danger-chip' }
+        ],
+        5: [
+          { text: '💔 Đau thắt ngực, mua viên sủi bổ tim CoQ10', chipClass: 'danger-chip' }
+        ],
+        6: [
+          { text: '🧂 Chi nhánh còn nước muối sinh lý 0.9% không?' }
+        ]
+      }[currentCase] || [];
+
       html = `
-        <div class="chat-intro-card" style="border-color:#fca5a5; background:#fff1f2;">
-          <div style="font-size: 28px; margin-bottom: 6px;">🤖</div>
-          <div style="font-weight: 800; font-size: 14px; color: #991b1b; margin-bottom: 4px;">
-            CHATBOT BASELINE (CHƯA THIẾT KẾ)
+        <div class="ai">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động (Pharmacity) <span class="bubble-time">23:28</span></div>
+          <p>Dạ Pharmacity xin chào! Em là chatbot tự động. Em có thể gợi ý thuốc giảm đau, hạ sốt và lên đơn giao siêu tốc 15 phút cho bạn!</p>
+        </div>
+        <div class="prompt-chips-wrap">
+          <div class="prompt-chips-title">💡 Gợi ý câu hỏi tình huống:</div>
+          <div class="prompt-chips">
+            ${naiveChips.map(c => `
+              <div class="prompt-chip ${c.chipClass || ''}" onclick="triggerPromptChip('${userQuestions[currentCase]}', ${currentCase})">
+                ${c.text}
+              </div>
+            `).join('')}
           </div>
-          <p style="font-size: 12px; color: #7f1d1d; margin: 0; line-height: 1.45;">
-            Mô phỏng phản hồi khi chatbot chưa có rào chắn HAX/PAIR.<br>
-            Bấm <b>[➤ Gửi]</b> ở cột bên phải để xem con bot ngây thơ này mắc lỗi lâm sàng ra sao.
-          </p>
         </div>
       `;
       container.innerHTML = html;
       return;
     }
 
+    // User message bubble
     if (currentCase === 2) {
       html += `
         <div class="me">
           <img src="case2_user_upload.png" class="me-img" alt="Ảnh triệu chứng phát ban vùng cổ và ngực">
           “${userQuestions[2]}”
+          <span class="bubble-time" style="color:#cbd5e1;">23:30</span>
         </div>
       `;
     } else {
-      html += `<div class="me">“${userQuestions[currentCase]}”</div>`;
+      html += `
+        <div class="me">
+          “${userQuestions[currentCase]}”
+          <span class="bubble-time" style="color:#cbd5e1;">23:30</span>
+        </div>
+      `;
     }
 
     if (isAiThinking) {
       html += `
         <div class="ai" style="animation: fadeInMsg 0.2s ease;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ</div>
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
           <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#475569; padding: 4px 0;">
-            <span>Đang tạo giỏ hàng...</span>
+            <span>Đang tạo giỏ hàng giao 15 phút...</span>
             <div class="typing-dots">
               <span class="typing-dot" style="background:#dc2626;"></span>
               <span class="typing-dot" style="background:#dc2626;"></span>
@@ -1788,127 +2399,129 @@
       return;
     }
 
-    let naiveContent = '';
+    // Pure Natural Naive Bot Response (NO error boxes in chat!)
     if (currentCase === 1) {
-      naiveContent = `
+      html += `
         <div class="ai" style="border-color:#fca5a5;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
-          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-          <p>Chào bạn, đau rát họng thường do viêm họng cấp hoặc thời tiết thay đổi. Bạn có thể dùng viên ngậm thảo dược giảm đau rát họng nhanh hoặc uống thuốc giảm đau hạ sốt Hapacol 500mg nhé. Mình gửi link giỏ hàng giao nhanh 15 phút bên dưới ạ:</p>
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
+          <p>Chào bạn, đau rát họng bạn nên dùng ngay viên ngậm Strepsils Cool giảm đau rát cổ họng nhanh và uống thêm hạ sốt giảm đau Hapacol 500mg nhé. Em đã lên sẵn đơn giao nhanh 15 phút cho bạn rồi ạ:</p>
           <div class="product-card" style="border-color:#fca5a5;">
             <div>
-              <b>Viên ngậm Strepsils Cool / Hapacol 500mg</b>
-              <small>Giảm đau họng nhanh chóng</small>
+              <b>Viên ngậm Strepsils Cool & Hapacol 500mg</b>
+              <small>Combo giảm đau rát họng siêu tốc</small>
             </div>
             <div>
-              <span class="price">38.000đ</span><br>
-              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã thêm vào giỏ hàng! (MÔ PHỎNG NGUY CƠ: Người bệnh uống vào bị sốc phản vệ cấp)')">Mua ngay</button>
+              <span class="price">55.000đ</span><br>
+              <button class="btn btn-emergency" style="padding:5px 12px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">
+                🛒 Đặt mua giao 15p
+              </button>
             </div>
           </div>
-          <div class="box danger" style="margin-top:10px;">
-            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (CONTEXT ERROR & HARM CHAIN):</b><br>
-            • <b>Bản chất lỗi:</b> AI bị bẫy từ khóa "đau họng" và mục tiêu bán hàng, bỏ qua hoàn toàn tiền sử "dị ứng thuốc cảm cũ".<br>
-            • <b>Hậu quả:</b> Bệnh nhân uống nhầm Paracetamol/NSAID bị sốc phản vệ độ 3, phù thanh môn, ngưng thở tử vong trong 15-30 phút. Thuốc nuốt vào bụng không thể hoàn tác!
+          <div style="font-size:11.5px; color:#64748b; margin-top:6px;">
+            🚚 Đơn hàng sẽ được gửi từ Pharmacity 128 Hai Bà Trưng. Bấm để xem phiếu giao hàng!
           </div>
         </div>
       `;
     } else if (currentCase === 2) {
-      naiveContent = `
+      html += `
         <div class="ai" style="border-color:#fca5a5;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
-          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
           <p>Dạ nhìn qua ảnh chụp vùng cổ ngực thì thấy bé bị phát ban do dị ứng thời tiết và họng hơi sưng đỏ cảm gió thôi mẹ nhé. Với siro hạ sốt Hapacol mẹ chia liều 2.5ml mỗi 4-6 tiếng, còn gói bột kháng sinh Clamoxyl 250mg mẹ chia nửa gói hòa nước cho bé uống nhé. Em lên sẵn đơn giao nhanh cho bé rồi ạ:</p>
           <div class="product-card" style="border-color:#fca5a5;">
             <div>
               <b>Gói bột kháng sinh Clamoxyl 250mg & Siro Hapacol</b>
-              <small>AI tự kê theo chẩn đoán ảnh</small>
+              <small>AI tự kê đơn qua ảnh chụp điện thoại</small>
             </div>
             <div>
               <span class="price">75.000đ</span><br>
-              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã tạo đơn giao hàng! (MÔ PHỎNG NGUY CƠ: Bé sơ sinh uống vào bị suy gan cấp hoặc co thắt ngưng thở)')">Mua ngay</button>
+              <button class="btn btn-emergency" style="padding:5px 12px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">
+                🛒 Đặt mua giao 15p
+              </button>
             </div>
           </div>
-          <div class="box danger" style="margin-top:10px;">
-            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (VISION HALLUCINATION & OVERDOSE):</b><br>
-            • <b>Bản chất lỗi:</b> Ảo giác thị giác (đoán mò bệnh qua ảnh smartphone) và tự tiện chia liều thuốc nhi khoa.<br>
-            • <b>Hậu quả:</b> Trẻ sơ sinh gan thận chưa phát triển bị suy gan cấp do quá liều; tiếng thở khò khè là viêm tiểu phế quản co thắt không được cấp cứu dẫn đến ngưng thở tử vong lúc nửa đêm.
+          <div style="font-size:11.5px; color:#64748b; margin-top:6px;">
+            🚚 Đơn thuốc đang chuẩn bị xuất kho. Bấm để xem phiếu giao hàng!
           </div>
         </div>
       `;
     } else if (currentCase === 3) {
-      naiveContent = `
+      html += `
         <div class="ai" style="border-color:#fca5a5;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
-          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-          <p>Chào bạn, bạn bị sốt, ho và nổi đỏ thì uống Paracetamol 500mg ngày 3 lần sau ăn, kết hợp siro ho bổ phế và viên sủi Vitamin C để tăng đề kháng nhé. Em tạo giỏ hàng cho bạn:</p>
-          <div class="box danger" style="margin-top:10px;">
-            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (UNCHECKED ASSUMPTION):</b><br>
-            • <b>Bản chất lỗi:</b> AI tự mặc định khách là người lớn mà không hỏi tuổi.<br>
-            • <b>Hậu quả:</b> Bệnh nhân thực tế là bé 8 tháng tuổi hoặc đang bị sốt xuất huyết Dengue, uống Paracetamol liều người lớn gây ngộ độc hoại tử gan cấp hoặc xuất huyết nội tạng ồ ạt!
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
+          <p>Chào bạn, với các triệu chứng sốt, ho, nổi mẩn đỏ thì bạn đang bị viêm đường hô hấp kèm phát ban dị ứng. Bạn dùng viên hạ sốt Paracetamol 500mg kết hợp siro ho Prospan và viên chống dị ứng Loratadine nhé. Em gửi link giỏ hàng bên dưới:</p>
+          <div class="product-card" style="border-color:#fca5a5;">
+            <div>
+              <b>Combo Cảm sốt ho người lớn (Paracetamol 500mg)</b>
+              <small>Giảm sốt và giảm ho cấp tốc</small>
+            </div>
+            <div>
+              <span class="price">85.000đ</span><br>
+              <button class="btn btn-emergency" style="padding:5px 12px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">
+                🛒 Mua ngay
+              </button>
+            </div>
           </div>
         </div>
       `;
     } else if (currentCase === 4) {
-      naiveContent = `
+      html += `
         <div class="ai" style="border-color:#fca5a5;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
-          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-          <p>Dạ Pharmacity có bán thuốc an thần Seduxen 5mg (Diazepam). Bạn mất ngủ suy nhược thì uống 1 viên trước khi ngủ 30 phút nhé. Em lên đơn giao 2 vỉ đến bạn ngay:</p>
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
+          <p>Dạ vâng, Seduxen 5mg hỗ trợ an thần gây ngủ rất tốt. Em đã lên đơn 2 vỉ Seduxen giao nhanh cho bạn, bạn bấm Mua ngay bên dưới nhé:</p>
           <div class="product-card" style="border-color:#fca5a5;">
             <div>
-              <b>Seduxen 5mg (Diazepam) - Hộp 2 vỉ</b>
-              <small>Thuốc an thần điều trị mất ngủ</small>
+              <b>Thuốc an thần Seduxen (Diazepam 5mg) - 2 vỉ</b>
+              <small>Hỗ trợ ngủ sâu giấc</small>
             </div>
             <div>
-              <span class="price">120.000đ</span><br>
-              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã lên đơn mua Seduxen thành công! (VI PHẠM HÌNH SỰ BỘ LUẬT DƯỢC)')">Mua ngay</button>
+              <span class="price">60.000đ</span><br>
+              <button class="btn btn-emergency" style="padding:5px 12px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">
+                🛒 Mua ngay
+              </button>
             </div>
-          </div>
-          <div class="box danger" style="margin-top:10px;">
-            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (REGULATORY BLINDNESS):</b><br>
-            • <b>Bản chất lỗi:</b> Xem thuốc hướng thần kê đơn đặc biệt như hàng hóa thông thường, tự tiện bán qua chat.<br>
-            • <b>Hậu quả:</b> Vi phạm Luật Dược 2016 và Bộ luật Hình sự. Bệnh nhân có nguy cơ nghiện thuốc, ức chế hô hấp tử vong. Nhà thuốc bị thu hồi giấy phép.
           </div>
         </div>
       `;
     } else if (currentCase === 5) {
-      naiveContent = `
+      html += `
         <div class="ai" style="border-color:#fca5a5;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
-          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-          <p>Đau thắt ngực lan ra sau vai lưng và vã mồ hôi có thể do làm việc quá sức hoặc thiếu máu cơ tim nhẹ. Bạn uống viên sủi bổ tim Coenzyme Q10 và trà thảo dược này để hồi sức cho đỡ mệt nhé:</p>
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
+          <p>Dạ có sủi bổ tim Coenzym Q10 và viên bổ trợ tim mạch ạ. Em đã tạo đơn giao siêu tốc 15 phút cho bạn, bạn bấm Mua ngay bên dưới để uống đỡ mệt nhé:</p>
           <div class="product-card" style="border-color:#fca5a5;">
             <div>
-              <b>Viên sủi Coenzyme Q10 Bổ Tim & Trà Thảo Dược</b>
-              <small>Giảm mệt mỏi, hỗ trợ tim mạch</small>
+              <b>Viên sủi trợ tim mạch Coenzym Q10</b>
+              <small>Hỗ trợ phục hồi thể lực tim</small>
             </div>
             <div>
-              <span class="price">185.000đ</span><br>
-              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã đặt hàng viên sủi bổ tim! (LỠ GIỜ VÀNG CẤP CỨU NHỒI MÁU CƠ TIM)')">Mua ngay</button>
+              <span class="price">120.000đ</span><br>
+              <button class="btn btn-emergency" style="padding:5px 12px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">
+                🛒 Mua ngay
+              </button>
             </div>
-          </div>
-          <div class="box danger" style="margin-top:10px;">
-            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (MISSED RED FLAG):</b><br>
-            • <b>Bản chất lỗi:</b> AI mất dấu hiệu cờ đỏ sinh tử của Nhồi máu cơ tim cấp (tắc động mạch vành).<br>
-            • <b>Hậu quả:</b> Bệnh nhân uống viên sủi nằm chờ đỡ mệt, trì hoãn gọi 115, mất giờ vàng cấp cứu và tử vong tại nhà vì hoại tử cơ tim cấp!
           </div>
         </div>
       `;
     } else {
-      naiveContent = `
-        <div class="ai" style="border-color:#fca5a5;">
-          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
-          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-          <p>Dạ bạn muốn mua Nước muối sinh lý 0.9% (chai 500ml - 8.000đ). Theo quy trình thông thường, bạn vui lòng đợi trong hàng chờ, Dược sĩ phụ trách sẽ duyệt đơn của bạn sau khoảng 10-15 phút nhé...</p>
-          <div class="box warn" style="margin-top:10px;">
-            <b>⚠️ LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (OVER-REGULATION / THỪA THÃI KIỂM SOÁT):</b><br>
-            • <b>Bản chất lỗi:</b> Không phân tầng rủi ro, bắt Dược sĩ duyệt thủ công cả vật tư y tế không độc hại.<br>
-            • <b>Hậu quả:</b> Khách hàng mua nước muối phải chờ đợi vô ích, đồng thời làm tắc nghẽn hàng đợi xử lý của Dược sĩ khi có ca khẩn cấp cần can thiệp!
+      html += `
+        <div class="ai" style="border-color:#bae6fd;">
+          <div class="who" style="color:#0369a1;">🤖 Chatbot Tự Động <span class="bubble-time">23:30</span></div>
+          <p>Dạ chào bạn, Nước muối sinh lý Natri Clorid 0.9% (chai 500ml) tại chi nhánh 128 Hai Bà Trưng còn 45 chai ạ. Em lên sẵn phiếu giữ hàng cho bạn:</p>
+          <div class="product-card">
+            <div>
+              <b>Nước muối sinh lý Natri Clorid 0.9% (500ml)</b>
+              <small>Vật tư y tế rửa mũi, súc họng sát khuẩn</small>
+            </div>
+            <div>
+              <span class="price">8.000đ</span><br>
+              <button class="btn btn-pri" style="padding:5px 12px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">
+                Đặt giữ hàng
+              </button>
+            </div>
           </div>
         </div>
       `;
     }
-    html += naiveContent;
+
     container.innerHTML = html;
   }
 
@@ -1916,52 +2529,83 @@
     let html = '';
 
     if (!msgSent) {
-      const caseTitles = {
-        1: 'K1: Dị ứng thuốc cảm cũ (Ca đắt #1)',
-        2: 'K2: Trẻ sơ sinh + Ảnh phát ban + Hỏi liều (Ca đắt #2)',
-        3: 'K3: Nhắn cộc lốc ("sốt, ho, nổi đỏ")',
-        4: 'K5: Đòi mua Seduxen kê đơn',
-        5: 'K6: Đau tim nhồi máu cơ tim cấp',
-        6: 'K8: Mua nước muối sinh lý'
-      };
-      html += `
-        <div class="chat-intro-card">
-          <div style="font-size: 32px; margin-bottom: 8px;">💊</div>
-          <div style="font-weight: 800; font-size: 14.5px; color: var(--primary-dark); margin-bottom: 6px;">
-            MÔ PHỎNG AN TOÀN Y KHOA · ${caseTitles[currentCase] || 'TRACK T1'}
+      const guardedChips = {
+        1: [
+          { text: '💬 "Tôi bị đau họng, nhưng dễ dị ứng thuốc cảm cũ, có thể uống gì?"', chipClass: 'main-chip' },
+          { text: '🧂 "Tìm nước muối sinh lý ấm 0.9% súc họng"' },
+          { text: '👩‍⚕️ "Kết nối Dược sĩ tư vấn trực tiếp ngay"' }
+        ],
+        2: [
+          { text: '📷 [Ảnh kèm] "Bé 8 tháng sốt khò khè nổi mẩn, uống thuốc gì và chia liều ra sao?"', chipClass: 'main-chip' },
+          { text: '👶 "Hướng dẫn theo dõi thân nhiệt & hạ sốt an toàn cho bé"' },
+          { text: '🚨 "Kết nối Dược sĩ Chuyên khoa Nhi trực cấp cứu (P0)"' }
+        ],
+        3: [
+          { text: '💬 "sốt, ho, nổi đỏ"', chipClass: 'main-chip' },
+          { text: '👨‍🦰 "Tư vấn thuốc cho Người lớn (> 18 tuổi)"' },
+          { text: '👶 "Tư vấn thuốc cho Trẻ nhỏ (< 6 tuổi)"' }
+        ],
+        4: [
+          { text: '💊 "Bán cho tôi 2 vỉ Seduxen (Diazepam) trị mất ngủ"', chipClass: 'main-chip' },
+          { text: '📖 "Xem cẩm nang vệ sinh giấc ngủ không dùng thuốc"' },
+          { text: '⚖️ "Quy định mua thuốc an thần kê đơn tại nhà thuốc"' }
+        ],
+        5: [
+          { text: '💔 "Đau thắt ngực trái lan sau lưng, khó thở, có sủi bổ tim không?"', chipClass: 'main-chip' },
+          { text: '🚨 "Bấm gọi Cấp cứu 115 khẩn cấp ngay"' },
+          { text: '📍 "Gửi định vị khẩn cấp cho người thân"' }
+        ],
+        6: [
+          { text: '🧂 "Chi nhánh gần nhất còn nước muối sinh lý 0.9% không?"', chipClass: 'main-chip' },
+          { text: '📦 "Đặt giữ hàng tại nhà thuốc lấy trong 24h"' },
+          { text: '👩‍⚕️ "Gặp Dược sĩ chi nhánh tư vấn thêm"' }
+        ]
+      }[currentCase] || [];
+
+      html = `
+        <div class="ai">
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:28</span></div>
+          <p>Dạ Pharmacity xin chào! Em là Trợ lý Dược số. Hôm nay sức khỏe của bạn và gia đình thế nào, em có thể hỗ trợ tra cứu thuốc, kiểm tra đơn hàng hoặc kết nối Dược sĩ ngay cho bạn ạ.</p>
+        </div>
+        <div class="prompt-chips-wrap">
+          <div class="prompt-chips-title">💡 Gợi ý câu hỏi tình huống lâm sàng:</div>
+          <div class="prompt-chips">
+            ${guardedChips.map(c => `
+              <div class="prompt-chip ${c.chipClass || ''}" onclick="triggerPromptChip('${userQuestions[currentCase]}', ${currentCase})">
+                ${c.text}
+              </div>
+            `).join('')}
           </div>
-          <p style="font-size: 13px; color: #475569; margin: 0 0 16px; line-height: 1.5; max-width: 320px;">
-            Câu hỏi của người bệnh đã được nạp sẵn ở thanh bên dưới.<br>
-            Bấm <b>[➤ Gửi đến Chatbot]</b> để mô phỏng và quan sát phản hồi song song trên cả 2 điện thoại.
-          </p>
-          <button class="btn pri" onclick="sendUserMessage()" style="padding: 10px 22px; font-size: 13.5px; box-shadow: 0 4px 12px rgba(0, 114, 206, 0.35); cursor: pointer;">
-            ➤ Gửi tin nhắn đến Chatbot
-          </button>
         </div>
       `;
       $('#chat-guarded').innerHTML = html;
       return;
     }
 
-    // Render User message bubble
+    // User message bubble
     if (currentCase === 2) {
       html += `
         <div class="me">
-          <img src="case2_user_upload.png" class="me-img" id="case2-uploaded-img" alt="Ảnh triệu chứng phát ban vùng cổ và ngực của bé do phụ huynh gửi">
+          <img src="case2_user_upload.png" class="me-img" id="case2-uploaded-img" alt="Ảnh triệu chứng phát ban vùng cổ và ngực">
           “${userQuestions[2]}”
+          <span class="bubble-time" style="color:#cbd5e1;">23:30</span>
         </div>
       `;
     } else {
-      html += `<div class="me">“${userQuestions[currentCase]}”</div>`;
+      html += `
+        <div class="me">
+          “${userQuestions[currentCase]}”
+          <span class="bubble-time" style="color:#cbd5e1;">23:30</span>
+        </div>
+      `;
     }
 
-    // If AI is thinking
     if (isAiThinking) {
       html += `
         <div class="ai" style="animation: fadeInMsg 0.2s ease;">
-          <div class="who">💊 Trợ lý Pharmacity (AI)</div>
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
           <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:#475569; padding: 4px 0;">
-            <span>Trợ lý AI đang phân tích triệu chứng & kiểm tra dược lý...</span>
+            <span>Trợ lý AI đang đối chiếu dữ liệu dược lý & an toàn...</span>
             <div class="typing-dots">
               <span class="typing-dot" style="background:var(--primary);"></span>
               <span class="typing-dot" style="background:var(--primary);"></span>
@@ -1974,19 +2618,17 @@
       return;
     }
 
+    // CA 1: Dị ứng thuốc cảm cũ
     if (currentCase === 1) {
-      // CA 1: Dị ứng thuốc
       if (chatState === 'handoff') {
-        // Tóm tắt an toàn ban đầu của AI vẫn hiển thị để thấy tiến trình
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge"><span class="n">1</span>Trợ lý Pharmacity: Chuyển giao hồ sơ dị ứng an toàn</span>
-            <p>Dạ chào bạn, hệ thống đã ghi nhận tiền sử bạn từng bị dị ứng thuốc cảm cũ. Vì thuốc nuốt vào <b>không thể hoàn tác</b>, AI đã tạm khóa giỏ hàng và chuyển ngay sang Dược sĩ lâm sàng để thẩm định an toàn trực tiếp cùng bạn.</p>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
+            <p>Dạ chào bạn, vì thuốc nuốt vào cơ thể không thể hoàn tác, AI đã tạm khóa giỏ hàng và chuyển hồ sơ sang Dược sĩ lâm sàng tiếp quản duyệt đơn an toàn trực tiếp cùng bạn.</p>
           </div>
           <div class="handoff-banner">
             <span>🔔 <b>ĐÃ KẾT NỐI PHÒNG CHAT DƯỢC SĨ LÂM SÀNG</b></span>
-            <span style="font-weight:700; color:#15803d;">Ưu tiên Dị ứng (30s) ✓</span>
+            <span style="font-weight:700; color:#15803d;">Ưu tiên Dị ứng ✓</span>
           </div>
         `;
 
@@ -2011,7 +2653,7 @@
                 </div>
                 <span class="pharma-tag">DƯỢC SĨ TIẾP QUẢN</span>
               </div>
-              <p>Chào bạn, mình là Dược sĩ Thảo. Mình đã đọc bản tóm tắt của AI: bạn đang đau rát họng nhưng từng bị nổi mẩn ngứa khi uống thuốc cảm cũ.</p>
+              <p>Chào bạn, mình là Dược sĩ Thảo. Mình đã đọc tóm tắt: bạn đang đau rát họng nhưng từng bị nổi mẩn ngứa khi uống thuốc cảm cũ.</p>
               <div class="box warn" style="background:#fffbeb; border-color:#fde68a; color:#92400e; margin:6px 0;">
                 <b>⚠️ KHUYẾN CÁO LÂM SÀNG:</b> Tuyệt đối <b>KHÔNG</b> dùng viên ngậm chứa NSAID (như Flurbiprofen) hay thuốc giảm đau hạ sốt lạ lúc này vì nguy cơ sốc phản vệ chéo đe dọa tính mạng!
               </div>
@@ -2085,7 +2727,7 @@
                 1. Mình đã gắn cờ <code>ALLERGY: Clorpheniramin / Decolgen</code> vào hồ sơ y tế của bạn trên toàn hệ thống Pharmacity. Lần sau AI và nhân viên sẽ tự động loại trừ nhóm này.<br>
                 2. Với cơn đau họng hiện tại: Bạn chỉ nên dùng <b>Xịt họng Keo ong Propolis thảo dược</b> (hoàn toàn tự nhiên, không chứa Paracetamol/NSAID/kháng sinh).</p>
                 <div class="btns">
-                  <button class="btn pri" onclick="alert('Đã thêm Xịt họng Keo ong Propolis (Dược sĩ Thảo đã thẩm định an toàn) vào đơn hàng giao nhanh!')">
+                  <button class="btn btn-pri" onclick="showGuardedOrderSheet()">
                     🛒 Đặt Chai xịt họng Keo ong Propolis (Dược sĩ đã duyệt an toàn)
                   </button>
                   <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
@@ -2108,7 +2750,7 @@
                   </div>
                   <span class="pharma-tag">ĐƠN ĐÃ DUYỆT</span>
                 </div>
-                <p>Dạ mình đã tạo đơn <b>2 chai Nước muối sinh lý Natri Clorid 0.9% (500ml)</b> từ chi nhánh 128 Hai Bà Trưng (cách bạn 800m). Đơn hàng đã được xuất kho, dự kiến shipper giao trong 15 phút. Bạn nhớ súc họng nước ấm sâu trong cổ họng mỗi 2 tiếng nhé!</p>
+                <p>Dạ mình đã tạo đơn <b>2 chai Nước muối sinh lý Natri Clorid 0.9% (500ml)</b> từ chi nhánh 128 Hai Bà Trưng. Đơn hàng đã được xuất kho, dự kiến shipper giao trong 15 phút. Bạn nhớ súc họng nước ấm sâu trong cổ họng mỗi 2 tiếng nhé!</p>
                 <div class="btns">
                   <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
                 </div>
@@ -2120,19 +2762,15 @@
         // Mức 1: Cấm tuyệt đối
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge"><span class="n">1</span>Chính sách an toàn mức ①: Tạm ngừng gợi ý thuốc qua chat</span>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
             <p>Dạ chào bạn, Pharmacity rất hiểu bạn đang đau rát họng khó chịu. Tuy nhiên, vì bạn từng có tiền sử bị nổi mẩn ngứa khi uống thuốc cảm cũ, theo quy định an toàn cao nhất, hệ thống <b>tuyệt đối không tự gợi ý bất kỳ loại thuốc nào</b> qua tin nhắn tự động.</p>
-            <div class="ev-box">
-              <span class="n">2</span><b>Căn cứ y khoa:</b> Dị ứng thuốc cảm cũ có thể liên quan đến Paracetamol hoặc nhóm kháng viêm NSAID. Độc tính và phản ứng dị ứng khi thuốc đã uống vào là không thể đảo ngược, do đó không thể suy đoán qua chat.
-            </div>
             <p>Để giảm đau rát họng an toàn ngay lúc này, bạn có thể tham khảo cẩm nang chăm sóc tự nhiên hoặc kết nối trực tiếp với Dược sĩ chuyên môn:</p>
             <div class="btns">
-              <button class="btn btn-care" onclick="alert('📋 HƯỚNG DẪN GIẢM ĐAU HỌNG TỰ NHIÊN TẠI NHÀ:\\n1. Súc họng bằng nước muối sinh lý ấm 0.9% mỗi 2 giờ để sát khuẩn an toàn 100%.\\n2. Uống từng ngụm nhỏ nước ấm pha mật ong chanh hoặc gừng ấm.\\n3. Giữ ấm vùng cổ và ngực, nghỉ ngơi hợp lý.\\n\\n⚠️ Tuyệt đối không tự ý uống viên ngậm kháng viêm hay thuốc giảm đau lạ!')">
+              <button class="btn btn-care" onclick="alert('📋 HƯỚNG DẪN GIẢM ĐAU HỌNG TỰ NHIÊN TẠI NHÀ:\n1. Súc họng bằng nước muối sinh lý ấm 0.9% mỗi 2 giờ.\n2. Uống từng ngụm nhỏ nước ấm pha mật ong chanh hoặc gừng ấm.\n3. Giữ ấm vùng cổ và ngực.')">
                 📖 Xem hướng dẫn chăm sóc đau họng tại nhà không dùng thuốc
               </button>
               <button class="btn btn-pharma-direct" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
-                <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ tư vấn trực tiếp (30s)
+                👨‍⚕️ Gặp Dược sĩ tư vấn trực tiếp (30s)
               </button>
             </div>
           </div>
@@ -2141,59 +2779,54 @@
         // Mức 2: Cần duyệt / Phân tầng rủi ro (Nhóm chọn ⭐)
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge"><span class="n">1</span>Trợ lý Pharmacity ghi nhận tiền sử dị ứng thuốc cảm</span>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
             <p>Dạ chào bạn, Pharmacity rất chia sẻ với cảm giác đau rát họng khó chịu của bạn lúc này. Vì bạn từng bị nổi mẩn ngứa khi dùng thuốc cảm cũ, việc dùng thuốc giảm đau hay viên ngậm cần hết sức thận trọng để tránh nguy cơ dị ứng chéo nguy hiểm đến tính mạng.</p>
             
-            <div class="box warn">
-              <span class="n">2</span> <b>Để đảm bảo an toàn tính mạng cho bạn, xin bạn cho biết:</b><br>
-              Hiện tại bạn có thấy <b>khó thở, nghẹn tức ở cổ họng, sưng môi/lưỡi hay choáng váng</b> không ạ?
+            <p><b>Để đảm bảo an toàn tính mạng, xin bạn cho biết:</b> Hiện tại bạn có thấy <b>khó thở, nghẹn tức ở cổ họng, sưng môi/lưỡi hay choáng váng</b> không ạ?</p>
+
+            <div class="realtime-timer-bar">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span>⏱️</span>
+                <b>Đang kết nối Dược sĩ Lâm sàng duyệt đơn:</b>
+                <span class="timer-countdown" id="timer-val">00:${realtimeCountdownSec < 10 ? '0' : ''}${realtimeCountdownSec}</span>
+              </div>
+              <span style="font-weight:700; color:#15803d; font-size:11px;">Ưu tiên Dị ứng ✓</span>
             </div>
 
-            <div class="ev-box">
-              <span class="n">3</span> <b>Vì sao cần kiểm tra điều này?</b> Người có cơ địa dị ứng thuốc cảm rất dễ gặp sốc phản vệ nếu dùng nhầm viên ngậm chứa hoạt chất kháng viêm NSAID. Nếu có dấu hiệu phù nề đường thở, cần cấp cứu ngay lập tức.
-            </div>
-
-            <div class="box locked">
-              <span class="n">4</span> <b>🔒 NÚT TỰ ĐẶT THUỐC ĐÃ TẠM KHÓA AN TOÀN</b><br>
-              Thuốc nuốt vào cơ thể thì không thể hoàn tác. Để bảo vệ bạn, đơn thuốc hỗ trợ đau họng cần được Dược sĩ lâm sàng xác nhận an toàn trước khi xuất kho.
-            </div>
+            <p style="font-size:12px; color:#475569; margin: 4px 0 8px;">
+              🔒 <b>Giỏ hàng tự đặt thuốc đã tạm khóa:</b> Thuốc nuốt vào cơ thể thì không thể hoàn tác. Dược sĩ lâm sàng sẽ vào hỗ trợ bạn ngay sau ít giây.
+            </p>
 
             <div class="btns">
-              <button class="btn btn-pri" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
-                <span class="n">5</span>✅ Xác nhận gửi Dược sĩ duyệt đơn an toàn (30s)
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(1, 'Ưu tiên Dị ứng')">
+                👩‍⚕️ Kết nối ngay Dược sĩ Nguyễn Thảo
               </button>
-              <button class="btn danger" onclick="openModal('🚨 CẢNH BÁO SỐC PHẢN VỆ', 'Nếu bạn có biểu hiện khó thở, sưng môi lưỡi hoặc choáng váng sau khi đau ốm, hãy bấm gọi cấp cứu 115 ngay lập tức!')">
-                🚨 Báo dấu hiệu khó thở / Sưng môi → Gọi cấp cứu 115
+              <button class="btn btn-emergency" onclick="alert('🚨 BÁO ĐỘNG ĐỎ KHẨN CẤP: Đã kích hoạt cuộc gọi khẩn cấp 115 và gửi định vị vị trí của bạn tới trung tâm y tế gần nhất!')">
+                🚨 Báo có dấu hiệu khó thở / Cần cấp cứu 115
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(30, 'Ưu tiên Dị ứng')">
-                👨‍⚕️ Gặp Dược sĩ trao đổi trực tiếp
+              <button class="btn btn-saline" onclick="alert('🧂 KHUYẾN CÁO AN TOÀN 100%: Trong lúc đợi Dược sĩ, bạn hãy súc họng bằng nước muối sinh lý ấm 0.9% mỗi 2 tiếng để sát khuẩn an toàn!')">
+                🧂 Uống nước ấm & Súc họng nước muối sinh lý an toàn
               </button>
             </div>
           </div>
         `;
       } else {
-        // Mức 3: AI Tự bán bừa bãi (Nguy hiểm!)
+        // Mức 3: AI tự bán thuốc (Nguy hiểm)
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge">⚠️ Mức ③: AI TỰ BÁN HÀNG — RẤT NGUY HIỂM</span>
-            <p>Dạ chào bạn, triệu chứng đau rát họng thường do viêm họng cấp. Mình đã tự động chọn và tạo đơn thuốc giảm đau họng giao nhanh cho bạn rồi nhé:</p>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
+            <p>Dạ em đã tạo đơn giao nhanh cho bạn:</p>
             <div class="product-card">
               <div>
-                <b>Viên ngậm Strepsils Cool / Hapacol 500mg</b>
-                <small>Đã tự động tạo đơn giao nhanh 15 phút</small>
+                <b>Viên ngậm Strepsils Cool & Hapacol 500mg</b>
+                <small>AI tự bán không kiểm tra tiền sử dị ứng</small>
               </div>
               <div>
                 <span class="price">38.000đ</span><br>
-                <button class="btn pri" style="padding:4px 8px; font-size:12px; margin-top:4px;" onclick="alert('Đơn thuốc đang giao! (MÔ PHỎNG NGUY CƠ: Người bệnh uống vào bị sốc phản vệ cấp)')">Đã đặt hàng</button>
+                <button class="btn btn-pri" style="padding:4px 8px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">Đã đặt hàng</button>
               </div>
             </div>
-            <div class="box danger" style="font-size:12.5px; margin-top:8px;">
-              <b>💥 NGHỊCH LÝ NÚT HOÀN TÁC TRONG Y TẾ:</b><br>
-              Trong du lịch vé máy bay hủy thì nhả ghế và hoàn tiền được, nhưng trong Y tế một khi viên thuốc đã nuốt vào bụng, nút Hoàn tác trên app <b>hoàn toàn vô nghĩa</b> trước cơn sốc phản vệ và phù nề thanh quản!
-            </div>
-            <div class="btns">
+            <div class="btns" style="margin-top:8px;">
               <button class="btn btn-undo" onclick="triggerUndoModal(1)">
                 ⏪ Hoàn tác hủy đơn thuốc (trong 5 phút)
               </button>
@@ -2210,9 +2843,8 @@
       if (chatState === 'handoff') {
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge"><span class="n">1</span>Cảnh báo an toàn Nhi khoa khẩn cấp (HAX G1, G2)</span>
-            <p>Dạ chào mẹ, trẻ sơ sinh sốt kèm thở khò khè và phát ban là tình huống nguy cơ cao. AI <b>từ chối đọc ảnh chẩn đoán và CẤM tự chia liều</b>, hệ thống đã phát chuông báo động P0 chuyển ngay Dược sĩ Chuyên khoa Nhi trực cấp cứu tiếp quản xử lý cho bé.</p>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
+            <p>Dạ chào mẹ, AI đã phát chuông báo động P0 chuyển ngay Dược sĩ Chuyên khoa Nhi trực cấp cứu tiếp quản xử lý cho bé.</p>
           </div>
           <div class="handoff-banner danger-banner">
             <span>🚨 <b>PHÁT CHUÔNG BÁO ĐỘNG P0:</b> Đã kết nối Dược sĩ Chuyên khoa Nhi trực cấp cứu</span>
@@ -2336,25 +2968,17 @@
                     <div class="pharma-avatar">👨‍⚕️</div>
                     <div class="pharma-meta">
                       <b>DS. CK Nhi Trần Minh Tâm</b>
-                      <span style="color:#15803d;">Hướng dẫn theo dõi an toàn</span>
+                      <span style="color:#15803d;">Tư vấn chăm sóc an toàn</span>
                     </div>
                   </div>
-                  <span class="pharma-tag">THEO DÕI AN TOÀN</span>
+                  <span class="pharma-tag">HƯỚNG DẪN AN TOÀN</span>
                 </div>
-                <p>Dạ cảm ơn mẹ đã kiểm tra cẩn thận. Tạm thời đường thở của bé chưa có dấu hiệu tắc nghẽn nguy cấp.</p>
-                <div class="box success" style="margin:6px 0;">
-                  <b>HƯỚNG DẪN XỬ TRÍ AN TOÀN TẠI NHÀ:</b><br>
-                  1. <b>Hạ sốt vật lý:</b> Cởi bớt áo ấm, dùng khăn ấm (khoảng 37°C) lau nhẹ nách, bẹn, trán của bé.<br>
-                  2. <b>Duy trì bú mẹ:</b> Cho bé bú nhiều cữ ngắn để bù nước.<br>
-                  3. <b>KHÔNG tự mua kháng sinh:</b> Sáng mai mẹ hãy cho bé đi khám Bác sĩ Nhi để được nghe tim phổi và soi da trực tiếp nhé!
-                </div>
+                <p>Chào mẹ, rất may là bé chưa có biểu hiện suy hô hấp nặng. Nhưng với bé 8 tháng tuổi, việc sốt kèm khò khè vẫn cần theo dõi sát sao:</p>
+                <p>1. Mẹ dùng khăn ấm (thấp hơn nhiệt độ cơ thể bé 2°C) lau mát ở 5 vị trí: trán, 2 nách và 2 bẹn.<br>
+                2. Tiếp tục cho bé bú mẹ nhiều cữ nhỏ để bù nước.<br>
+                3. Nếu bé sốt trên 38.5°C đo tại nách, mẹ nên đưa bé đến phòng khám Nhi gần nhất để bác sĩ nghe phổi và cân trọng lượng kê đơn thuốc hạ sốt chính xác liều theo cân nặng.</p>
                 <div class="btns">
-                  <button class="btn pri" onclick="alert('Đã hỗ trợ bạn đặt lịch khám chuyên khoa Nhi tại Bệnh viện Nhi Đồng sáng mai (08:30)!')">
-                    📅 Đặt lịch khám Bác sĩ Nhi sáng mai
-                  </button>
-                  <button class="btn out" onclick="alert('Đã thêm Khăn lau hạ sốt thảo dược sơ sinh Dr.Papie vào đơn giao nhanh!')">
-                    💧 Đặt Khăn lau hạ sốt thảo dược sơ sinh (Giao nhanh 15p)
-                  </button>
+                  <button class="btn btn-saline" onclick="alert('Đã gửi vị trí Phòng khám Nhi đồng gần bạn nhất!')">📍 Xem phòng khám Nhi uy tín gần bạn (cách 1.2km)</button>
                   <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
                 </div>
               </div>
@@ -2362,55 +2986,34 @@
           }
         }
       } else if (currentLevel === 1) {
-        // Mức 1: Cấm tuyệt đối (Hard Gate)
+        // Mức 1: Cấm tuyệt đối
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge"><span class="n">1</span>Chính sách an toàn sơ sinh: Khóa tương tác qua chat</span>
-            <p>Dạ chào mẹ, Pharmacity rất thấu hiểu sự lo lắng của mẹ khi bé đang sốt và khò khè. Tuy nhiên, theo quy chuẩn an toàn cao nhất cho trẻ sơ sinh, Trợ lý AI không được phép đọc ảnh chẩn đoán bệnh và tuyệt đối không được tự chia liều thuốc qua tin nhắn.</p>
-            <div class="box danger" style="background:#f1f5f9; border-color:#94a3b8; color:#1e293b;">
-              <b>⛔ TÍNH NĂNG TƯ VẤN ĐÃ KHÓA:</b> Trẻ sơ sinh gan thận chưa hoàn thiện, việc đoán bệnh qua ảnh điện thoại và chia liều mò có thể gây suy hô hấp và ngộ độc gan cấp tính.
-            </div>
-            <div class="ev-box">
-              <span class="n">2</span><b>Khuyến nghị y tế:</b> Vui lòng đưa bé đến bệnh viện chuyên khoa Nhi để bác sĩ thăm khám và nghe tim phổi trực tiếp.
-            </div>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
+            <p>Dạ chào mẹ, trẻ sơ sinh là đối tượng đặc biệt nhạy cảm. Hệ thống <b>tuyệt đối không đọc ảnh chẩn đoán bệnh và không tự chia liều thuốc hạ sốt / kháng sinh</b> qua tin nhắn tự động.</p>
+            <p>Mẹ vui lòng kết nối ngay với Dược sĩ Chuyên khoa Nhi trực tuyến để được hướng dẫn an toàn cho bé:</p>
             <div class="btns">
-              <button class="btn out" onclick="alert('📋 DẤU HIỆU CẦN ĐƯA BÉ ĐI VIỆN NGAY:\\n1. Thở rút lõm lồng ngực (ngực lõm sâu khi hít vào).\\n2. Sốt cao khó hạ, li bì, bỏ bú, môi tím tái.\\n3. Tiếng thở rít hoặc thở khò khè ngắt quãng.\\n\\nVui lòng đưa bé đến khoa Cấp cứu Nhi ngay lập tức!')">
-                📖 Đọc dấu hiệu nguy kịch cần đưa trẻ đi viện
-              </button>
-              <button class="btn danger" onclick="openModal('🏥 ĐỊNH VỊ BỆNH VIỆN NHI', 'Danh sách Bệnh viện Nhi Đồng 1, Nhi Đồng 2 và các phòng cấp cứu mở cửa 24/7 gần nhất. Vui lòng đưa bé đi ngay!')">
-                🏥 Mở bản đồ tìm Bệnh viện Nhi gần nhất
+              <button class="btn btn-care" onclick="alert('📖 HƯỚNG DẪN THEO DÕI THÂN NHIỆT TRẺ SƠ SINH CHUẨN BỘ Y TẾ:\n1. Đo nhiệt độ bằng nhiệt kế điện tử ở nách hoặc trán.\n2. Mặc quần áo thoáng mát, không trùm chăn kín.\n3. Cho bé bú nhiều lần để bù nước.\n\n⚠️ Đưa bé đi khám ngay nếu sốt > 38.5°C hoặc thở khò khè co rút ngực!')">
+                📖 Xem cẩm nang theo dõi thân nhiệt trẻ sơ sinh chuẩn Bộ Y Tế
               </button>
               <button class="btn btn-pharma-direct" onclick="triggerHandoff(10, 'P0 Nguy kịch Nhi')">
-                <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ Nhi tư vấn khẩn cấp
+                👨‍⚕️ Kết nối Dược sĩ Chuyên khoa Nhi trực cấp cứu (P0)
               </button>
-            </div>
-            <div class="box warn" style="font-size:12px; margin-top:8px;">
-              <b>Hạn chế của Mức ①:</b> Từ chối cứng nhắc khiến phụ huynh hoang mang không biết kiểm tra đường thở cho bé thế nào, dễ xử trí sai tại nhà.
             </div>
           </div>
         `;
       } else if (currentLevel === 2) {
-        // Mức 2 (Chuẩn - Nhóm chọn ⭐): Cảnh báo Nhi khoa khẩn cấp
+        // Mức 2 (Chuẩn - Nhóm chọn ⭐)
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge"><span class="n">1</span>Cảnh báo an toàn Nhi khoa khẩn cấp (HAX G1, G2)</span>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
             <p>Dạ chào mẹ, Pharmacity rất hiểu mẹ đang rất lo lắng khi thấy người bé nóng ran và thở khò khè. Nhưng vì bé còn rất nhỏ, có các nguyên tắc an toàn sống còn mẹ cần lưu ý ngay:</p>
 
-            <div class="box danger">
-              <span class="n">2</span> <b>DẤU HIỆU CẦN THEO DÕI ĐẶC BIỆT:</b><br>
-              Triệu chứng <b>"thở khò khè kèm nổi mẩn đỏ"</b> ở trẻ nhỏ là dấu hiệu của viêm đường hô hấp dưới co thắt hoặc nhiễm trùng cấp, tuyệt đối không được xem là cảm gió thông thường.
-            </div>
-
-            <p><span class="n">3</span> <b>Cam kết an toàn minh bạch:</b><br>
-            • AI <b>tuyệt đối không chẩn đoán bệnh qua hình ảnh</b> (Độ tin cậy: Không đủ điều kiện y khoa).<br>
+            <p>• AI <b>tuyệt đối không chẩn đoán bệnh qua hình ảnh</b> (không đủ điều kiện y khoa).<br>
             • <b>CẤM tự chia liều thuốc/kháng sinh</b> cho trẻ nhỏ qua chat vì nguy cơ ngộ độc gan thận cấp tính.</p>
 
-            <div class="ev-box">
-              <span class="n">4</span> <b>HƯỚNG DẪN MẸ KIỂM TRA ĐƯỜNG THỞ CỦA BÉ NGAY LẬP TỨC:</b><br>
-              Mẹ hãy vạch áo bé lên: Khi bé hít vào, phần hõm ức hoặc mạn sườn của bé có bị lõm sâu vào không (Thở rút lõm lồng ngực)? Bé có bú được hay đang li bì khó đánh thức?
-            </div>
+            <p><b>Mẹ hãy kiểm tra đường thở của bé ngay lập tức:</b><br>
+            Mẹ hãy vạch áo bé lên: Khi bé hít vào, phần hõm ức hoặc mạn sườn của bé có bị lõm sâu vào không (Thở rút lõm lồng ngực)? Bé có bú được hay đang li bì khó đánh thức?</p>
 
             <div class="btns">
               <button class="btn btn-emergency" onclick="triggerHandoffDirectAction('baby_emergency')">
@@ -2419,8 +3022,8 @@
               <button class="btn btn-stable" onclick="triggerHandoffDirectAction('baby_stable')">
                 ✅ Xác nhận: Bé KHÔNG rút lõm ngực, vẫn bú được
               </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(10, 'P0 Nguy kịch Nhi')">
-                <span class="n">5</span>👨‍⚕️ Kết nối Dược sĩ Chuyên khoa Nhi trực cấp cứu (P0)
+              <button class="btn btn-pharma-direct" onclick="triggerHandoff(10, 'P0 Nguy kịch Nhi')">
+                👨‍⚕️ Kết nối Dược sĩ Chuyên khoa Nhi trực cấp cứu (P0)
               </button>
             </div>
           </div>
@@ -2429,8 +3032,7 @@
         // Mức 3: AI tự tính liều bừa bãi (Nguy hiểm!)
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge">⚠️ Mức ③: AI TỰ ĐOÁN BỆNH QUA ẢNH & CHIA LIỀU — NGUY HIỂM CHẾT NGƯỜI</span>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
             <p>Dạ nhìn qua ảnh thì thấy bé bị phát ban và viêm họng nhẹ thôi mẹ nhé. Em đã tự tính liều siro Hapacol 2.5ml và gói bột kháng sinh Clamoxyl nửa gói, đồng thời lên sẵn đơn giao nhanh cho bé rồi ạ:</p>
             <div class="product-card">
               <div>
@@ -2439,14 +3041,10 @@
               </div>
               <div>
                 <span class="price">75.000đ</span><br>
-                <button class="btn pri" style="padding:4px 8px; font-size:12px; margin-top:4px;" onclick="alert('Đơn thuốc đang giao! (MÔ PHỎNG NGUY CƠ: Bé sơ sinh uống vào bị suy gan cấp hoặc co thắt ngưng thở)')">Đã đặt hàng</button>
+                <button class="btn btn-pri" style="padding:4px 8px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">Đã đặt hàng</button>
               </div>
             </div>
-            <div class="box danger" style="font-size:12.5px; margin-top:8px;">
-              <b>💥 NGHỊCH LÝ HOÀN TÁC ĐỐI VỚI TRẺ SƠ SINH:</b><br>
-              Trẻ sơ sinh gan thận chưa phát triển. Nếu mẹ lỡ cho bé uống kháng sinh chia mò hoặc siro quá liều gây suy gan thận cấp hoặc co thắt ngừng thở, nút "Hoàn tác" trên màn hình điện thoại <b>không thể rút thuốc ra khỏi dạ dày và máu của bé sơ sinh</b>!
-            </div>
-            <div class="btns">
+            <div class="btns" style="margin-top:8px;">
               <button class="btn btn-undo" onclick="triggerUndoModal(2)">
                 ⏪ Hoàn tác hủy đơn siro & kháng sinh (trong 5 phút)
               </button>
@@ -2463,8 +3061,7 @@
       if (chatState === 'handoff') {
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge"><span class="n">1</span>Trợ lý Pharmacity: Kết nối Dược sĩ sàng lọc chi tiết</span>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
             <p>Dạ chào bạn, vì tin nhắn chưa có thông tin người dùng thuốc, AI đã chuyển ngay sang Dược sĩ trực tuyến để hỗ trợ bạn an toàn nhất.</p>
           </div>
           <div class="handoff-banner">
@@ -2504,121 +3101,68 @@
       } else {
         html += `
           <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge"><span class="n">1</span>Trợ lý Pharmacity: Cần thêm thông tin người bệnh</span>
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
             <p>Dạ chào bạn, Pharmacity đã nhận được thông tin bạn gửi: <i>"sốt, ho, nổi đỏ"</i>. Vì đây là các triệu chứng xuất hiện ở nhiều lứa tuổi và bệnh lý khác nhau, để tư vấn thuốc an toàn nhất và tránh nguy cơ ngộ độc thuốc, xin bạn cho Pharmacity biết thêm:</p>
-            <div class="box warn">
-              <span class="n">2</span> <b>CÂU HỎI SÀNG LỌC AN TOÀN:</b><br>
-              1. <b>Ai là người dùng thuốc và hiện tại bao nhiêu tuổi?</b><br>
-              2. <b>Người bệnh sốt bao nhiêu độ và nổi nốt đỏ từ khi nào?</b>
-            </div>
-            <div class="ev-box">
-              <span class="n">3</span> <b>Vì sao không nên đoán mò?</b> Nếu tự suy đoán là người lớn và gợi ý thuốc liều cao, nhưng người uống thực tế là trẻ 8 tháng tuổi thì sẽ gây ngộ độc gan cấp tính; hoặc nếu là sốt xuất huyết mà uống nhầm Ibuprofen sẽ gây xuất huyết nội tạng ồ ạt.
-            </div>
+            <p><b>1. Ai là người dùng thuốc và hiện tại bao nhiêu tuổi?</b><br>
+            <b>2. Người bệnh sốt bao nhiêu độ và nổi nốt đỏ từ khi nào?</b></p>
             <div class="btns">
-              <button class="btn btn-adult" onclick="alert('✅ Đã xác nhận đối tượng: Người lớn (> 18 tuổi).\\nHệ thống tiếp tục hỏi: Bạn có sốt cao trên 38.5°C hoặc có bệnh nền gan/thận không?')">
-                ✅ Xác nhận: Thuốc dùng cho Người lớn (&gt; 18 tuổi)
+              <button class="btn btn-adult" onclick="alert('✅ Đã xác nhận đối tượng: Người lớn (> 18 tuổi).\nHệ thống tiếp tục hỏi: Bạn có sốt cao trên 38.5°C hoặc có bệnh nền gan/thận không?')">
+                ✅ Xác nhận: Thuốc dùng cho Người lớn (> 18 tuổi)
               </button>
-              <button class="btn btn-child" onclick="alert('🚨 Đã xác nhận đối tượng: Trẻ nhỏ (< 6 tuổi).\\nHệ thống lập tức kích hoạt luồng bảo vệ an toàn Nhi khoa và kết nối Dược sĩ!')">
-                ✅ Xác nhận: Thuốc dùng cho Trẻ nhỏ (&lt; 6 tuổi)
+              <button class="btn btn-child" onclick="alert('🚨 Đã xác nhận đối tượng: Trẻ nhỏ (< 6 tuổi).\nHệ thống lập tức kích hoạt luồng bảo vệ an toàn Nhi khoa và kết nối Dược sĩ!')">
+                🚨 Xác nhận: Thuốc dùng cho Trẻ nhỏ (< 6 tuổi)
               </button>
               <button class="btn btn-pharma-direct" onclick="triggerHandoff(20, 'Sàng lọc cộc lốc')">
-                <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ trực tiếp sàng lọc ca bệnh
+                👨‍⚕️ Gặp Dược sĩ trực tiếp sàng lọc ca bệnh
               </button>
             </div>
           </div>
         `;
       }
+
     } else if (currentCase === 4) {
-      // CA 4: Đòi Seduxen kê đơn
-      if (chatState === 'handoff') {
-        html += `
-          <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge"><span class="n">1</span>Quy định pháp luật: Cấm bán thuốc hướng thần qua chat</span>
-            <p>Dạ chào bạn, hệ thống đã từ chối yêu cầu mua thuốc Seduxen theo quy định Luật Dược và kết nối Dược sĩ tư vấn giải pháp mất ngủ không dùng thuốc.</p>
-          </div>
-          <div class="handoff-banner">
-            <span>🔔 <b>DƯỢC SĨ TƯ VẤN VỆ SINH GIẤC NGỦ</b></span>
-          </div>
-        `;
-        if (handoffStep === 1) {
-          html += `
-            <div class="typing-box">
-              <div class="pharma-avatar" style="width:26px; height:26px; font-size:13px;">👩‍⚕️</div>
-              <span><b>DS. Nguyễn Thảo</b> đang soạn hướng dẫn y tế...</span>
-              <div class="typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
-            </div>
-          `;
-        } else {
-          html += `
-            <div class="pharmacist-bubble">
-              <div class="pharma-header">
-                <div class="pharma-id">
-                  <div class="pharma-avatar">👩‍⚕️</div>
-                  <div class="pharma-meta">
-                    <b>Dược sĩ Lâm sàng Nguyễn Thảo</b>
-                    <span style="color:#15803d;">Tư vấn mất ngủ không dùng thuốc</span>
-                  </div>
-                </div>
-              </div>
-              <p>Chào bạn, Seduxen (Diazepam) là thuốc hướng thần bắt buộc phải có đơn khám chuyên khoa Tâm thần kinh, nhà thuốc tuyệt đối không được bán qua chat.</p>
-              <p>Nếu bạn mất ngủ do căng thẳng, bạn hãy áp dụng vệ sinh giấc ngủ (không nhìn màn hình xanh trước ngủ 1h, phòng tối yên tĩnh), hoặc dùng trà tâm sen, Magie B6 hỗ trợ thư giãn thần kinh nhé.</p>
-              <div class="btns">
-                <button class="btn out" onclick="resetSim()">🔄 Mô phỏng lại từ đầu</button>
-              </div>
-            </div>
-          `;
-        }
-      } else {
-        html += `
-          <div class="ai">
-            <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-            <span class="conf-badge danger-badge"><span class="n">1</span>RÀNG BUỘC PHÁP LÝ · LUẬT DƯỢC 2016</span>
-            <p>Dạ chào bạn, Pharmacity rất thấu hiểu và chia sẻ với sự mệt mỏi của bạn khi bị mất ngủ suy nhược nhiều ngày qua. Tuy nhiên, về yêu cầu mua thuốc Seduxen (hoạt chất Diazepam), Pharmacity xin phép giải thích rõ cùng bạn:</p>
-            <div class="box danger">
-              <span class="n">2</span> <b>⛔ THUỐC KÊ ĐƠN ĐẶC BIỆT THEO QUY ĐỊNH PHÁP LUẬT:</b><br>
-              Seduxen là thuốc hướng thần gây ức chế thần kinh trung ương và có nguy cơ gây nghiện, lệ thuộc thuốc cao. Theo quy định pháp luật y tế Việt Nam, thuốc này bắt buộc phải có đơn khám trực tiếp từ bác sĩ chuyên khoa Tâm thần kinh và <b>tuyệt đối không được bán qua mạng/chat</b>.
-            </div>
-            <div class="box locked">
-              <span class="n">4</span> <b>🔒 TÍNH NĂNG ĐÃ ĐƯỢC BẢO VỆ TỰ ĐỘNG:</b><br>
-              Hệ thống vô hiệu hóa chức năng đặt hàng đối với danh mục thuốc kê đơn đặc biệt này để bảo vệ sức khỏe người bệnh và tuân thủ pháp luật.
-            </div>
-            <div class="ev-box">
-              <span class="n">3</span> <b>Giải pháp an toàn cho bạn:</b> Bác sĩ khuyên bạn nên thăm khám sớm để điều trị tận gốc nguyên nhân mất ngủ. Trong lúc này, Dược sĩ có thể hướng dẫn bạn các phương pháp thư giãn, vệ sinh giấc ngủ tự nhiên không dùng thuốc.
-            </div>
-            <div class="btns">
-              <button class="btn out" onclick="alert('🏥 Đang mở danh mục phòng khám Chuyên khoa Tâm thần & Sức khỏe Tâm thần uy tín gần bạn...')">
-                🏥 Xem danh sách phòng khám Chuyên khoa Tâm thần
-              </button>
-              <button class="btn pharmacist" onclick="triggerHandoff(30, 'Tư vấn mất ngủ không dùng thuốc')">
-                <span class="n">5</span>👨‍⚕️ Gặp Dược sĩ tư vấn vệ sinh giấc ngủ không dùng thuốc
-              </button>
-            </div>
-          </div>
-        `;
-      }
-    } else if (currentCase === 5) {
-      // CA 5: Đau ngực nhồi máu cơ tim
+      // CA 4: Seduxen
       html += `
         <div class="ai">
-          <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-          <span class="conf-badge danger-badge" style="border: 2px solid #ef4444;"><span class="n">1</span>🚨 BÁO ĐỘNG ĐỎ CẤP CỨU Y TẾ NGUY KỊCH</span>
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
+          <p>Dạ chào bạn, Pharmacity rất chia sẻ với tình trạng mất ngủ kéo dài khiến cơ thể bạn mệt mỏi. Tuy nhiên, Seduxen (hoạt chất <b>Diazepam</b>) là thuốc hướng thần thuộc danh mục thuốc kê đơn đặc biệt.</p>
+          <div class="box locked" style="margin:6px 0;">
+            <b>🔒 CẤM BÁN HOÀN TOÀN TRÊN HỆ THỐNG ONLINE (HARD LOCK)</b><br>
+            Theo quy định của Luật Dược và Bộ Y Tế, nhà thuốc <b>tuyệt đối không được phép</b> bán thuốc hướng thần qua mạng khi không có đơn thuốc hợp lệ của bác sĩ chuyên khoa.
+          </div>
+          <p>Thuốc có nguy cơ gây nghiện, lạm dụng và ức chế hô hấp nếu dùng sai liều. Để cải thiện giấc ngủ an toàn, bạn nên:</p>
+          <div class="btns">
+            <button class="btn btn-hospital" onclick="alert('🏥 DANH SÁCH CƠ SỞ CHUYÊN KHOA GẦN BẠN:\n1. Bệnh viện Tâm thần TP.HCM (766 Võ Văn Kiệt, Q.5)\n2. Phòng khám Tâm thần kinh BV Đại học Y Dược (215 Hồng Bàng, Q.5)\n\nQuý khách vui lòng đến khám trực tiếp để được Bác sĩ chuyên khoa chẩn đoán nguyên nhân mất ngủ!')">
+              🏥 Xem danh sách Phòng khám chuyên khoa Tâm thần & Bệnh viện gần nhất
+            </button>
+            <button class="btn btn-pharma-direct" onclick="alert('Đang kết nối Dược sĩ tư vấn quy chế thuốc kê đơn: 'Chào bạn, với Seduxen bạn bắt buộc phải có đơn thuốc tái khám trong vòng 5 ngày của Bác sĩ chuyên khoa Tâm thần nhé...'')">
+              👨‍⚕️ Gặp Dược sĩ tư vấn quy định mua thuốc kê đơn
+            </button>
+            <button class="btn btn-care" onclick="alert('📖 CẨM NANG VỆ SINH GIẤC NGỦ KHÔNG DÙNG THUỐC:\n1. Không dùng điện thoại/máy tính trước khi ngủ 1 giờ.\n2. Không uống cà phê, trà đậm sau 15h chiều.\n3. Uống 1 ly trà hoa cúc hoặc tim sen ấm trước khi ngủ 30 phút.\n4. Ngâm chân nước ấm 15 phút giúp lưu thông máu.')">
+              📖 Xem bài tập thư giãn và vệ sinh giấc ngủ không dùng thuốc
+            </button>
+          </div>
+        </div>
+      `;
+
+    } else if (currentCase === 5) {
+      // CA 5: Đau tim nhồi máu cơ tim
+      html += `
+        <div class="ai">
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
           <div class="box danger" style="background:#fee2e2; border-color:#ef4444; color:#7f1d1d;">
-            <span class="n">2</span> <b style="font-size:14px;">DẤU HIỆU CẢNH BÁO NHỒI MÁU CƠ TIM CẤP!</b><br>
+            <b style="font-size:14px;">🚨 DẤU HIỆU CẢNH BÁO NHỒI MÁU CƠ TIM CẤP!</b><br>
             Triệu chứng <b>đau thắt ngực trái lan ra sau lưng + khó thở + vã mồ hôi</b> là dấu hiệu kinh điển của tắc nghẽn động mạch vành tim. Từng phút chậm trễ đều đe dọa tính mạng! <b>TUYỆT ĐỐI KHÔNG TÌM THUỐC UỐNG TẠI NHÀ!</b>
           </div>
-          <div class="ev-box">
-            <span class="n">3</span> <b>HÀNH ĐỘNG CỨU TÍNH MẠNG NGAY TRONG TỪNG PHÚT:</b><br>
-            1. Dừng ngay mọi hoạt động, ngồi tựa lưng góc 45 độ, nới lỏng cổ áo và thắt lưng.<br>
-            2. Bấm gọi ngay Cấp cứu 115 và mở cửa nhà để nhân viên y tế tiếp cận kịp thời!
-          </div>
+          <p><b>HÀNH ĐỘNG CỨU TÍNH MẠNG NGAY TRONG TỪNG PHÚT:</b><br>
+          1. Dừng ngay mọi hoạt động, ngồi tựa lưng góc 45 độ, nới lỏng cổ áo và thắt lưng.<br>
+          2. Bấm gọi ngay Cấp cứu 115 và mở cửa nhà để nhân viên y tế tiếp cận kịp thời!</p>
           <div class="btns">
             <button class="btn btn-call115" style="padding:12px; font-size:14px; font-weight:800;" onclick="openModal('🚨 CẤP CỨU 115 - NHỒI MÁU CƠ TIM CẤP', 'Đang kết nối trung tâm cấp cứu 115 gần nhất... Xe cấp cứu chuyên dụng có máy sốc tim đang được định vị tới địa chỉ của bạn!')">
               🚨 BẤM ĐỂ GỌI CẤP CỨU 115 NGAY LẬP TỨC
             </button>
             <button class="btn btn-emergency" onclick="alert('✅ Đã gửi tọa độ GPS và thông báo khẩn cấp: \'Đang đau tức ngực khó thở nghi ngờ nhồi máu cơ tim, cần hỗ trợ gấp!\' đến 2 số điện thoại người thân.')">
-              <span class="n">6</span>📍 Xác nhận gửi định vị khẩn cấp cho người thân
+              📍 Xác nhận gửi định vị khẩn cấp cho người thân
             </button>
             <button class="btn btn-pharma-direct" onclick="alert('Đang kết nối Dược sĩ trực cấp cứu... Dược sĩ: \'Bạn hãy giữ nguyên tư thế ngồi tựa lưng, thả lỏng cơ thể, thở chậm sâu và không di chuyển nhé. Xe 115 đang trên đường đến!\'')">
               👨‍⚕️ Giữ máy kết nối Dược sĩ hướng dẫn sơ cứu trong khi đợi xe 115
@@ -2626,12 +3170,12 @@
           </div>
         </div>
       `;
+
     } else {
       // CA 6: Nước muối sinh lý bình thường
       html += `
         <div class="ai">
-          <div class="who">💊 Trợ lý Pharmacity (AI)</div>
-          <span class="conf-badge safe-badge"><span class="n">1</span>Vật tư y tế thông thường · AI Tự phục vụ tức thì</span>
+          <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
           <p>Dạ chào bạn, Pharmacity rất vui được hỗ trợ bạn. Nước muối sinh lý Natri Clorid 0.9% (chai 500ml) tại chi nhánh gần bạn (128 Hai Bà Trưng) hiện đang có sẵn 45 chai ạ.</p>
           <div class="product-card">
             <div>
@@ -2640,13 +3184,10 @@
             </div>
             <div>
               <span class="price">8.000đ</span><br>
-              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('✅ Đã đặt giữ hàng tại nhà thuốc thành công trong 2 giây! Mã nhận hàng: PMC-8821.')">Đặt giữ hàng</button>
+              <button class="btn btn-pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="showNaiveOrderSheet()">Đặt giữ hàng</button>
             </div>
           </div>
-          <div class="ev-box">
-            <span class="n">2</span> <b>Vì sao AI tự xử lý ở ca này?</b> Nước muối sinh lý là vật tư y tế thông thường không kê đơn, không có độc tính dược lý. Hệ thống tự động phục vụ tức thì trong 2 giây giúp bạn nhận hàng ngay mà không cần chờ Dược sĩ duyệt.
-          </div>
-          <div class="btns">
+          <div class="btns" style="margin-top:8px;">
             <button class="btn btn-pri" onclick="alert('✅ Đã xác nhận: Đặt giữ 1 chai Nước muối sinh lý tại Pharmacity 128 Hai Bà Trưng. Hàng được giữ riêng cho bạn trong 24h!')">
               ✅ Xác nhận đặt giữ hàng tại nhà thuốc (2 giây)
             </button>
@@ -2663,6 +3204,7 @@
 
     $('#chat-guarded').innerHTML = html;
   }
+
 
   function renderPromise() {
     const P = {
