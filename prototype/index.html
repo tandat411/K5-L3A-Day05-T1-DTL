@@ -1308,6 +1308,215 @@
       border: 1px solid #bbf7d0;
     }
 
+  
+    /* === BASIC & CLEAN HEALTHCARE UI ENHANCEMENTS === */
+    body {
+      background: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    main {
+      display: grid !important;
+      grid-template-columns: 290px 1fr !important;
+      gap: 20px !important;
+      padding: 16px 24px 32px !important;
+      max-width: 1720px !important;
+      margin: 0 auto !important;
+      align-items: start !important;
+    }
+    @media (max-width: 1200px) {
+      main {
+        grid-template-columns: 260px 1fr !important;
+        gap: 14px !important;
+        padding: 12px 16px !important;
+      }
+    }
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .cockpit-arena {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    /* Horizontal Clinical Context Strip across 2 phones */
+    .clinical-context-strip {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      box-sizing: border-box;
+    }
+    .strip-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .strip-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .strip-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.2px;
+    }
+    .strip-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px) {
+      .strip-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .strip-col {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .strip-col.strip-danger {
+      background: #fff5f5;
+      border-color: #fecaca;
+    }
+    .strip-col.strip-safety {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+    .strip-label {
+      font-weight: 800;
+      font-size: 11px;
+      display: block;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #475569;
+    }
+    .strip-label.danger-label {
+      color: #b91c1c;
+    }
+    .strip-label.safety-label {
+      color: #0369a1;
+    }
+    .strip-text {
+      color: #334155;
+    }
+
+    /* 2 Phones Grid */
+    .phones-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 820px) {
+      .phones-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Basic Flat Buttons - Clean & No Loud Gradients */
+    .btn {
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      font-size: 12.5px !important;
+      box-shadow: none !important;
+      transition: all 0.15s ease !important;
+      border: none !important;
+      padding: 8px 14px !important;
+      cursor: pointer !important;
+    }
+    .btn:hover {
+      filter: brightness(0.92);
+      transform: translateY(-1px);
+    }
+    .btn-emergency {
+      background: #dc2626 !important;
+      color: #ffffff !important;
+    }
+    .btn-call115 {
+      background: #991b1b !important;
+      color: #ffffff !important;
+    }
+    .btn-pharma-direct {
+      background: #16a34a !important;
+      color: #ffffff !important;
+    }
+    .btn-pri {
+      background: #0072ce !important;
+      color: #ffffff !important;
+    }
+    .btn-undo {
+      background: #d97706 !important;
+      color: #ffffff !important;
+    }
+    .btn-history {
+      background: #7c3aed !important;
+      color: #ffffff !important;
+    }
+    .btn-saline {
+      background: #0284c7 !important;
+      color: #ffffff !important;
+    }
+    .btn-hospital {
+      background: #ea580c !important;
+      color: #ffffff !important;
+    }
+    .btn-stable {
+      background: #059669 !important;
+      color: #ffffff !important;
+    }
+    .btn-care {
+      background: #0891b2 !important;
+      color: #ffffff !important;
+    }
+    .btn-adult {
+      background: #1e40af !important;
+      color: #ffffff !important;
+    }
+    .btn-child {
+      background: #c2410c !important;
+      color: #ffffff !important;
+    }
+
+    /* Clean Phone Containers */
+    .phone {
+      border-radius: 20px !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+    }
+    .phone.phone-naive {
+      border: 1.5px solid #fecaca !important;
+    }
+    .phone.phone-guarded {
+      border: 1.5px solid #bae6fd !important;
+    }
+    .phone-bar-naive {
+      border-radius: 12px 12px 0 0 !important;
+    }
+    .phone-bar-guarded {
+      border-radius: 12px 12px 0 0 !important;
+    }
+    .subdock-card {
+      border-radius: 16px !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
+    }
+
   </style>
 </head>
 <body>
@@ -1344,149 +1553,182 @@
 </header>
 
 <main>
-  <!-- Column 1: Selector Panel & Clinical Brief Dock -->
+  <!-- Column 1: Selector Panel (Sidebar Gọn Gàng) -->
   <section class="col-selector">
     <div class="selector-panel">
       <div class="selector-header">
         <h2>📋 Danh Sách Ca Bệnh</h2>
-        <span class="sub-hint">Bấm chọn ca để kích hoạt mô phỏng cả 2 máy</span>
+        <span class="sub-hint">Bấm chọn ca để kích hoạt đối chiếu 2 máy</span>
       </div>
 
-      <div class="case-group-label" style="color: #b91c1c;">⭐ 2 Ca Quan Trọng Nhất (Sinh Tử)</div>
-      <div class="case-nav-card main-case active" id="case-nav-1" onclick="switchCase(1)">
+      <div class="case-group-label" style="color: #dc2626;">⭐ Ca Đắt Nhất / Rủi Ro Tử Vong P0</div>
+      <div class="case-nav-card active main-case" id="case-card-1" onclick="switchCase(1)">
         <div class="case-nav-top">
           <span class="case-nav-title">K1: Dị ứng thuốc cảm</span>
           <span class="pill p-no">P0 Sốc phản vệ</span>
         </div>
-        <div class="case-nav-sub">Đau rát họng nhưng có tiền sử dị ứng thuốc cảm cũ. Nghịch lý Hoàn tác.</div>
+        <div class="case-nav-sub">Đau họng muốn mua thuốc, từng dị ứng thuốc cảm cũ.</div>
       </div>
 
-      <div class="case-nav-card main-case" id="case-nav-2" onclick="switchCase(2)">
+      <div class="case-nav-card main-case" id="case-card-2" onclick="switchCase(2)">
         <div class="case-nav-top">
           <span class="case-nav-title">K2: Trẻ sơ sinh + Ảnh</span>
           <span class="pill p-no">P0 Nhi khoa</span>
         </div>
-        <div class="case-nav-sub">Bé thở khò khè phát ban, gửi ảnh hỏi liều siro & kháng sinh bẻ liều.</div>
+        <div class="case-nav-sub">Bé thở khò khè phát ban, gửi ảnh hỏi liều siro & kháng sinh.</div>
       </div>
 
-      <div class="case-group-label" style="color: var(--mut);">Các Ca Đối Chiếu Giới Hạn</div>
-      <div class="case-nav-card" id="case-nav-3" onclick="switchCase(3)">
+      <div class="case-group-label" style="color: #0072ce;">Các Ca Đối Chiếu Giới Hạn</div>
+      <div class="case-nav-card" id="case-card-3" onclick="switchCase(3)">
         <div class="case-nav-top">
           <span class="case-nav-title">K3: Nhắn cộc lốc</span>
-          <span class="pill p-ask">Thiếu ngữ cảnh</span>
+          <span class="pill p-ask">Thiếu tuổi</span>
         </div>
-        <div class="case-nav-sub">"sốt, ho, nổi đỏ" - AI tự suy diễn người lớn gây ngộ độc.</div>
+        <div class="case-nav-sub">Khách nhắn vỏn vẹn "sốt, ho, nổi đỏ" không rõ tuổi.</div>
       </div>
 
-      <div class="case-nav-card" id="case-nav-4" onclick="switchCase(4)">
+      <div class="case-nav-card" id="case-card-4" onclick="switchCase(4)">
         <div class="case-nav-top">
           <span class="case-nav-title">K5: Seduxen Diazepam</span>
-          <span class="pill p-lock">Hard Lock</span>
+          <span class="pill p-lock">Kê đơn cấm</span>
         </div>
-        <div class="case-nav-sub">Thuốc hướng thần gây nghiện, vi phạm Luật Dược & Hình sự.</div>
+        <div class="case-nav-sub">Khách mất ngủ đòi mua thuốc hướng thần qua chat.</div>
       </div>
 
-      <div class="case-nav-card" id="case-nav-5" onclick="switchCase(5)">
+      <div class="case-nav-card" id="case-card-5" onclick="switchCase(5)">
         <div class="case-nav-top">
           <span class="case-nav-title">K6: Đau tim 115</span>
-          <span class="pill p-no">Red Alert</span>
+          <span class="pill p-no">Cấp cứu 115</span>
         </div>
-        <div class="case-nav-sub">Nhồi máu cơ tim cấp, hỏi mua viên sủi bổ tim uống đỡ mệt.</div>
+        <div class="case-nav-sub">Đau ngực vã mồ hôi nghi nhồi máu cơ tim, hỏi sủi bổ tim.</div>
       </div>
 
-      <div class="case-nav-card" id="case-nav-6" onclick="switchCase(6)">
+      <div class="case-nav-card" id="case-card-6" onclick="switchCase(6)">
         <div class="case-nav-top">
           <span class="case-nav-title">K8: Nước muối sinh lý</span>
           <span class="pill p-auto">Tự làm 100%</span>
         </div>
         <div class="case-nav-sub">Vật tư y tế không độc hại, AI tự tra kho phục vụ trong 2s.</div>
       </div>
-
-      <div class="case-brief-dock">
-        <div id="case-brief"></div>
-      </div>
     </div>
   </section>
 
-  <!-- Column 2: Phone Simulator - AI Chưa Thiết Kế -->
-  <div class="phone-column-wrap">
-    <section class="phone phone-naive">
-      <div class="phone-bar-naive">
-        <div style="display:flex; align-items:center; gap:6px;">
-          <span style="background:#fee2e2; color:#991b1b; font-size:10.5px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #fecaca;">⚠️ BASELINE</span>
-          <b>Chatbot Tự Động (Chưa Thiết Kế)</b>
+  <!-- Area 2: Cockpit Arena (Băng Ngang Bối Cảnh Lâm Sàng + Lưới 2 Điện Thoại) -->
+  <div class="cockpit-arena">
+    <!-- Horizontal Clinical Context Strip (Vị trí mới trực quan của case-brief-card) -->
+    <div class="clinical-context-strip" id="clinical-context-strip">
+      <div class="strip-header">
+        <div class="strip-title-wrap">
+          <span class="pill p-no" id="strip-badge">⭐ Ca đắt nhất #1 · Dị ứng chéo</span>
+          <span class="strip-title" id="strip-title">K1: DỊ ỨNG THUỐC CẢM CŨ · ĐAU HỌNG HỎI MUA THUỐC</span>
         </div>
-        <span style="font-weight:800; color:#dc2626; font-size:11px;">GẶP LỖI LÂM SÀNG</span>
+        <span style="font-size:11.5px; color:#64748b;">Đối chiếu trực quan phản hồi giữa 2 điện thoại bên dưới 👇</span>
       </div>
-      <div class="chat" id="chat-naive">
-        <!-- Pure natural chat -->
+      <div class="strip-grid">
+        <div class="strip-col">
+          <span class="strip-label">🩺 Bối cảnh lâm sàng</span>
+          <div id="strip-context" class="strip-text">
+            23:30 đêm, khách đau rát họng muốn mua thuốc giảm đau khẩn cấp: <i>"mình dễ dị ứng thuốc lắm, lần trước uống thuốc cảm bị nổi mẩn ngứa. Giờ mình đau họng, có thể uống thuốc gì?"</i>
+          </div>
+        </div>
+        <div class="strip-col strip-danger">
+          <span class="strip-label danger-label">💥 Cái giá khi sai (Cost of Error)</span>
+          <div id="strip-danger" class="strip-text">
+            Uống nhầm hoạt chất Paracetamol/NSAID gây sốc phản vệ độ 3, phù thanh môn tắc thở tử vong trong 15-30 phút. Thuốc uống vào <b>không thể hoàn tác</b>!
+          </div>
+        </div>
+        <div class="strip-col strip-safety">
+          <span class="strip-label safety-label">🎯 Mục tiêu thiết kế AI (HAX / PAIR)</span>
+          <div id="strip-safety" class="strip-text">
+            Áp dụng <b>HAX G10</b>: Thu hẹp phạm vi sang sàng lọc khó thở. Khóa giỏ hàng UI, giải thích minh bạch và kết nối Dược sĩ trong 30 giây.
+          </div>
+        </div>
       </div>
-      <!-- In-phone sheet for naive phone -->
-      <div id="naive-order-sheet" style="display:none;"></div>
-      <div class="phone-footer-naive">
-        ⚠️ Chatbot ngây thơ: Chốt đơn nhanh theo từ khóa, bỏ qua tiền sử dị ứng & rủi ro tử vong.
-      </div>
-    </section>
-
-    <!-- Sub-dock Giải Phẫu Lỗi Lâm Sàng (Nằm ngoài khung chat) -->
-    <div class="subdock-card subdock-danger" id="subdock-naive">
-      <!-- Dynamic Naive Diagnostic Analysis -->
     </div>
-  </div>
 
-  <!-- Column 3: Phone Simulator - AI Đã Thiết Kế Chuẩn Y Khoa -->
-  <div class="phone-column-wrap">
-    <section class="phone phone-guarded">
-      <div class="phone-bar-guarded">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <svg width="22" height="22" viewBox="0 0 34 34" fill="none">
-            <rect x="2" y="10" width="13" height="13" rx="3.5" fill="#00a859"/>
-            <rect x="17" y="10" width="13" height="13" rx="3.5" fill="#0072ce"/>
-            <rect x="9.5" y="2.5" width="13" height="13" rx="3.5" fill="#00a859"/>
-            <rect x="9.5" y="17.5" width="13" height="13" rx="3.5" fill="#0072ce"/>
-            <circle cx="16" cy="16.5" r="4" fill="#ffffff"/>
-          </svg>
-          <div>
-            <div style="font-size: 12.5px; font-weight: 800; color: #0072ce; line-height: 1.15;">
-              Pharmacity <span style="color:#00a859;">Care</span>
+    <!-- 2 Phone Simulators Grid -->
+    <div class="phones-grid">
+      <!-- Phone 1: AI Chưa Thiết Kế -->
+      <div class="phone-column-wrap">
+        <section class="phone phone-naive">
+          <div class="phone-bar-naive">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="background:#fee2e2; color:#991b1b; font-size:10.5px; font-weight:800; padding:2px 6px; border-radius:4px; border:1px solid #fecaca;">⚠️ BASELINE</span>
+              <b>Chatbot Tự Động (Chưa Thiết Kế)</b>
             </div>
-            <div style="font-size: 10px; color: #166534; font-weight: 600;">
-              Trợ lý Dược số 24/7 🟢
+            <span style="font-weight:800; color:#dc2626; font-size:11px;">GẶP LỖI LÂM SÀNG</span>
+          </div>
+          <div class="chat" id="chat-naive">
+            <!-- Pure natural chat -->
+          </div>
+          <!-- In-phone sheet for naive phone -->
+          <div id="naive-order-sheet" style="display:none;"></div>
+          <div class="phone-footer-naive">
+            ⚠️ Chatbot ngây thơ: Chốt đơn nhanh theo từ khóa, bỏ qua tiền sử dị ứng & rủi ro tử vong.
+          </div>
+        </section>
+
+        <!-- Sub-dock Giải Phẫu Lỗi Lâm Sàng -->
+        <div class="subdock-card subdock-danger" id="subdock-naive">
+          <!-- Dynamic Naive Diagnostic Analysis -->
+        </div>
+      </div>
+
+      <!-- Phone 2: AI Đã Thiết Kế Chuẩn Y Khoa -->
+      <div class="phone-column-wrap">
+        <section class="phone phone-guarded">
+          <div class="phone-bar-guarded">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <svg width="22" height="22" viewBox="0 0 34 34" fill="none">
+                <rect x="2" y="10" width="13" height="13" rx="3.5" fill="#00a859"/>
+                <rect x="17" y="10" width="13" height="13" rx="3.5" fill="#0072ce"/>
+                <rect x="9.5" y="2.5" width="13" height="13" rx="3.5" fill="#00a859"/>
+                <rect x="9.5" y="17.5" width="13" height="13" rx="3.5" fill="#0072ce"/>
+                <circle cx="16" cy="16.5" r="4" fill="#ffffff"/>
+              </svg>
+              <div>
+                <div style="font-size: 12.5px; font-weight: 800; color: #0072ce; line-height: 1.15;">
+                  Pharmacity <span style="color:#00a859;">Care</span>
+                </div>
+                <div style="font-size: 10px; color: #166534; font-weight: 600;">
+                  Trợ lý Dược số 24/7 🟢
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <div class="level-mini-group">
+                <button id="mini-l1" onclick="switchLevel(1)" title="Mức 1: Cấm AI gợi ý thuốc">① Cấm</button>
+                <button id="mini-l2" class="on" onclick="switchLevel(2)" title="Mức 2: Cần duyệt (Chọn ⭐)">② Duyệt ⭐</button>
+                <button id="mini-l3" onclick="switchLevel(3)" title="Mức 3: AI tự bán (Nguy hiểm)">③ Tự bán</button>
+              </div>
+              <button class="btn-replay" onclick="resetSim(true)" title="Mô phỏng lại từ đầu">🔄</button>
             </div>
           </div>
-        </div>
-        <div style="display:flex; align-items:center; gap:6px;">
-          <div class="level-mini-group">
-            <button id="mini-l1" onclick="switchLevel(1)" title="Mức 1: Cấm AI gợi ý thuốc">① Cấm</button>
-            <button id="mini-l2" class="on" onclick="switchLevel(2)" title="Mức 2: Cần duyệt (Chọn ⭐)">② Duyệt ⭐</button>
-            <button id="mini-l3" onclick="switchLevel(3)" title="Mức 3: AI tự bán (Nguy hiểm)">③ Tự bán</button>
+          <div class="chat" id="chat-guarded">
+            <!-- Pure natural guarded chat + suggestion chips -->
           </div>
-          <button class="btn-replay" onclick="resetSim(true)" title="Mô phỏng lại từ đầu">🔄</button>
-        </div>
-      </div>
-      <div class="chat" id="chat-guarded">
-        <!-- Pure natural guarded chat + suggestion chips + realtime countdown -->
-      </div>
-      <!-- In-phone sheet for guarded phone -->
-      <div id="guarded-order-sheet" style="display:none;"></div>
-      <div class="phone-footer">
-        <div id="attach-preview" class="attach-preview" style="display:none;">
-          <span class="attach-chip">📷 1 ảnh triệu chứng đính kèm (case2_user_upload.png)</span>
-        </div>
-        <div class="input-row">
-          <input type="text" id="phone-input" class="phone-input" placeholder="Nhập câu hỏi hoặc bấm thẻ gợi ý bên trên..." onkeydown="if(event.key==='Enter') sendUserMessage()">
-          <button id="phone-send-btn" class="phone-send pulse" onclick="sendUserMessage()" title="Nhấn để gửi tin nhắn đến chatbot">➤</button>
-        </div>
-        <div class="input-hint">
-          <span id="input-status-text">👉 Bấm thẻ gợi ý hoặc nút [➤ Gửi] để bắt đầu hỏi đáp</span>
-          <span>Phản hồi: ~0.8s</span>
-        </div>
-      </div>
-    </section>
+          <!-- In-phone sheet for guarded phone -->
+          <div id="guarded-order-sheet" style="display:none;"></div>
+          <div class="phone-footer">
+            <div id="attach-preview" class="attach-preview" style="display:none;">
+              <span class="attach-chip">📷 1 ảnh triệu chứng đính kèm (case2_user_upload.png)</span>
+            </div>
+            <div class="input-row">
+              <input type="text" id="phone-input" class="phone-input" placeholder="Nhập câu hỏi hoặc bấm thẻ gợi ý bên trên..." onkeydown="if(event.key==='Enter') sendUserMessage()">
+              <button id="phone-send-btn" class="phone-send pulse" onclick="sendUserMessage()" title="Nhấn để gửi tin nhắn đến chatbot">➤</button>
+            </div>
+            <div class="input-hint">
+              <span id="input-status-text">👉 Bấm thẻ gợi ý hoặc nút [➤ Gửi] để bắt đầu hỏi đáp</span>
+              <span>Phản hồi: ~0.8s</span>
+            </div>
+          </div>
+        </section>
 
-    <!-- Sub-dock Rào Chắn An Toàn AI (HAX & PAIR Compliance) -->
-    <div class="subdock-card subdock-safety" id="subdock-guarded">
-      <!-- Dynamic AI Safety Rationale -->
+        <!-- Sub-dock Rào Chắn An Toàn AI -->
+        <div class="subdock-card subdock-safety" id="subdock-guarded">
+          <!-- Dynamic AI Safety Rationale -->
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -1752,6 +1994,16 @@
     }, 1000);
   }
 
+
+  function triggerHandoffCountdown() {
+    chatState = 'connecting_pharma';
+    renderGuardedChat();
+    scrollToBottom();
+    startRealtimeTimer(30, () => {
+      triggerHandoff(0, 'Ưu tiên Dị ứng');
+    });
+  }
+
   function triggerHandoff(timeSec, priorityName) {
     chatState = 'handoff';
     handoffStep = 1; // start typing simulation
@@ -1799,140 +2051,72 @@
     }
   }
 
-  function renderCaseBrief() {
-    const briefs = {
+    function renderCaseBrief() {
+    const data = {
       1: {
         badge: '⭐ Ca đắt nhất #1 · Dị ứng chéo',
         badgeClass: 'p-no',
-        html: `
-          <div class="case-brief-card">
-            <div class="case-brief-title">⭐ TÌNH HUỐNG K1: DỊ ỨNG THUỐC CẢM CŨ · ĐAU HỌNG HỎI MUA THUỐC</div>
-            <div style="margin-bottom:6px;"><b>Bối cảnh lâm sàng:</b> 23:30 đêm, khách đau rát họng muốn mua thuốc giảm đau khẩn cấp, chỉ nhắn ngắn gọn: <i>"mình dễ dị ứng thuốc lắm, lần trước uống thuốc cảm bị nổi mẩn ngứa. Giờ mình đau họng, có thể uống thuốc gì?"</i></div>
-            <div class="case-brief-grid">
-              <div class="case-brief-box danger-box">
-                <b>💥 Cái giá khi sai (Cost of Error)</b>
-                Uống nhầm hoạt chất kháng viêm/giảm đau OTC gây dị ứng chéo sốc phản vệ phù nề thanh môn, nghẹt thở tử vong trong 15–30 phút. Thuốc uống vào <b>không thể hoàn tác</b>. Khách hàng chịu bằng tính mạng!
-              </div>
-              <div class="case-brief-box safe-box">
-                <b>🎯 Mục tiêu thiết kế AI (HAX / PAIR)</b>
-                Áp dụng <b>HAX G10</b>: Thu hẹp phạm vi ngay từ "tư vấn bán thuốc" sang "sàng lọc cấp cứu khó thở". Khóa giỏ hàng UI, giải thích căn cứ minh bạch và chuyển Dược sĩ trực trong 30 giây.
-              </div>
-            </div>
-          </div>
-        `
+        title: 'K1: DỊ ỨNG THUỐC CẢM CŨ · ĐAU HỌNG HỎI MUA THUỐC',
+        context: '23:30 đêm, khách đau rát họng muốn mua thuốc giảm đau khẩn cấp: <i>"mình dễ dị ứng thuốc lắm, lần trước uống thuốc cảm bị nổi mẩn ngứa. Giờ mình đau họng, có thể uống thuốc gì?"</i>',
+        danger: 'Uống nhầm hoạt chất Paracetamol/NSAID gây sốc phản vệ độ 3, phù thanh môn tắc thở tử vong trong 15-30 phút. Thuốc uống vào <b>không thể hoàn tác</b>!',
+        safety: 'Áp dụng <b>HAX G10</b>: Thu hẹp phạm vi sang sàng lọc khó thở. Khóa giỏ hàng UI, giải thích minh bạch và kết nối Dược sĩ trong 30 giây.'
       },
       2: {
         badge: '⭐ Ca đắt nhất #2 · Nhi khoa khẩn cấp P0',
         badgeClass: 'p-no',
-        html: `
-          <div class="case-brief-card danger-brief">
-            <div class="case-brief-title">⭐ TÌNH HUỐNG K2: TRẺ SƠ SINH + GỬI ẢNH TRIỆU CHỨNG + HỎI LIỀU LƯỢNG THUỐC</div>
-            <div style="margin-bottom:6px;"><b>Bối cảnh lâm sàng:</b> Trẻ sơ sinh sốt cao, phụ huynh gửi ảnh smartphone chụp da/họng bé, bảo <i>"chắc cảm gió"</i> và hỏi liều lượng siro hạ sốt cùng kháng sinh để tự chia liều tại nhà.</div>
-            <div class="case-brief-grid">
-              <div class="case-brief-box danger-box">
-                <b>💥 Cái giá khi sai (Cost of Error)</b>
-                Trẻ sơ sinh gan thận chưa phát triển; thở khò khè là viêm tiểu phế quản co thắt. AI chẩn đoán mò qua ảnh và chia liều bừa bãi gây suy gan thận cấp hoặc co thắt ngưng thở tử vong. Rủi ro y tế kịch khung!
-              </div>
-              <div class="case-brief-box safe-box">
-                <b>🎯 Mục tiêu thiết kế AI (HAX / PAIR)</b>
-                <b>HAX G1, G2</b>: Tuyên bố minh bạch giới hạn — KHÔNG đọc ảnh chẩn đoán bệnh, CẤM chia liều nhi khoa. <b>PAIR Graceful Failure</b>: Hướng dẫn quan sát rút lõm lồng ngực và chuông báo Dược sĩ P0.
-              </div>
-            </div>
-          </div>
-        `
+        title: 'K2: TRẺ SƠ SINH + GỬI ẢNH TRIỆU CHỨNG + HỎI LIỀU LƯỢNG',
+        context: 'Trẻ 8 tháng sốt cao khò khè, phụ huynh gửi ảnh phát ban da cổ ngực, bảo <i>"chắc cảm gió"</i> và hỏi liều siro hạ sốt & kháng sinh để tự chia liều.',
+        danger: 'Trẻ sơ sinh gan thận chưa phát triển; thở khò khè là viêm tiểu phế quản co thắt. AI chẩn đoán mò qua ảnh và chia liều bừa bãi gây suy gan thận cấp hoặc co thắt ngưng thở tử vong.',
+        safety: '<b>HAX G1, G2</b>: Tuyên bố minh bạch — KHÔNG đọc ảnh chẩn đoán bệnh, CẤM chia liều nhi khoa. <b>PAIR Graceful Failure</b>: Hướng dẫn quan sát rút lõm lồng ngực và phát chuông Dược sĩ P0.'
       },
       3: {
         badge: 'K3 · Thiếu thông tin ngữ cảnh',
         badgeClass: 'p-ask',
-        html: `
-          <div class="case-brief-card">
-            <div class="case-brief-title">TÌNH HUỐNG K3: KHÁCH NHẮN CỘC LỐC ("sốt, ho, nổi đỏ")</div>
-            <div style="margin-bottom:6px;"><b>Bối cảnh:</b> Khách nhắn vỏn vẹn 4 chữ không có bất kỳ thông tin nào về độ tuổi, giới tính, tiền sử bệnh nền.</div>
-            <div class="case-brief-grid">
-              <div class="case-brief-box danger-box">
-                <b>💥 Cái giá khi sai (Cost of Error)</b>
-                AI tự suy diễn người lớn kê Paracetamol 500mg, nhưng người dùng thực tế là trẻ 8 tháng tuổi gây ngộ độc gan cấp tính hoặc bỏ sót sốt xuất huyết.
-              </div>
-              <div class="case-brief-box safe-box">
-                <b>🎯 Mục tiêu thiết kế AI</b>
-                Áp dụng <b>HAX G10</b>: Thu hẹp phạm vi, hỏi lại độ tuổi và mức độ sốt thay vì đoán mò. Cấm tự ý gợi ý sản phẩm khi chưa có đủ dữ liệu an toàn.
-              </div>
-            </div>
-          </div>
-        `
+        title: 'K3: KHÁCH NHẮN CỘC LỐC ("sốt, ho, nổi đỏ")',
+        context: 'Khách nhắn vỏn vẹn 4 chữ không có bất kỳ thông tin nào về độ tuổi, giới tính, tiền sử bệnh nền.',
+        danger: 'AI tự suy diễn người lớn kê Paracetamol 500mg, nhưng người dùng thực tế là trẻ 8 tháng tuổi gây ngộ độc gan cấp tính hoặc bỏ sót sốt xuất huyết.',
+        safety: 'Áp dụng <b>HAX G10</b>: Thu hẹp phạm vi, hỏi lại độ tuổi và mức độ sốt thay vì đoán mò. Cấm tự ý gợi ý sản phẩm khi chưa có đủ dữ liệu an toàn.'
       },
       4: {
         badge: 'K5 · Thuốc kê đơn đặc biệt',
         badgeClass: 'p-lock',
-        html: `
-          <div class="case-brief-card danger-brief">
-            <div class="case-brief-title">TÌNH HUỐNG K5: ĐÒI MUA THUỐC HƯỚNG THẦN SEDUXEN (DIAZEPAM)</div>
-            <div style="margin-bottom:6px;"><b>Bối cảnh:</b> Khách mất ngủ nhiều ngày, đòi mua 2 vỉ Seduxen (Diazepam) gấp qua chat mà không có đơn thuốc của bác sĩ.</div>
-            <div class="case-brief-grid">
-              <div class="case-brief-box danger-box">
-                <b>💥 Ràng buộc pháp lý</b>
-                Thuốc hướng thần gây nghiện, ức chế hô hấp. Bán qua mạng vi phạm nghiêm trọng Luật Dược 2016 và Bộ luật Hình sự (Trách nhiệm pháp lý nhà thuốc).
-              </div>
-              <div class="case-brief-box safe-box">
-                <b>🎯 Mục tiêu thiết kế AI</b>
-                Khóa cứng chức năng ở tầng hệ thống (Hard Lock). Cấm hoàn toàn mọi tương tác mua hàng, hướng dẫn khách đi khám chuyên khoa Tâm thần.
-              </div>
-            </div>
-          </div>
-        `
+        title: 'K5: ĐÒI MUA THUỐC HƯỚNG THẦN SEDUXEN (DIAZEPAM)',
+        context: 'Khách mất ngủ nhiều ngày, đòi mua 2 vỉ Seduxen (Diazepam) gấp qua chat mà không có đơn thuốc của bác sĩ.',
+        danger: 'Thuốc hướng thần gây nghiện, ức chế hô hấp. Bán qua mạng vi phạm nghiêm trọng Luật Dược 2016 và Bộ luật Hình sự (Trách nhiệm pháp lý nhà thuốc).',
+        safety: 'Khóa cứng chức năng ở tầng hệ thống (Hard Lock). Cấm hoàn toàn mọi tương tác mua hàng, hướng dẫn khách đi khám chuyên khoa Tâm thần.'
       },
       5: {
         badge: 'K6 · Báo động đỏ Cấp cứu 115',
         badgeClass: 'p-no',
-        html: `
-          <div class="case-brief-card danger-brief">
-            <div class="case-brief-title">TÌNH HUỐNG K6: ĐAU THẮT NGỰC NHỒI MÁU CƠ TIM CẤP</div>
-            <div style="margin-bottom:6px;"><b>Bối cảnh:</b> Khách đau thắt ngực trái lan ra sau lưng, khó thở, vã mồ hôi, hỏi mua viên sủi bổ tim để uống đỡ mệt.</div>
-            <div class="case-brief-grid">
-              <div class="case-brief-box danger-box">
-                <b>💥 Cái giá khi sai (Cost of Error)</b>
-                Trì hoãn giờ vàng cấp cứu nhồi máu cơ tim dẫn đến tử vong tại nhà trong vài chục phút. Thuốc uống tại nhà không có tác dụng cứu sống.
-              </div>
-              <div class="case-brief-box safe-box">
-                <b>🎯 Mục tiêu thiết kế AI</b>
-                Báo động đỏ (Red Alert), từ chối bán mọi loại thuốc, cung cấp nút gọi Cấp cứu 115 khẩn cấp và nút gửi định vị cứu hộ cho người thân chỉ với 1 chạm.
-              </div>
-            </div>
-          </div>
-        `
+        title: 'K6: ĐAU THẮT NGỰC NHỒI MÁU CƠ TIM CẤP',
+        context: 'Khách đau thắt ngực trái lan ra sau lưng, khó thở, vã mồ hôi, hỏi mua viên sủi bổ tim để uống đỡ mệt.',
+        danger: 'Trì hoãn giờ vàng cấp cứu nhồi máu cơ tim dẫn đến tử vong tại nhà trong vài chục phút. Thuốc uống tại nhà không có tác dụng cứu sống.',
+        safety: 'Báo động đỏ (Red Alert), từ chối bán mọi loại thuốc, cung cấp nút gọi Cấp cứu 115 khẩn cấp và nút gửi định vị cứu hộ cho người thân chỉ với 1 chạm.'
       },
       6: {
         badge: 'K8 · Tự chủ hoàn toàn (Autonomous)',
         badgeClass: 'p-auto',
-        html: `
-          <div class="case-brief-card">
-            <div class="case-brief-title">TÌNH HUỐNG K8: MUA NƯỚC MUỐI SINH LÝ NATRI CLORID 0.9%</div>
-            <div style="margin-bottom:6px;"><b>Bối cảnh:</b> Khách hỏi chi nhánh Pharmacity gần nhất còn nước muối sinh lý không để ghé lấy.</div>
-            <div class="case-brief-grid">
-              <div class="case-brief-box safe-box">
-                <b>💥 Cái giá khi sai (Cost of Error)</b>
-                Rủi ro y sinh bằng 0. Nước muối sinh lý là vật tư y tế thông thường không kê đơn, không có độc tính dược lý.
-              </div>
-              <div class="case-brief-box safe-box">
-                <b>🎯 Mục tiêu thiết kế AI</b>
-                Tự làm hoàn toàn (Autonomous): Tra tồn kho và gửi link đặt giữ hàng trong 2 giây. Không bắt Dược sĩ duyệt để tối ưu tốc độ và chi phí vận hành.
-              </div>
-            </div>
-          </div>
-        `
+        title: 'K8: MUA NƯỚC MUỐI SINH LÝ NATRI CLORID 0.9%',
+        context: 'Khách hỏi chi nhánh Pharmacity gần nhất còn nước muối sinh lý không để ghé lấy.',
+        danger: 'Rủi ro y sinh bằng 0. Nước muối sinh lý là vật tư y tế thông thường không kê đơn, không có độc tính dược lý.',
+        safety: 'Tự làm hoàn toàn (Autonomous): Tra tồn kho và gửi link đặt giữ hàng trong 2 giây. Không bắt Dược sĩ duyệt để tối ưu tốc độ và chi phí vận hành.'
       }
-    };
+    }[currentCase] || data[1];
 
-    const target = $('#case-brief');
-    const badgeEl = $('#case-category-badge');
-    const current = briefs[currentCase] || briefs[1];
-    if (target) {
-      target.innerHTML = current.html;
-    }
+    const badgeEl = document.getElementById('strip-badge');
+    const titleEl = document.getElementById('strip-title');
+    const contextEl = document.getElementById('strip-context');
+    const dangerEl = document.getElementById('strip-danger');
+    const safetyEl = document.getElementById('strip-safety');
+
     if (badgeEl) {
-      badgeEl.className = 'pill ' + current.badgeClass;
-      badgeEl.textContent = current.badge;
+      badgeEl.className = 'pill ' + data.badgeClass;
+      badgeEl.textContent = data.badge;
     }
+    if (titleEl) titleEl.textContent = data.title;
+    if (contextEl) contextEl.innerHTML = data.context;
+    if (dangerEl) dangerEl.innerHTML = data.danger;
+    if (safetyEl) safetyEl.innerHTML = data.safety;
   }
 
   function renderComparisonTable() {
@@ -2620,6 +2804,35 @@
 
     // CA 1: Dị ứng thuốc cảm cũ
     if (currentCase === 1) {
+            if (chatState === 'connecting_pharma') {
+        html += `
+          <div class="ai">
+            <div class="who">💊 Trợ lý Pharmacity (AI) <span class="bubble-time">23:30</span></div>
+            <p>Dạ chào bạn, giỏ hàng tự đặt thuốc đã tạm khóa để bảo vệ an toàn cho bạn trước nguy cơ dị ứng thuốc cảm cũ.</p>
+          </div>
+          <div class="user-action-bubble">
+            “Tôi muốn kết nối với Dược sĩ Lâm sàng để thẩm định đơn thuốc an toàn.”
+          </div>
+          <div class="realtime-timer-bar">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:16px;">⏱️</span>
+              <div>
+                <b>Đang kết nối Dược sĩ Lâm sàng Nguyễn Thảo:</b>
+                <span class="timer-countdown" id="timer-val">00:${realtimeCountdownSec < 10 ? '0' : ''}${realtimeCountdownSec}</span>
+              </div>
+            </div>
+            <span style="font-weight:700; color:#15803d; font-size:11px;">Ưu tiên Dị ứng ✓</span>
+          </div>
+          <div class="typing-box" style="margin-top:6px;">
+            <div class="pharma-avatar" style="width:24px; height:24px; font-size:12px;">👩‍⚕️</div>
+            <span style="font-size:12px; color:#475569;">Hệ thống đang trích xuất hồ sơ dị ứng gửi Dược sĩ...</span>
+            <button class="btn btn-saline" style="padding:4px 10px; font-size:11.5px; margin-left:auto;" onclick="triggerHandoff(0, 'Ưu tiên Dị ứng')">Vào ngay ⏩</button>
+          </div>
+        `;
+        $('#chat-guarded').innerHTML = html;
+        return;
+      }
+
       if (chatState === 'handoff') {
         html += `
           <div class="ai">
@@ -2784,22 +2997,13 @@
             
             <p><b>Để đảm bảo an toàn tính mạng, xin bạn cho biết:</b> Hiện tại bạn có thấy <b>khó thở, nghẹn tức ở cổ họng, sưng môi/lưỡi hay choáng váng</b> không ạ?</p>
 
-            <div class="realtime-timer-bar">
-              <div style="display:flex; align-items:center; gap:6px;">
-                <span>⏱️</span>
-                <b>Đang kết nối Dược sĩ Lâm sàng duyệt đơn:</b>
-                <span class="timer-countdown" id="timer-val">00:${realtimeCountdownSec < 10 ? '0' : ''}${realtimeCountdownSec}</span>
-              </div>
-              <span style="font-weight:700; color:#15803d; font-size:11px;">Ưu tiên Dị ứng ✓</span>
-            </div>
-
-            <p style="font-size:12px; color:#475569; margin: 4px 0 8px;">
-              🔒 <b>Giỏ hàng tự đặt thuốc đã tạm khóa:</b> Thuốc nuốt vào cơ thể thì không thể hoàn tác. Dược sĩ lâm sàng sẽ vào hỗ trợ bạn ngay sau ít giây.
+            <p style="font-size:12.5px; color:#475569; margin: 4px 0 8px;">
+              🔒 <b>NÚT TỰ ĐẶT THUỐC ĐÃ TẠM KHÓA AN TOÀN:</b> Thuốc nuốt vào cơ thể thì không thể hoàn tác. Để bảo vệ bạn, đơn thuốc hỗ trợ đau họng cần được Dược sĩ lâm sàng xác nhận an toàn trước khi xuất kho.
             </p>
 
             <div class="btns">
-              <button class="btn btn-pharma-direct" onclick="triggerHandoff(1, 'Ưu tiên Dị ứng')">
-                👩‍⚕️ Kết nối ngay Dược sĩ Nguyễn Thảo
+              <button class="btn btn-pharma-direct" onclick="triggerHandoffCountdown()">
+                👩‍⚕️ Kết nối Dược sĩ Lâm sàng thẩm định đơn (30s)
               </button>
               <button class="btn btn-emergency" onclick="alert('🚨 BÁO ĐỘNG ĐỎ KHẨN CẤP: Đã kích hoạt cuộc gọi khẩn cấp 115 và gửi định vị vị trí của bạn tới trung tâm y tế gần nhất!')">
                 🚨 Báo có dấu hiệu khó thở / Cần cấp cứu 115
