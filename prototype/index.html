@@ -57,28 +57,45 @@
       color: var(--mut);
       font-size: 13.5px;
     }
-    .control-bar {
+    /* Header styling */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 24px 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .header-top {
       display: flex;
-      gap: 20px;
-      margin-top: 14px;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      align-items: center;
-      background: #f8fafc;
-      padding: 10px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
+      gap: 12px;
     }
-    .toggle-group {
+    .header-controls {
       display: flex;
-      gap: 6px;
       align-items: center;
+      gap: 10px;
     }
-    .toggle-group span {
-      font-size: 13px;
+    .btn-header-tool {
+      background: #f8fafc;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      padding: 6px 14px;
+      font-size: 12.5px;
       font-weight: 700;
-      color: var(--mut);
-      margin-right: 4px;
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
     }
+    .btn-header-tool:hover {
+      border-color: var(--primary);
+      background: #eff6ff;
+      color: var(--primary-dark);
+    }
+    
     .btn-toggle {
       border: 1.5px solid var(--line);
       background: #fff;
@@ -120,29 +137,16 @@
       color: #fff !important;
       box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4) !important;
     }
-    
-    .btn-main-case {
-      border: 1.5px solid #0284c7 !important;
-      background: #f0f9ff !important;
-      color: #0369a1 !important;
-      font-weight: 700 !important;
-    }
-    .btn-main-case.on {
-      background: #0284c7 !important;
-      color: #fff !important;
-      border-color: #0369a1 !important;
-      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
-    }
-    
-    /* Case Briefing Card in Right Column Panel */
+
+    /* Case Briefing Card in Left Selector Panel */
     .case-brief-card {
       background: #f8fafc;
       border: 1px solid var(--line);
       border-left: 4px solid var(--primary);
       border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 13.5px;
-      line-height: 1.5;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      line-height: 1.45;
     }
     .case-brief-card.danger-brief {
       background: #fef2f2;
@@ -151,36 +155,36 @@
     }
     .case-brief-title {
       font-weight: 800;
-      font-size: 14.5px;
+      font-size: 13px;
       color: var(--primary-dark);
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .case-brief-card.danger-brief .case-brief-title {
       color: #991b1b;
     }
     .case-brief-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 10px;
-      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
     }
     .case-brief-box {
       background: #ffffff;
       border: 1px solid rgba(0,0,0,0.06);
       border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 12.5px;
-      line-height: 1.45;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.4;
     }
     .case-brief-box b {
       display: block;
-      font-size: 11px;
+      font-size: 10.5px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .case-brief-box.danger-box b {
       color: #b91c1c;
@@ -189,38 +193,182 @@
       color: #0284c7;
     }
     
+    /* Cockpit 3-column Layout */
     main {
       display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 24px;
-      padding: 22px 32px 32px;
-      max-width: 1440px;
+      grid-template-columns: 310px minmax(360px, 1fr) minmax(360px, 1fr);
+      gap: 18px;
+      padding: 16px 24px 32px;
+      max-width: 1720px;
       margin: 0 auto;
+      align-items: start;
     }
-    
-    /* Phone simulator */
-    .phone {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      padding: 16px;
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.12);
+    @media (max-width: 1280px) {
+      main {
+        grid-template-columns: 280px 1fr 1fr;
+        gap: 12px;
+        padding: 12px 16px;
+      }
+    }
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Column 1: Selector */
+    .col-selector {
       display: flex;
       flex-direction: column;
-      height: 780px;
+      gap: 12px;
     }
-    .phone-bar {
+    .selector-panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .selector-header h2 {
+      font-size: 15px;
+      margin: 0 0 2px;
+      color: var(--ink);
+    }
+    .sub-hint {
+      font-size: 11.5px;
+      color: var(--mut);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .case-group-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 10px 0 6px;
+    }
+    .case-nav-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 9px 12px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-bottom: 7px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .case-nav-card:hover {
+      border-color: var(--primary);
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+    .case-nav-card.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      box-shadow: 0 3px 8px rgba(0, 114, 206, 0.12);
+    }
+    .case-nav-card.main-case {
+      border-left: 4px solid #ef4444;
+    }
+    .case-nav-card.active.main-case {
+      border-left: 4px solid var(--primary);
+    }
+    .case-nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .case-nav-title {
+      font-weight: 700;
+      font-size: 12.5px;
+      color: var(--ink);
+    }
+    .case-nav-card.active .case-nav-title {
+      color: var(--primary-dark);
+    }
+    .case-nav-sub {
+      font-size: 11px;
+      color: var(--mut);
+      line-height: 1.35;
+    }
+    .case-brief-dock {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+    }
+
+    /* Column 2 & 3: Phone simulator */
+    .phone {
+      background: #fff;
+      border-radius: 28px;
+      padding: 14px;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      height: 770px;
+      box-sizing: border-box;
+    }
+    .phone.phone-naive {
+      border: 2px solid #fca5a5;
+      box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.12);
+    }
+    .phone.phone-guarded {
+      border: 2px solid var(--primary);
+      box-shadow: 0 10px 25px -5px rgba(0, 114, 206, 0.15);
+    }
+    .phone-bar-naive {
+      background: #fff1f2;
+      border-radius: 14px 14px 0 0;
+      padding: 8px 12px;
+      border-bottom: 1px solid #fecaca;
+      color: #991b1b;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 12px;
-      color: var(--mut);
-      padding: 4px 8px 12px;
-      border-bottom: 1px solid var(--line);
     }
-    .phone-bar b {
-      color: var(--primary);
-      font-size: 13px;
+    .phone-bar-guarded {
+      background: #f0f9ff;
+      border-radius: 14px 14px 0 0;
+      padding: 8px 12px;
+      border-bottom: 1px solid #bae6fd;
+      color: #0369a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+    .phone-footer-naive {
+      padding: 8px 10px;
+      border-top: 1px solid #fecaca;
+      background: #fff1f2;
+      border-radius: 0 0 16px 16px;
+      text-align: center;
+      font-size: 11px;
+      color: #991b1b;
+      font-weight: 700;
+    }
+    .level-mini-group {
+      display: flex;
+      gap: 4px;
+    }
+    .level-mini-group button {
+      border: 1px solid #bae6fd;
+      background: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #0369a1;
+      transition: all 0.15s ease;
+    }
+    .level-mini-group button.on {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
     }
     .chat {
       flex: 1;
@@ -228,7 +376,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding: 14px 4px;
+      padding: 12px 4px;
     }
     
     /* Chat bubbles */
@@ -808,61 +956,123 @@
 <body>
 
 <header>
-  <h1>
-    <span class="badge-track">Track T1: Y tế</span>
-    Pharmacity Care · Thiết kế Trợ lý AI khi có rủi ro & Mức tự chủ
-  </h1>
-  <div class="sub">
-    Khám phá trải nghiệm tương tác khi AI đối mặt với ca nguy hiểm (Dị ứng thuốc, Trẻ sơ sinh) và cách <b>3 mức tự chủ</b> khác nhau thay đổi hoàn toàn an toàn tính mạng của người bệnh.
-  </div>
-
-  <div class="control-bar">
-    <div class="toggle-group" style="flex-wrap: wrap; gap: 8px;">
-      <span style="color: #0284c7; font-weight:800; font-size:13px;">⭐ 2 CA QUAN TRỌNG NHẤT:</span>
-      <button class="btn-toggle btn-main-case on" id="btn-case1" onclick="switchCase(1)">K1: Dị ứng thuốc cảm cũ (Ca đắt 1)</button>
-      <button class="btn-toggle btn-main-case" id="btn-case2" onclick="switchCase(2)">K2: Trẻ sơ sinh + Ảnh (Ca đắt 2)</button>
-      
-      <span style="margin-left: 8px; color: var(--mut); font-size:12px;">Các ca đối chiếu:</span>
-      <button class="btn-toggle" id="btn-case3" onclick="switchCase(3)">K3: Cộc lốc</button>
-      <button class="btn-toggle" id="btn-case4" onclick="switchCase(4)">K5: Seduxen</button>
-      <button class="btn-toggle" id="btn-case5" onclick="switchCase(5)">K6: Đau tim 115</button>
-      <button class="btn-toggle" id="btn-case6" onclick="switchCase(6)">K8: Nước muối</button>
+  <div class="header-top">
+    <div>
+      <h1>
+        <span class="badge-track">Track T1: Y tế</span>
+        Pharmacity Care · Cockpit Đối Chiếu Tự Chủ & Rủi Ro AI
+      </h1>
+      <div class="sub">
+        So sánh song song trực quan: <b>🤖 AI Chưa Thiết Kế (Gặp lỗi chết người)</b> vs. <b>🛡️ AI Đã Siết Lại (An toàn y khoa & HAX/PAIR)</b>
+      </div>
     </div>
-
-    <div class="toggle-group" style="margin-left:auto; gap: 8px;">
-      <span style="font-weight:700;">Chế độ thiết kế:</span>
-      <button class="btn-toggle on" id="btn-mode-guarded" onclick="switchDesignMode('guarded')" style="font-weight:700;">🛡️ AI Đã Siết Lại</button>
-      <button class="btn-toggle" id="btn-mode-naive" onclick="switchDesignMode('naive')" style="font-weight:700; color:#b91c1c;">⚠️ AI Chưa Thiết Kế (Gặp Lỗi)</button>
-    </div>
-
-    <div class="toggle-group" style="gap: 8px;">
-      <span style="font-weight:700;">Mức tự chủ:</span>
-      <button class="btn-toggle level-btn-1" id="btn-l1" onclick="switchLevel(1)">① Cấm</button>
-      <button class="btn-toggle level-btn-2 on" id="btn-l2" onclick="switchLevel(2)">② Cần duyệt (Chọn ⭐)</button>
-      <button class="btn-toggle level-btn-3" id="btn-l3" onclick="switchLevel(3)">③ AI tự bán</button>
-    </div>
-
-    <div style="margin-left: 10px;">
-      <label style="font-size: 13px; font-weight:600; cursor:pointer;">
-        <input type="checkbox" id="chk-ann" checked onchange="toggleAnnotations(this.checked)"> Hiện chú thích HAX/PAIR
+    <div class="header-controls">
+      <button class="btn-header-tool" onclick="openToolsModal()">
+        📊 Xem Bảng 5 Tools & HAX/PAIR
+      </button>
+      <label style="font-size: 13px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px;">
+        <input type="checkbox" id="chk-ann" checked onchange="toggleAnnotations(this.checked)"> Hiện số chú thích HAX/PAIR
       </label>
     </div>
   </div>
 </header>
 
 <main>
-  <!-- Left Phone Screen -->
-  <section class="phone">
-    <div class="phone-bar">
-      <span>💊 <b>Pharmacity Online</b> · Hỏi dược sĩ 24/7</span>
-      <div style="display:flex; align-items:center; gap:6px;">
-        <button id="btn-mode-quick" class="btn-replay" onclick="toggleDesignMode()" title="Chuyển đổi so sánh AI Đã Siết Lại và AI Chưa Thiết Kế" style="color:#b91c1c; border-color:#fca5a5;">⚠️ Xem khi Chưa Siết</button>
-        <button id="btn-replay" class="btn-replay" onclick="replaySimulation()" title="Mô phỏng gửi lại tin nhắn này">🔄 Gửi lại</button>
-        <span id="clock">15:02</span>
+  <!-- Column 1: Selector Panel -->
+  <section class="col-selector">
+    <div class="selector-panel">
+      <div class="selector-header">
+        <h2>📋 Danh Sách Ca Bệnh</h2>
+        <span class="sub-hint">Bấm chọn ca để kích hoạt mô phỏng cả 2 máy</span>
+      </div>
+
+      <div class="case-group-label" style="color: #b91c1c;">⭐ 2 Ca Quan Trọng Nhất (Sinh Tử)</div>
+      <div class="case-nav-card main-case active" id="case-nav-1" onclick="switchCase(1)">
+        <div class="case-nav-top">
+          <span class="case-nav-title">K1: Dị ứng thuốc cảm</span>
+          <span class="pill p-no">P0 Sốc phản vệ</span>
+        </div>
+        <div class="case-nav-sub">Đau rát họng nhưng có tiền sử dị ứng thuốc cảm cũ. Nghịch lý Hoàn tác.</div>
+      </div>
+
+      <div class="case-nav-card main-case" id="case-nav-2" onclick="switchCase(2)">
+        <div class="case-nav-top">
+          <span class="case-nav-title">K2: Trẻ sơ sinh + Ảnh</span>
+          <span class="pill p-no">P0 Nhi khoa</span>
+        </div>
+        <div class="case-nav-sub">Bé thở khò khè phát ban, gửi ảnh hỏi liều siro & kháng sinh bẻ liều.</div>
+      </div>
+
+      <div class="case-group-label" style="color: var(--mut);">Các Ca Đối Chiếu Giới Hạn</div>
+      <div class="case-nav-card" id="case-nav-3" onclick="switchCase(3)">
+        <div class="case-nav-top">
+          <span class="case-nav-title">K3: Nhắn cộc lốc</span>
+          <span class="pill p-ask">Thiếu ngữ cảnh</span>
+        </div>
+        <div class="case-nav-sub">"sốt, ho, nổi đỏ" - AI tự suy diễn người lớn gây ngộ độc.</div>
+      </div>
+
+      <div class="case-nav-card" id="case-nav-4" onclick="switchCase(4)">
+        <div class="case-nav-top">
+          <span class="case-nav-title">K5: Seduxen Diazepam</span>
+          <span class="pill p-lock">Hard Lock</span>
+        </div>
+        <div class="case-nav-sub">Thuốc hướng thần gây nghiện, vi phạm Luật Dược & Hình sự.</div>
+      </div>
+
+      <div class="case-nav-card" id="case-nav-5" onclick="switchCase(5)">
+        <div class="case-nav-top">
+          <span class="case-nav-title">K6: Đau tim 115</span>
+          <span class="pill p-no">Red Alert</span>
+        </div>
+        <div class="case-nav-sub">Nhồi máu cơ tim cấp, hỏi mua viên sủi bổ tim uống đỡ mệt.</div>
+      </div>
+
+      <div class="case-nav-card" id="case-nav-6" onclick="switchCase(6)">
+        <div class="case-nav-top">
+          <span class="case-nav-title">K8: Nước muối sinh lý</span>
+          <span class="pill p-auto">Tự làm 100%</span>
+        </div>
+        <div class="case-nav-sub">Vật tư y tế không độc hại, AI tự tra kho phục vụ trong 2s.</div>
+      </div>
+
+      <div class="case-brief-dock">
+        <div id="case-brief"></div>
       </div>
     </div>
-    <div class="chat" id="chat">
-      <!-- Dynamic chat inserted here -->
+  </section>
+
+  <!-- Column 2: Phone Simulator - AI Chưa Thiết Kế -->
+  <section class="phone phone-naive">
+    <div class="phone-bar-naive">
+      <span>⚠️ <b>AI Chưa Thiết Kế</b> (Baseline Ngây Thơ)</span>
+      <span style="font-weight:700; color:#dc2626;">GẶP LỖI & RỦI RO</span>
+    </div>
+    <div class="chat" id="chat-naive">
+      <!-- Dynamic naive chat -->
+    </div>
+    <div class="phone-footer-naive">
+      💥 Mô phỏng chatbot ngây thơ: Bị bẫy từ khóa, tự ý kê đơn, kích hoạt chuỗi tác hại sinh học (Harm Chain).
+    </div>
+  </section>
+
+  <!-- Column 3: Phone Simulator - AI Đã Siết Lại -->
+  <section class="phone phone-guarded">
+    <div class="phone-bar-guarded">
+      <div>
+        <span>🛡️ <b>Trợ Lý AI Chuẩn Y Khoa</b></span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <div class="level-mini-group">
+          <button id="mini-l1" onclick="switchLevel(1)" title="Mức 1: Cấm AI gợi ý thuốc">① Cấm</button>
+          <button id="mini-l2" class="on" onclick="switchLevel(2)" title="Mức 2: Tự chủ phân tầng / Cần duyệt (Chọn ⭐)">② Duyệt ⭐</button>
+          <button id="mini-l3" onclick="switchLevel(3)" title="Mức 3: AI tự bán (Nguy hiểm)">③ Tự bán</button>
+        </div>
+        <button class="btn-replay" onclick="replaySimulation()" title="Mô phỏng gửi lại tin nhắn">🔄</button>
+      </div>
+    </div>
+    <div class="chat" id="chat-guarded">
+      <!-- Dynamic guarded chat -->
     </div>
     <div class="phone-footer">
       <div id="attach-preview" class="attach-preview" style="display:none;">
@@ -873,77 +1083,11 @@
         <button id="phone-send-btn" class="phone-send pulse" onclick="sendUserMessage()" title="Nhấn để gửi tin nhắn đến chatbot">➤</button>
       </div>
       <div class="input-hint">
-        <span id="input-status-text">👉 Bấm nút [➤ Gửi] để bắt đầu hỏi đáp</span>
-        <span>Phản hồi AI: ~0.8s</span>
+        <span id="input-status-text">👉 Bấm nút [➤ Gửi] để bắt đầu hỏi đáp cả 2 máy</span>
+        <span>Phản hồi: ~0.8s</span>
       </div>
     </div>
   </section>
-
-  <!-- Right Aside Panels -->
-  <aside>
-    <!-- Panel 0: Chi tiết tình huống lâm sàng & Phân tích Cost of Error -->
-    <div class="panel" style="border-left: 4px solid var(--primary);">
-      <h2>
-        <span>📋 Bối cảnh Tình huống & Phân tích Cost of Error</span>
-        <span id="case-category-badge" class="pill p-ask">Track T1: Y tế</span>
-      </h2>
-      <div id="case-brief"></div>
-    </div>
-
-    <!-- Panel 0.5: Bảng Danh Sách Đối Chiếu 6 Ca: AI Chưa Thiết Kế (Mắc Lỗi Gì) vs. AI Đã Siết Lại -->
-    <div class="panel" style="border-left: 4px solid #ef4444;">
-      <h2>
-        <span>⚠️ Danh Sách Đối Chiếu: AI Chưa Thiết Kế Gặp Lỗi Gì vs. AI Đã Siết Lại</span>
-        <span class="pill p-no">6 Tình huống</span>
-      </h2>
-      <div style="font-size: 12px; color: var(--mut); margin-bottom: 8px;">
-        Bấm vào từng dòng để xem phản hồi tương ứng trên màn hình điện thoại. So sánh giữa Chatbot ngây thơ chưa qua kiểm soát và Trợ lý AI sau khi đã siết lại an toàn.
-      </div>
-      <div style="overflow-x: auto;">
-        <table style="font-size: 12px;">
-          <thead>
-            <tr>
-              <th style="width: 45px;">Ca</th>
-              <th style="width: 135px;">Tình huống</th>
-              <th style="width: 260px; color:#b91c1c;">AI Chưa Thiết Kế: Mắc lỗi gì & Hậu quả?</th>
-              <th style="color:#15803d;">AI Đã Siết Lại: Phản hồi bảo vệ ra sao?</th>
-            </tr>
-          </thead>
-          <tbody id="comparison-table-body"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Panel 1: Promise -->
-    <div class="panel">
-      <h2>Lời hứa với khách hàng ở mức này</h2>
-      <div class="promise" id="promise-text"></div>
-    </div>
-
-    <!-- Panel 2: 5 Tools Table -->
-    <div class="panel">
-      <h2>
-        Mức tự chủ của 5 Tool trong Track T1
-        <span style="font-size:12px; font-weight:normal; color:var(--mut);">dòng tô vàng là tool đang đổi</span>
-      </h2>
-      <table>
-        <thead>
-          <tr>
-            <th style="width: 170px;">Tool</th>
-            <th style="width: 140px;">Mức tự chủ</th>
-            <th>Lý do theo Cost-of-Error (Sai ai chịu · Đảo được không)</th>
-          </tr>
-        </thead>
-        <tbody id="tools-body"></tbody>
-      </table>
-    </div>
-
-    <!-- Panel 3: HAX / PAIR Annotations -->
-    <div class="panel">
-      <h2>Chú thích: Vị trí nguyên tắc HAX / PAIR trên màn hình</h2>
-      <ul class="ann" id="ann-list"></ul>
-    </div>
-  </aside>
 </main>
 
 <div class="foot">
@@ -960,6 +1104,40 @@
     <div class="btns">
       <button class="btn danger" onclick="closeModal()">Đã hiểu, đóng thông báo</button>
       <button class="btn out" onclick="closeModal()">Đóng cửa sổ này</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tools & HAX/PAIR Reference -->
+<div class="modal" id="tools-modal">
+  <div class="card" style="max-width: 760px; max-height: 85vh; overflow-y: auto;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--line); padding-bottom:8px;">
+      <h3 style="margin:0; color:var(--primary); font-size:16px;">📊 BẢNG MỨC TỰ CHỦ 5 TOOLS & NGUYÊN TẮC HAX / PAIR</h3>
+      <button class="btn out" onclick="closeToolsModal()" style="padding:4px 10px; font-size:12px;">✕ Đóng</button>
+    </div>
+    
+    <div style="margin-bottom:14px;">
+      <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:4px;">Lời hứa với khách hàng ở Mức Tự Chủ đang chọn:</div>
+      <div class="promise" id="promise-text"></div>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:4px;">Mức tự chủ của 5 Tool trong Track T1 (Y tế):</div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 160px;">Tool</th>
+            <th style="width: 140px;">Mức tự chủ</th>
+            <th>Lý do theo Cost-of-Error (Sai ai chịu · Đảo được không)</th>
+          </tr>
+        </thead>
+        <tbody id="tools-body"></tbody>
+      </table>
+    </div>
+
+    <div>
+      <div style="font-weight:700; font-size:13px; color:var(--ink); margin-bottom:4px;">Vị trí nguyên tắc HAX / PAIR trên màn hình:</div>
+      <ul class="ann" id="ann-list"></ul>
     </div>
   </div>
 </div>
@@ -990,9 +1168,32 @@
   let aiThinkTimer = null;
 
   function scrollToBottom() {
-    const c = document.getElementById('chat');
-    if (c) {
-      setTimeout(() => { c.scrollTop = c.scrollHeight; }, 60);
+    const c1 = document.getElementById('chat-naive');
+    const c2 = document.getElementById('chat-guarded');
+    setTimeout(() => {
+      if (c1) c1.scrollTop = c1.scrollHeight;
+      if (c2) c2.scrollTop = c2.scrollHeight;
+    }, 60);
+  }
+
+  function openToolsModal() {
+    const m = document.getElementById('tools-modal');
+    if (m) m.classList.add('show');
+  }
+
+  function closeToolsModal() {
+    const m = document.getElementById('tools-modal');
+    if (m) m.classList.remove('show');
+  }
+
+  function renderCaseSelector() {
+    for (let i = 1; i <= 6; i++) {
+      const el = document.getElementById(`case-nav-${i}`);
+      if (el) el.classList.toggle('active', currentCase === i);
+    }
+    for (let l = 1; l <= 3; l++) {
+      const btn = document.getElementById(`mini-l${l}`);
+      if (btn) btn.classList.toggle('on', currentLevel === l);
     }
   }
 
@@ -1013,7 +1214,7 @@
         inputEl.readOnly = false;
       } else {
         inputEl.value = '';
-        inputEl.placeholder = 'Đã gửi câu hỏi mẫu. Chọn ca khác hoặc bấm [🔄 Gửi lại]...';
+        inputEl.placeholder = 'Đã gửi câu hỏi mẫu. Chọn ca khác hoặc bấm [🔄]...';
         inputEl.readOnly = true;
       }
     }
@@ -1024,7 +1225,7 @@
     }
 
     if (hintEl) {
-      hintEl.textContent = msgSent ? '✓ Tin nhắn đã gửi đến chatbot' : '👉 Nhấn nút [➤ Gửi] để bắt đầu hỏi đáp';
+      hintEl.textContent = msgSent ? '✓ Tin nhắn đã gửi đến cả 2 chatbot' : '👉 Nhấn nút [➤ Gửi] để bắt đầu hỏi đáp cả 2 máy';
     }
   }
 
@@ -1072,19 +1273,15 @@
     msgSent = false;
     isAiThinking = false;
     if (aiThinkTimer) clearTimeout(aiThinkTimer);
-    document.querySelectorAll('[id^="btn-case"]').forEach((b, idx) => {
-      b.classList.toggle('on', idx === (c - 1));
-    });
     render();
+    scrollToBottom();
   }
 
   function switchLevel(l) {
     currentLevel = l;
     resetSim(false);
-    document.querySelectorAll('[id^="btn-l"]').forEach((b, idx) => {
-      b.classList.toggle('on', idx === (l - 1));
-    });
     render();
+    scrollToBottom();
   }
 
   function switchDesignMode(m) {
@@ -1390,35 +1587,192 @@
   }
 
   function render() {
-    const btnGuarded = $('#btn-mode-guarded');
-    const btnNaive = $('#btn-mode-naive');
-    const btnQuick = $('#btn-mode-quick');
-    if (btnGuarded && btnNaive) {
-      btnGuarded.classList.toggle('on', designMode === 'guarded');
-      btnNaive.classList.toggle('on', designMode === 'naive');
-    }
-    if (btnQuick) {
-      if (designMode === 'naive') {
-        btnQuick.textContent = '🛡️ Về bản Đã Siết Lại';
-        btnQuick.style.color = '#15803d';
-        btnQuick.style.borderColor = '#86efac';
-      } else {
-        btnQuick.textContent = '⚠️ Xem khi Chưa Siết';
-        btnQuick.style.color = '#b91c1c';
-        btnQuick.style.borderColor = '#fca5a5';
-      }
-    }
-
+    renderCaseSelector();
     renderCaseBrief();
-    renderComparisonTable();
-    renderChat();
+    renderNaiveChat();
+    renderGuardedChat();
     renderPromise();
     renderToolsTable();
     renderAnnotations();
     updateInputField();
   }
 
-  function renderChat() {
+  function renderNaiveChat() {
+    const container = document.getElementById('chat-naive');
+    if (!container) return;
+
+    let html = '';
+    if (!msgSent) {
+      html = `
+        <div class="chat-intro-card" style="border-color:#fca5a5; background:#fff1f2;">
+          <div style="font-size: 28px; margin-bottom: 6px;">🤖</div>
+          <div style="font-weight: 800; font-size: 14px; color: #991b1b; margin-bottom: 4px;">
+            CHATBOT BASELINE (CHƯA THIẾT KẾ)
+          </div>
+          <p style="font-size: 12px; color: #7f1d1d; margin: 0; line-height: 1.45;">
+            Mô phỏng phản hồi khi chatbot chưa có rào chắn HAX/PAIR.<br>
+            Bấm <b>[➤ Gửi]</b> ở cột bên phải để xem con bot ngây thơ này mắc lỗi lâm sàng ra sao.
+          </p>
+        </div>
+      `;
+      container.innerHTML = html;
+      return;
+    }
+
+    if (currentCase === 2) {
+      html += `
+        <div class="me">
+          <img src="case2_user_upload.png" class="me-img" alt="Ảnh triệu chứng phát ban vùng cổ và ngực">
+          “${userQuestions[2]}”
+        </div>
+      `;
+    } else {
+      html += `<div class="me">“${userQuestions[currentCase]}”</div>`;
+    }
+
+    if (isAiThinking) {
+      html += `
+        <div class="ai" style="animation: fadeInMsg 0.2s ease;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:#475569; padding: 4px 0;">
+            <span>Đang tạo giỏ hàng...</span>
+            <div class="typing-dots">
+              <span class="typing-dot" style="background:#dc2626;"></span>
+              <span class="typing-dot" style="background:#dc2626;"></span>
+              <span class="typing-dot" style="background:#dc2626;"></span>
+            </div>
+          </div>
+        </div>
+      `;
+      container.innerHTML = html;
+      return;
+    }
+
+    let naiveContent = '';
+    if (currentCase === 1) {
+      naiveContent = `
+        <div class="ai" style="border-color:#fca5a5;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
+          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <p>Chào bạn, đau rát họng thường do viêm họng cấp hoặc thời tiết thay đổi. Bạn có thể dùng viên ngậm thảo dược giảm đau rát họng nhanh hoặc uống thuốc giảm đau hạ sốt Hapacol 500mg nhé. Mình gửi link giỏ hàng giao nhanh 15 phút bên dưới ạ:</p>
+          <div class="product-card" style="border-color:#fca5a5;">
+            <div>
+              <b>Viên ngậm Strepsils Cool / Hapacol 500mg</b>
+              <small>Giảm đau họng nhanh chóng</small>
+            </div>
+            <div>
+              <span class="price">38.000đ</span><br>
+              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã thêm vào giỏ hàng! (MÔ PHỎNG NGUY CƠ: Người bệnh uống vào bị sốc phản vệ cấp)')">Mua ngay</button>
+            </div>
+          </div>
+          <div class="box danger" style="margin-top:10px;">
+            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (CONTEXT ERROR & HARM CHAIN):</b><br>
+            • <b>Bản chất lỗi:</b> AI bị bẫy từ khóa "đau họng" và mục tiêu bán hàng, bỏ qua hoàn toàn tiền sử "dị ứng thuốc cảm cũ".<br>
+            • <b>Hậu quả:</b> Bệnh nhân uống nhầm Paracetamol/NSAID bị sốc phản vệ độ 3, phù thanh môn, ngưng thở tử vong trong 15-30 phút. Thuốc nuốt vào bụng không thể hoàn tác!
+          </div>
+        </div>
+      `;
+    } else if (currentCase === 2) {
+      naiveContent = `
+        <div class="ai" style="border-color:#fca5a5;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
+          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <p>Dạ nhìn qua ảnh chụp vùng cổ ngực thì thấy bé bị phát ban do dị ứng thời tiết và họng hơi sưng đỏ cảm gió thôi mẹ nhé. Với siro hạ sốt Hapacol mẹ chia liều 2.5ml mỗi 4-6 tiếng, còn gói bột kháng sinh Clamoxyl 250mg mẹ chia nửa gói hòa nước cho bé uống nhé. Em lên sẵn đơn giao nhanh cho bé rồi ạ:</p>
+          <div class="product-card" style="border-color:#fca5a5;">
+            <div>
+              <b>Gói bột kháng sinh Clamoxyl 250mg & Siro Hapacol</b>
+              <small>AI tự kê theo chẩn đoán ảnh</small>
+            </div>
+            <div>
+              <span class="price">75.000đ</span><br>
+              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã tạo đơn giao hàng! (MÔ PHỎNG NGUY CƠ: Bé sơ sinh uống vào bị suy gan cấp hoặc co thắt ngưng thở)')">Mua ngay</button>
+            </div>
+          </div>
+          <div class="box danger" style="margin-top:10px;">
+            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (VISION HALLUCINATION & OVERDOSE):</b><br>
+            • <b>Bản chất lỗi:</b> Ảo giác thị giác (đoán mò bệnh qua ảnh smartphone) và tự tiện chia liều thuốc nhi khoa.<br>
+            • <b>Hậu quả:</b> Trẻ sơ sinh gan thận chưa phát triển bị suy gan cấp do quá liều; tiếng thở khò khè là viêm tiểu phế quản co thắt không được cấp cứu dẫn đến ngưng thở tử vong lúc nửa đêm.
+          </div>
+        </div>
+      `;
+    } else if (currentCase === 3) {
+      naiveContent = `
+        <div class="ai" style="border-color:#fca5a5;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
+          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <p>Chào bạn, bạn bị sốt, ho và nổi đỏ thì uống Paracetamol 500mg ngày 3 lần sau ăn, kết hợp siro ho bổ phế và viên sủi Vitamin C để tăng đề kháng nhé. Em tạo giỏ hàng cho bạn:</p>
+          <div class="box danger" style="margin-top:10px;">
+            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (UNCHECKED ASSUMPTION):</b><br>
+            • <b>Bản chất lỗi:</b> AI tự mặc định khách là người lớn mà không hỏi tuổi.<br>
+            • <b>Hậu quả:</b> Bệnh nhân thực tế là bé 8 tháng tuổi hoặc đang bị sốt xuất huyết Dengue, uống Paracetamol liều người lớn gây ngộ độc hoại tử gan cấp hoặc xuất huyết nội tạng ồ ạt!
+          </div>
+        </div>
+      `;
+    } else if (currentCase === 4) {
+      naiveContent = `
+        <div class="ai" style="border-color:#fca5a5;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
+          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <p>Dạ Pharmacity có bán thuốc an thần Seduxen 5mg (Diazepam). Bạn mất ngủ suy nhược thì uống 1 viên trước khi ngủ 30 phút nhé. Em lên đơn giao 2 vỉ đến bạn ngay:</p>
+          <div class="product-card" style="border-color:#fca5a5;">
+            <div>
+              <b>Seduxen 5mg (Diazepam) - Hộp 2 vỉ</b>
+              <small>Thuốc an thần điều trị mất ngủ</small>
+            </div>
+            <div>
+              <span class="price">120.000đ</span><br>
+              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã lên đơn mua Seduxen thành công! (VI PHẠM HÌNH SỰ BỘ LUẬT DƯỢC)')">Mua ngay</button>
+            </div>
+          </div>
+          <div class="box danger" style="margin-top:10px;">
+            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (REGULATORY BLINDNESS):</b><br>
+            • <b>Bản chất lỗi:</b> Xem thuốc hướng thần kê đơn đặc biệt như hàng hóa thông thường, tự tiện bán qua chat.<br>
+            • <b>Hậu quả:</b> Vi phạm Luật Dược 2016 và Bộ luật Hình sự. Bệnh nhân có nguy cơ nghiện thuốc, ức chế hô hấp tử vong. Nhà thuốc bị thu hồi giấy phép.
+          </div>
+        </div>
+      `;
+    } else if (currentCase === 5) {
+      naiveContent = `
+        <div class="ai" style="border-color:#fca5a5;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
+          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <p>Đau thắt ngực lan ra sau vai lưng và vã mồ hôi có thể do làm việc quá sức hoặc thiếu máu cơ tim nhẹ. Bạn uống viên sủi bổ tim Coenzyme Q10 và trà thảo dược này để hồi sức cho đỡ mệt nhé:</p>
+          <div class="product-card" style="border-color:#fca5a5;">
+            <div>
+              <b>Viên sủi Coenzyme Q10 Bổ Tim & Trà Thảo Dược</b>
+              <small>Giảm mệt mỏi, hỗ trợ tim mạch</small>
+            </div>
+            <div>
+              <span class="price">185.000đ</span><br>
+              <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã đặt hàng viên sủi bổ tim! (LỠ GIỜ VÀNG CẤP CỨU NHỒI MÁU CƠ TIM)')">Mua ngay</button>
+            </div>
+          </div>
+          <div class="box danger" style="margin-top:10px;">
+            <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (MISSED RED FLAG):</b><br>
+            • <b>Bản chất lỗi:</b> AI mất dấu hiệu cờ đỏ sinh tử của Nhồi máu cơ tim cấp (tắc động mạch vành).<br>
+            • <b>Hậu quả:</b> Bệnh nhân uống viên sủi nằm chờ đỡ mệt, trì hoãn gọi 115, mất giờ vàng cấp cứu và tử vong tại nhà vì hoại tử cơ tim cấp!
+          </div>
+        </div>
+      `;
+    } else {
+      naiveContent = `
+        <div class="ai" style="border-color:#fca5a5;">
+          <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Có Rào Chắn)</div>
+          <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
+          <p>Dạ bạn muốn mua Nước muối sinh lý 0.9% (chai 500ml - 8.000đ). Theo quy trình thông thường, bạn vui lòng đợi trong hàng chờ, Dược sĩ phụ trách sẽ duyệt đơn của bạn sau khoảng 10-15 phút nhé...</p>
+          <div class="box warn" style="margin-top:10px;">
+            <b>⚠️ LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (OVER-REGULATION / THỪA THÃI KIỂM SOÁT):</b><br>
+            • <b>Bản chất lỗi:</b> Không phân tầng rủi ro, bắt Dược sĩ duyệt thủ công cả vật tư y tế không độc hại.<br>
+            • <b>Hậu quả:</b> Khách hàng mua nước muối phải chờ đợi vô ích, đồng thời làm tắc nghẽn hàng đợi xử lý của Dược sĩ khi có ca khẩn cấp cần can thiệp!
+          </div>
+        </div>
+      `;
+    }
+    html += naiveContent;
+    container.innerHTML = html;
+  }
+
+  function renderGuardedChat() {
     let html = '';
 
     if (!msgSent) {
@@ -1432,20 +1786,20 @@
       };
       html += `
         <div class="chat-intro-card">
-          <div style="font-size: 32px; margin-bottom: 8px;">💬</div>
-          <div style="font-weight: 800; font-size: 15px; color: var(--primary-dark); margin-bottom: 6px;">
-            MÔ PHỎNG HỎI ĐÁP · ${caseTitles[currentCase] || 'TRACK T1'}
+          <div style="font-size: 32px; margin-bottom: 8px;">💊</div>
+          <div style="font-weight: 800; font-size: 14.5px; color: var(--primary-dark); margin-bottom: 6px;">
+            MÔ PHỎNG AN TOÀN Y KHOA · ${caseTitles[currentCase] || 'TRACK T1'}
           </div>
           <p style="font-size: 13px; color: #475569; margin: 0 0 16px; line-height: 1.5; max-width: 320px;">
-            Câu hỏi của người bệnh đã được nạp sẵn ở thanh chat bên dưới.<br>
-            Bấm <b>[➤ Gửi đến Chatbot]</b> để mô phỏng gửi tin và quan sát AI phản hồi.
+            Câu hỏi của người bệnh đã được nạp sẵn ở thanh bên dưới.<br>
+            Bấm <b>[➤ Gửi đến Chatbot]</b> để mô phỏng và quan sát phản hồi song song trên cả 2 điện thoại.
           </p>
           <button class="btn pri" onclick="sendUserMessage()" style="padding: 10px 22px; font-size: 13.5px; box-shadow: 0 4px 12px rgba(0, 114, 206, 0.35); cursor: pointer;">
             ➤ Gửi tin nhắn đến Chatbot
           </button>
         </div>
       `;
-      $('#chat').innerHTML = html;
+      $('#chat-guarded').innerHTML = html;
       return;
     }
 
@@ -1476,163 +1830,7 @@
           </div>
         </div>
       `;
-      $('#chat').innerHTML = html;
-      return;
-    }
-
-    if (designMode === 'naive') {
-      let naiveContent = '';
-      if (currentCase === 1) {
-        naiveContent = `
-          <div class="ai">
-            <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Qua Thiết Kế Kiểm Soát)</div>
-            <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-            <p>Chào bạn, đau rát họng thường do viêm họng cấp hoặc thời tiết thay đổi. Bạn có thể dùng viên ngậm thảo dược giảm đau rát họng nhanh hoặc uống thuốc giảm đau hạ sốt Hapacol 500mg nhé. Mình gửi link giỏ hàng giao nhanh 15 phút bên dưới ạ:</p>
-            <div class="product-card" style="border-color:#fca5a5;">
-              <div>
-                <b>Viên ngậm Strepsils Cool / Hapacol 500mg</b>
-                <small>Giảm đau họng nhanh chóng</small>
-              </div>
-              <div>
-                <span class="price">38.000đ</span><br>
-                <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã thêm vào giỏ hàng! (MÔ PHỎNG NGUY CƠ: Người bệnh uống vào bị sốc phản vệ cấp)')">Mua ngay</button>
-              </div>
-            </div>
-            <div class="box danger" style="margin-top:10px;">
-              <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (CONTEXT ERROR & HARM CHAIN):</b><br>
-              • <b>Bản chất lỗi:</b> AI bị bẫy từ khóa "đau họng" và mục tiêu bán hàng, bỏ qua hoàn toàn tiền sử "dị ứng thuốc cảm cũ".<br>
-              • <b>Hậu quả:</b> Bệnh nhân uống nhầm Paracetamol/NSAID bị sốc phản vệ độ 3, phù thanh môn, ngưng thở tử vong trong 15-30 phút. Thuốc nuốt vào bụng không thể hoàn tác!
-            </div>
-            <div class="btns">
-              <button class="btn pri" onclick="switchDesignMode('guarded')" style="background:#15803d;">
-                🛡️ Bật chế độ "AI Đã Siết Lại" để xem cách xử lý an toàn
-              </button>
-            </div>
-          </div>
-        `;
-      } else if (currentCase === 2) {
-        naiveContent = `
-          <div class="ai">
-            <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Qua Thiết Kế Kiểm Soát)</div>
-            <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-            <p>Dạ nhìn qua ảnh chụp vùng cổ ngực thì thấy bé bị phát ban do dị ứng thời tiết và họng hơi sưng đỏ cảm gió thôi mẹ nhé. Với siro hạ sốt Hapacol mẹ chia liều 2.5ml mỗi 4-6 tiếng, còn gói bột kháng sinh Clamoxyl 250mg mẹ chia nửa gói hòa nước cho bé uống nhé. Em lên sẵn đơn giao nhanh cho bé rồi ạ:</p>
-            <div class="product-card" style="border-color:#fca5a5;">
-              <div>
-                <b>Gói bột kháng sinh Clamoxyl 250mg & Siro Hapacol</b>
-                <small>AI tự kê theo chẩn đoán ảnh</small>
-              </div>
-              <div>
-                <span class="price">75.000đ</span><br>
-                <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã tạo đơn giao hàng! (MÔ PHỎNG NGUY CƠ: Bé sơ sinh uống vào bị suy gan cấp hoặc co thắt ngưng thở)')">Mua ngay</button>
-              </div>
-            </div>
-            <div class="box danger" style="margin-top:10px;">
-              <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (VISION HALLUCINATION & OVERDOSE):</b><br>
-              • <b>Bản chất lỗi:</b> Ảo giác thị giác (đoán mò bệnh qua ảnh smartphone) và tự tiện chia liều thuốc nhi khoa.<br>
-              • <b>Hậu quả:</b> Trẻ sơ sinh gan thận chưa phát triển bị suy gan cấp do quá liều; tiếng thở khò khè là viêm tiểu phế quản co thắt không được cấp cứu dẫn đến ngưng thở tử vong lúc nửa đêm.
-            </div>
-            <div class="btns">
-              <button class="btn pri" onclick="switchDesignMode('guarded')" style="background:#15803d;">
-                🛡️ Bật chế độ "AI Đã Siết Lại" để xem cách xử lý an toàn
-              </button>
-            </div>
-          </div>
-        `;
-      } else if (currentCase === 3) {
-        naiveContent = `
-          <div class="ai">
-            <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Qua Thiết Kế Kiểm Soát)</div>
-            <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-            <p>Chào bạn, bạn bị sốt, ho và nổi đỏ thì uống Paracetamol 500mg ngày 3 lần sau ăn, kết hợp siro ho bổ phế và viên sủi Vitamin C để tăng đề kháng nhé. Em tạo giỏ hàng cho bạn:</p>
-            <div class="box danger" style="margin-top:10px;">
-              <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (UNCHECKED ASSUMPTION):</b><br>
-              • <b>Bản chất lỗi:</b> AI tự mặc định khách là người lớn mà không hỏi tuổi.<br>
-              • <b>Hậu quả:</b> Bệnh nhân thực tế là bé 8 tháng tuổi hoặc đang bị sốt xuất huyết Dengue, uống Paracetamol liều người lớn gây ngộ độc hoại tử gan cấp hoặc xuất huyết nội tạng ồ ạt!
-            </div>
-            <div class="btns">
-              <button class="btn pri" onclick="switchDesignMode('guarded')" style="background:#15803d;">
-                🛡️ Bật chế độ "AI Đã Siết Lại" để xem cách xử lý an toàn
-              </button>
-            </div>
-          </div>
-        `;
-      } else if (currentCase === 4) {
-        naiveContent = `
-          <div class="ai">
-            <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Qua Thiết Kế Kiểm Soát)</div>
-            <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-            <p>Dạ Pharmacity có bán thuốc an thần Seduxen 5mg (Diazepam). Bạn mất ngủ suy nhược thì uống 1 viên trước khi ngủ 30 phút nhé. Em lên đơn giao 2 vỉ đến bạn ngay:</p>
-            <div class="product-card" style="border-color:#fca5a5;">
-              <div>
-                <b>Seduxen 5mg (Diazepam) - Hộp 2 vỉ</b>
-                <small>Thuốc an thần điều trị mất ngủ</small>
-              </div>
-              <div>
-                <span class="price">120.000đ</span><br>
-                <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã lên đơn mua Seduxen thành công! (VI PHẠM HÌNH SỰ BỘ LUẬT DƯỢC)')">Mua ngay</button>
-              </div>
-            </div>
-            <div class="box danger" style="margin-top:10px;">
-              <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (REGULATORY BLINDNESS):</b><br>
-              • <b>Bản chất lỗi:</b> Xem thuốc hướng thần kê đơn đặc biệt như hàng hóa thông thường, tự tiện bán qua chat.<br>
-              • <b>Hậu quả:</b> Vi phạm Luật Dược 2016 và Bộ luật Hình sự. Bệnh nhân có nguy cơ nghiện thuốc, ức chế hô hấp tử vong. Nhà thuốc bị thu hồi giấy phép.
-            </div>
-            <div class="btns">
-              <button class="btn pri" onclick="switchDesignMode('guarded')" style="background:#15803d;">
-                🛡️ Bật chế độ "AI Đã Siết Lại" để xem cách xử lý an toàn
-              </button>
-            </div>
-          </div>
-        `;
-      } else if (currentCase === 5) {
-        naiveContent = `
-          <div class="ai">
-            <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Qua Thiết Kế Kiểm Soát)</div>
-            <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-            <p>Đau thắt ngực lan ra sau vai lưng và vã mồ hôi có thể do làm việc quá sức hoặc thiếu máu cơ tim nhẹ. Bạn uống viên sủi bổ tim Coenzyme Q10 và trà thảo dược này để hồi sức cho đỡ mệt nhé:</p>
-            <div class="product-card" style="border-color:#fca5a5;">
-              <div>
-                <b>Viên sủi Coenzyme Q10 Bổ Tim & Trà Thảo Dược</b>
-                <small>Giảm mệt mỏi, hỗ trợ tim mạch</small>
-              </div>
-              <div>
-                <span class="price">185.000đ</span><br>
-                <button class="btn pri" style="padding:4px 10px; font-size:12px; margin-top:4px;" onclick="alert('Đã đặt hàng viên sủi bổ tim! (LỠ GIỜ VÀNG CẤP CỨU NHỒI MÁU CƠ TIM)')">Mua ngay</button>
-              </div>
-            </div>
-            <div class="box danger" style="margin-top:10px;">
-              <b>💥 LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (MISSED RED FLAG):</b><br>
-              • <b>Bản chất lỗi:</b> AI mất dấu hiệu cờ đỏ sinh tử của Nhồi máu cơ tim cấp (tắc động mạch vành).<br>
-              • <b>Hậu quả:</b> Bệnh nhân uống viên sủi nằm chờ đỡ mệt, trì hoãn gọi 115, mất giờ vàng cấp cứu và tử vong tại nhà vì hoại tử cơ tim cấp!
-            </div>
-            <div class="btns">
-              <button class="btn pri" onclick="switchDesignMode('guarded')" style="background:#15803d;">
-                🛡️ Bật chế độ "AI Đã Siết Lại" để xem cách xử lý an toàn
-              </button>
-            </div>
-          </div>
-        `;
-      } else {
-        naiveContent = `
-          <div class="ai">
-            <div class="who" style="color:#b91c1c;">🤖 Chatbot Ngây Thơ (Chưa Qua Thiết Kế Kiểm Soát)</div>
-            <span class="conf-badge danger-badge" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b;">⚠️ PHẢN HỒI KHI AI CHƯA THIẾT KẾ (NAIVE BASELINE)</span>
-            <p>Dạ bạn muốn mua Nước muối sinh lý 0.9% (chai 500ml - 8.000đ). Theo quy trình thông thường, bạn vui lòng đợi trong hàng chờ, Dược sĩ phụ trách sẽ duyệt đơn của bạn sau khoảng 10-15 phút nhé...</p>
-            <div class="box warn" style="margin-top:10px;">
-              <b>⚠️ LỖI PHÁT SINH KHI CHƯA THIẾT KẾ (OVER-REGULATION / THỪA THÃI KIỂM SOÁT):</b><br>
-              • <b>Bản chất lỗi:</b> Không phân tầng rủi ro, bắt Dược sĩ duyệt thủ công cả vật tư y tế không độc hại.<br>
-              • <b>Hậu quả:</b> Khách hàng mua nước muối phải chờ đợi vô ích, đồng thời làm tắc nghẽn hàng đợi xử lý của Dược sĩ khi có ca khẩn cấp cần can thiệp!
-            </div>
-            <div class="btns">
-              <button class="btn pri" onclick="switchDesignMode('guarded')" style="background:#15803d;">
-                🛡️ Bật chế độ "AI Đã Siết Lại" để xem cách xử lý an toàn
-              </button>
-            </div>
-          </div>
-        `;
-      }
-      html += naiveContent;
-      $('#chat').innerHTML = html;
+      $('#chat-guarded').innerHTML = html;
       return;
     }
 
@@ -2323,7 +2521,7 @@
       `;
     }
 
-    $('#chat').innerHTML = html;
+    $('#chat-guarded').innerHTML = html;
   }
 
   function renderPromise() {
