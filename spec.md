@@ -109,9 +109,22 @@
 - Mức tự chủ đã đổi lời hứa nào với người dùng: Thay đổi lời hứa từ "Trợ lý AI đọc ảnh và tư vấn liều thuốc tức thì 24/7" thành "Trợ lý sàng lọc an toàn đa kênh, hỗ trợ xác nhận thông tin thuốc/triệu chứng và kết nối dược sĩ duyệt liều chính xác cho mọi ca có rủi ro".
 
 ## §5. Prototype  (chặng 5)
-- Link hoặc file · công cụ · phần nào mock · có lời gọi AI thật không.
-- 1–2 ảnh có đánh số; mỗi số: thể hiện gì · nguyên tắc HAX/PAIR nào · mức tự chủ nào.
-- Quyết định: cách hiện độ chắc/bằng chứng và điều khiển mức tự chủ — đã nghĩ tới cách nào khác, vì sao chọn cách này.
+- Link / file: File prototype đặt tại [prototype/index.html](prototype/index.html). Ảnh chụp màn hình giao diện đối chiếu có đánh số trực quan: [prototype/screenshot_prototype.png](prototype/screenshot_prototype.png).
+- Công cụ: HTML, CSS và JavaScript thuần (thiết kế dạng cockpit đối chiếu song song 2 máy: AI chưa kiểm soát ở bên trái vs AI chuẩn lâm sàng ở bên phải).
+- Phần mock: Toàn bộ phản hồi chat, phân tích ảnh người dùng (`case2_user_upload.png`), bộ đếm thời gian kết nối dược sĩ và giao diện tiếp nhận của Dược sĩ trực đều được mock bằng JavaScript để bấm tương tác trực tiếp.
+- Lời gọi AI thật: Không có, chạy hoàn toàn bằng dữ liệu kịch bản dựng trên trình duyệt để bảo mật thông tin y tế và phản hồi tức thì khi demo.
+- Chú thích đối chiếu 6 vị trí đánh số HAX/PAIR trên ảnh màn hình máy bên phải ([prototype/screenshot_prototype.png](prototype/screenshot_prototype.png)):
+  - Số 1 (Dòng tiêu đề tin nhắn AI): Nằm ngay cạnh tên "Trợ lý Pharmacity (AI) · Sàng lọc sơ bộ" — nguyên tắc HAX G1 & G2 (làm rõ năng lực và giới hạn: minh bạch rằng AI chỉ sàng lọc bước đầu, không có thẩm quyền chẩn đoán bệnh) — Mức tự chủ: Cần người duyệt / Cấm tự kết luận.
+  - Số 2 (Đoạn câu hỏi in đậm ở giữa tin nhắn): Dòng "Để đảm bảo an toàn tính mạng, xin bạn cho biết: Hiện tại bạn có thấy khó thở, nghẹn tức ở cổ họng... không ạ?" — nguyên tắc HAX G10 (thu hẹp phạm vi khi nghi ngờ: gặp tiền sử dị ứng hoặc ca trẻ nhỏ thì AI lập tức chuyển từ tư vấn mua thuốc sang hỏi dấu hiệu sinh tồn khẩn cấp) - Mức tự chủ: Tự làm có giới hạn.
+  - Số 3 (Đoạn mở đầu tin nhắn AI): Dòng giải thích "Vì bạn từng bị nổi mẩn ngứa khi dùng thuốc cảm cũ, việc dùng thuốc giảm đau hay viên ngậm cần hết sức thận trọng để tránh dị ứng chéo..." — nguyên tắc PAIR Explainability & Grounding (nêu rõ căn cứ y học bằng ngôn ngữ dễ hiểu, không dùng con số % gây hiểu lầm) — Mức tự chủ: Tự làm có minh bạch.
+  - Số 4 (Dòng cảnh báo có biểu tượng ổ khóa): Dòng "NÚT TỰ ĐẶT THUỐC ĐÃ TẠM KHÓA AN TOÀN: Thuốc nuốt vào cơ thể thì không thể hoàn tác..." — nguyên tắc PAIR Graceful Failure (việc ở mức cấm thì không có nút làm; sửa câu chữ không cứu được nên khóa cứng tính năng mua thuốc trên giao diện) — Mức tự chủ: Cấm tự đặt mua thuốc.
+  - Số 5 (Nút bấm màu xanh dương đầu tiên bên dưới): Nút "Kết nối Dược sĩ Lâm sàng thẩm định đơn (30s)" — nguyên tắc Human-in-the-loop (chuyển giao sang con người: tự động trích xuất tóm tắt gửi dược sĩ trực tiếp nhận trong 5s, người bệnh không phải gõ lại từ đầu) — Mức tự chủ: Tự động chuyển ưu tiên cao.
+  - Số 6 (Nút bấm viền đỏ cảnh báo khẩn cấp): Nút "Báo có dấu hiệu khó thở / Cần cấp cứu 115" — nguyên tắc HAX G8 (lối thoát an toàn: luôn ghim nút kích hoạt cấp cứu 115 chỉ với 1 chạm khi có dấu hiệu nguy kịch) — Mức tự chủ: Tự làm (lối thoát an toàn).
+- Quyết định: Cách hiện độ chắc/bằng chứng và điều khiển mức tự chủ:
+  - Đã cân nhắc: (1) Hiển thị con số % độ tin cậy kèm thanh trượt slider; (2) Chỉ làm 1 màn hình chat duy nhất; (3) Thiết kế giao diện đối chiếu song song hai máy (AI chưa kiểm soát vs AI chuẩn lâm sàng) đi kèm nhãn trạng thái định tính và dòng giải thích căn cứ cụ thể.
+  - Chọn phương án: Phương án 3 (đối chiếu song song hai máy + nhãn trạng thái định tính + dòng căn cứ).
+  - Vì sao: Cho phép người xem nhìn thấy trực quan ngay lập tức sự tương phản giữa hai mức tự chủ (thấy rõ cái giá rủi ro khi AI tự phán/tự bán thuốc ở máy trái và cách thiết kế an toàn của nhóm ở máy phải). Nhãn chữ rõ ràng giúp người bệnh hiểu ngay hành động cần làm thay vì hoang mang bởi con số % kỹ thuật.
+  - Loại các phương án kia vì: Phương án 1 dùng con số % gây hiểu lầm tai hại trong y tế (ví dụ độ tin cậy 80% vẫn có thể gây nguy hiểm tính mạng). Phương án 2 chỉ có một màn hình đơn lẻ thì khi demo rất khó giải thích và thuyết phục người chấm tại sao mức tự chủ của nhóm lại vượt trội hơn mức thả nổi cho AI tự làm.
 
 ## §6. Tốt là gì  (chặng 6 — nhẹ, bỏ được nếu thiếu giờ)
 - 3 tiêu chí Pass/Fail chấm được:
